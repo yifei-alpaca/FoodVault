@@ -15,7 +15,7 @@
     if (all) {
       return [...document.querySelectorAll(el)]
     } else {
-      return document.querySelector(el)
+      return document.querySelector(el) // scroll back up
     }
   }
 
