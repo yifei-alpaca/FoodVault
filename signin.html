@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Food Vault</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <script src="https://unpkg.com/bcryptjs@2.4.3/dist/bcrypt.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+    <!-- This is the API from Firebase Realtime Database -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"></script>
+
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Axios-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!-- VueRecaptcha -->
+    <script src="https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script> 
+
+    <style>
+        .icon,
+        .icon2 {
+            font-size: 2rem;
+        }
+
+        input {
+            font: inherit;
+            outline: 0;
+        }
+
+        .form__input {
+            border-radius: 0.25em;
+            border-style: solid;
+            width: 70%;
+            padding: 0.5em 4em 0.5em 2em;
+        }
+
+        .search_input {
+            border-radius: 0.25em;
+            border-style: solid;
+            width: 70%;
+            padding: 0.5em 4em 0.5em 2em;
+        }
+
+        .list,
+        .add {
+            border-radius: 0.25em;
+            border-style: solid;
+            width: 70%;
+            padding: 0.5em 0em 0.5em 2em;
+            line-height: 25px;
+        }
+
+        .form__input2 {
+            border-color: firebrick;
+            border-radius: 0.25em;
+            border-style: solid;
+            padding: 0.5em 4em 0.5em 2em;
+            width: 70%;
+
+        }
+
+        form {
+            height: fit-content;
+            width: 50%;
+            background-color: #F8F8F8;
+        }
+
+        small {
+            color: firebrick;
+            display: none
+        }
+
+        .form_val .empty ~ small {
+            display: block;
+        }
+
+        form {
+            height: fit-content;
+            width: 50%;
+            background-color: #F8F8F8;
+        }
+
+        .form_val .recaptcha_fail small{
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo" >
+                <h1><a href="foodvault_intro.html">Food Vault</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link  " href="foodvault_intro.html">Home</a></li>
+                    <li><a class="nav-link " href="foodvault_intro.html#about">About</a></li>
+                    <li><a class="nav-link " href="foodvault_intro.html#services">Services</a></li>
+                    <li><a class="nav-link " href="foodvault_intro.html#team">Team</a></li>
+                    <li><a class="nav-link " href="foodvault_intro.html#faq">FAQ</a></li>
+                    <li><a class="nav-link " href="learn.html">Learn</a></li>
+                    <li><a class="nav-link " href="signup.html">Sign up</a></li>
+                    <li><a class="nav-link active " href="#">Sign in</a></li>
+                </ul>
+            </nav>
+            <!-- .navbar -->
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+        <!-- Sign In Section -->
+        
+        <section id="login" class="d-flex align-items-center" style="height: fit-content; margin-top: 5%;">
+            <div class="container-fluid" id="app">
+                <vue_login_form></vue_login_form>
+            </div>
+        </section>
+        
+
+        <!-- End Sign In Section -->
+        <!-- ======= Special Thanks and Footer Section ======= -->
+        <section id="clients" class="clients clients">
+            <div class="container">
+                <br />
+                <h3>Special Thanks to :</h3>
+                <div class="row my-4">
+                    <div class="col-lg-4 col-md-4 col-4">
+                        <img style="height: auto" title="SMU" src="assets/img/SMU.png" class="img-fluid" alt=""
+                            data-aos="zoom-in" />
+                    </div>
+                    <div class="col-lg-4 my-auto col-md-4 col-4">
+                        <img src="assets/img/SCIS.webp" class="img-fluid" alt="" data-aos="zoom-in"
+                            data-aos-delay="300" />
+                    </div>
+
+                    <div class="col-lg-4 my-auto col-md-4 col-4">
+                        <img src="assets/img/prof.png" class="img-fluid" alt="" data-aos="zoom-in"
+                            data-aos-delay="100" />
+                    </div>
+                </div>
+            </div>
+            <br />
+            &copy; Copyright <strong>Food Vault </strong>. All Rights Reserved
+            <br />
+            <br />
+        </section>
+        <!-- Special Thanks and Footer Section -->
+    </main>
+    <!-- End #main -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Reference to signin.js -->
+    <script src="signin.js"></script>
+
+
+</body>
+
+</html>
