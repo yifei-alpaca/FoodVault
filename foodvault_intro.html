@@ -148,7 +148,6 @@
                   .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
               d3.csv("assets/data/Food_Waste_Data.csv", function (data) {
-                console.log(data);
                 //Set x-axis scale
                 xScale.domain(data.map(function (d) { return d.year; }));
 
