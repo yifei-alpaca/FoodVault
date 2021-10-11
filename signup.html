@@ -319,7 +319,7 @@ const firebaseConfig = {
   const database = getDatabase(app);
 
   function escape(htmlStr) {
-    console.log(htmlStr);
+    // console.log(htmlStr);
    return htmlStr.replace(/&/g, "ysand")
          .replace(/</g, "yslt")
          .replace(/>/g, "ysgt")
@@ -437,7 +437,7 @@ function checkMerchant(){
      
         }
 
-        if (p.length < p.search(/[0-9]/) == -1) {
+        if (p.search(/[0-9]/) == -1) {
           list_of_error.push("1 number");
           
         }
@@ -527,7 +527,7 @@ q:input,
       }
     } )
     .catch((error) => {
-      console.log(error);
+
       // process error object
     });
   }
