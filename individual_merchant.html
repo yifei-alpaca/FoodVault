@@ -14,9 +14,11 @@
     <!-- This is the API from Firebase Realtime Database -->
     <script type="module" src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"></script>
 
+    <!--AXIOS-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-   	<!-- Favicons -->
-		<link href="./assets/img/Logo/bar-icon.jpg" sizes="32x32" rel="icon" />
+    <!-- Favicons -->
+    <link href="./assets/img/Logo/bar-icon.jpg" sizes="32x32" rel="icon" />
 
 
     <!-- Google Fonts -->
@@ -78,21 +80,20 @@
                                 <div class="container px-4 px-lg-5 my-5">
                                     <div class="row gx-4 gx-lg-5 align-items-center">
                                         <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"
-                                                src="https://www.breadtalkihq.com/wp-content/uploads/2020/10/Breadtalk.jpg"
+                                                src="https://sethlui.com/wp-content/uploads/2014/07/IMG_6608.jpg"
                                                 alt="..." />
                                         </div>
                                         <div class="col-md-6">
-                                            <h1 class="display-5 fw-bolder">Breadtalk</h1>
+                                            <h1 class="display-5 fw-bolder">Triple Three</h1>
                                             <p style="font-size: x-large;">Items included:</p>
                                             <ul>
                                                 <li>
-                                                    Floss Bread
+                                                    Sushi
                                                 </li>
                                                 <li>
-                                                    Garlic Bread
+                                                    Japanese Rice Bowls
                                                 </li>
                                             </ul>
-                                            </h3>
                                             <div class="d-flex">
                                                 <button class="btn btn-outline-dark flex-shrink-0" type="button"
                                                     onclick="getLocation()">Take Me
@@ -105,6 +106,29 @@
                             <!--The div element for the map -->
                             <div id="map"></div>
                             <script>
+                                function geocode(postal) {
+                                    var location = postal;
+                                    axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+                                            params: {
+                                                address: location,
+                                                key: 'AIzaSyA2MhoG6uxV9AS8zCdb9tg48nau98kvEpk'
+                                            }
+                                        })
+                                        .then(function (response) {
+                                            // Log Full Response
+                                            //console.log(response);
+
+                                            //Lat & Long
+                                            //console.log(response.data.results[0].geometry.location)
+                                            var lat = response.data.results[0].geometry.location.lat;
+                                            var lng = response.data.results[0].geometry.location.lng;
+                                            console.log(lat, lng)
+                                        })
+                                        .catch(function (error) {
+                                            console.log(error);
+                                        })
+                                }
+
                                 // Note: This example requires that you consent to location sharing when
                                 // prompted by your browser. If you see the error "The Geolocation service
                                 // failed.", it means you probably did not give permission for the browser to
@@ -112,43 +136,71 @@
                                 var map, infoWindow;
 
                                 function initMap() {
-                                    const location = {
+                                    const directionsService = new google.maps.DirectionsService();
+                                    const directionsRenderer = new google.maps.DirectionsRenderer();
+
+                                    const end = {
                                         lat: 1.3021875421681695,
                                         lng: 103.83596608429085
                                     };
                                     const map = new google.maps.Map(document.getElementById('map'), {
-                                        center: location,
+                                        center: end,
                                         zoom: 17
                                     });
+
+                                    directionsRenderer.setMap(map);
+
                                     //The marker, position at location
-                                    const marker = new google.maps.Marker({
-                                        position: location,
+                                    const endMarker = new google.maps.Marker({
+                                        position: end,
                                         map: map,
                                     });
+
+
+
                                 }
 
                                 function getLocation() {
+                                    const directionsService = new google.maps.DirectionsService();
+                                    const directionsRenderer = new google.maps.DirectionsRenderer();
+
                                     console.log(navigator.geolocation);
                                     // this attempts to get user permission to access location
                                     // Try HTML5 geolocation.
+
+                                    const end = {
+                                        lat: 1.3021875421681695,
+                                        lng: 103.83596608429085
+                                    };
+
                                     if (navigator.geolocation) {
-                                        //https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
                                         navigator.geolocation.getCurrentPosition(function (position) {
-                                            const location = {
+                                            const start = {
                                                 lat: position.coords.latitude,
                                                 lng: position.coords.longitude
                                             }
 
                                             const map = new google.maps.Map(document.getElementById('map'), {
-                                                center: location,
+                                                center: end,
                                                 zoom: 17
                                             });
 
+                                            directionsRenderer.setMap(map);
+
                                             //The marker, position at location
-                                            const currentMarker = new google.maps.Marker({
-                                                position: location,
+                                            const startMarker = new google.maps.Marker({
+                                                position: start,
                                                 map: map,
                                             });
+
+                                            const endMarker = new google.maps.Marker({
+                                                position: end,
+                                                map: map,
+                                            });
+
+                                            calculateAndDisplayRoute(directionsService, directionsRenderer,
+                                                start, end);
+
                                             // set user position to infoWindow
                                         }, function () {
                                             handleLocationError(true, infoWindow, map.getCenter());
@@ -165,6 +217,19 @@
                                         'Error: The Geolocation service failed.' :
                                         'Error: Your browser doesn\'t support geolocation.');
                                     infoWindow.open(map);
+                                }
+
+                                function calculateAndDisplayRoute(directionsService, directionsRenderer, start, end) {
+                                    directionsService
+                                        .route({
+                                            origin: start,
+                                            destination: end,
+                                            travelMode: google.maps.TravelMode.DRIVING,
+                                        })
+                                        .then((response) => {
+                                            directionsRenderer.setDirections(response);
+                                        })
+                                        .catch((e) => window.alert("Directions request failed due to " + status));
                                 }
                             </script>
 
