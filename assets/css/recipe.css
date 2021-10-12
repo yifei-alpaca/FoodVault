@@ -481,17 +481,19 @@ section {
 # Services
 --------------------------------------------------------------*/
 .services .icon-box {
-  padding: 30px;
-  position: relative;
   overflow: hidden;
+  width:50%;
+  padding: 30px;
+  /* position: relative;
+
   background: #fff;
   box-shadow: 0 0 29px 0 rgba(88, 106, 155, 0.12);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; */
   border-radius: 8px;
   z-index: 1;
   border: 1px solid lightblue;
 }
-.services .icon-box::before {
+/* .services .icon-box::before {
   content: "";
   position: absolute;
   background: #e1f0fa;
@@ -502,7 +504,7 @@ section {
   border-radius: 50px;
   transition: all 0.3s;
   z-index: -1;
-}
+} */
 .services .icon-box:hover::before {
 
   right: 0;
@@ -536,6 +538,7 @@ section {
   color: #111;
 }
 .services .description {
+  width:70%;
   font-size: 15px;
   margin-bottom: 0;
 }
