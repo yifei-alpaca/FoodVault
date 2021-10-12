@@ -254,21 +254,21 @@
     })
   });
 
-  // The location of Uluru
-  const location = {
-    lat: 1.3343953254112697,
-    lng: 103.88956807415126
-  };
-  // The map, centered at Uluru
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 17,
-    center: location,
-  });
+  // // The location of Uluru
+  // const location = {
+  //   lat: 1.3343953254112697,
+  //   lng: 103.88956807415126
+  // };
+  // // The map, centered at Uluru
+  // const map = new google.maps.Map(document.getElementById("map"), {
+  //   zoom: 17,
+  //   center: location,
+  // });
 
-  // The marker, positioned at Uluru
-  const marker = new google.maps.Marker({
-    position: location,
-    map: map,
-  });
+  // // The marker, positioned at Uluru
+  // const marker = new google.maps.Marker({
+  //   position: location,
+  //   map: map,
+  // });
 
 })()
