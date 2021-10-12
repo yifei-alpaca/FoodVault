@@ -41,13 +41,20 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/recipe.css" rel="stylesheet" />
     <style>
-      .card {
-          height: 100%;
+      .card , .card-body{
+          height:100%;
       }
 
       .card-img-top{
         height:250px;
       }
+
+    
+
+    
+ 
+
+
   </style>
   </head>
 
@@ -128,6 +135,8 @@
                   
 
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-2 " id="recipes">
+
+                          
            
 
                 
@@ -391,7 +400,7 @@
             <img class="card-img-top"  src="${recipe.image}" alt="" srcset="">
             <div class="card-body">
                                       <h5 class="card-title"><a href="">${recipe.title}</a></h5>
-                                      <p class="card-text">`;
+                                      <p class="card-text" style="margin-bottom:20%;">`;
 
 
         var missing = recipe.missedIngredientCount;
@@ -416,15 +425,16 @@
           }
         }
 
-        str += ` .</p>     <div class="d-flex justify-content-between align-items-center">
-                                         <div class="btn-group">
-                                           <button type="button"
-                                                 class="btn btn-sm btn-outline-primary" onclick="location.href=''">Read more about this recipe</button>
-                                       </div>
-                                            
-                                    </div>
+        str += ` .</p>   
+     
+
                            </div>
-                           </div></div>
+                           </div>           <div class="px-3" style="position:absolute; bottom:10px;" >
+                            <button class="btn btn-outline-primary flex-shrink-0" type="button"
+                                                    onclick="getLocation()">Read More
+                                                    </button>
+    </div></div>
+                
                      </div>`;
       }
         
