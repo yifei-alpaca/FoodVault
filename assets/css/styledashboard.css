@@ -1,0 +1,149 @@
+.main-panel {
+	position: relative;
+	float: right;
+	width: calc(100% - 260px);
+	background-color: #e3e3e3;
+	background-color: #ebecf1;
+	-webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+	-moz-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+	-o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+	-ms-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+	transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+}
+
+.main-panel > .content {
+	padding: 0 30px 30px;
+	min-height: calc(100vh - 123px);
+	margin-top: -30px;
+}
+
+.main-panel > .navbar {
+	margin-bottom: 0;
+}
+
+.main-panel .header {
+	margin-bottom: 50px;
+}
+
+.perfect-scrollbar-on .sidebar,
+.perfect-scrollbar-on .main-panel {
+	height: 100%;
+	max-height: 100%;
+}
+
+@media (min-width: 991px) {
+	.sidebar {
+		display: block;
+		box-shadow: 0px 2px 22px 0 rgba(0, 0, 0, 0.2),
+			0px 2px 30px 0 rgba(0, 0, 0, 0.35);
+	}
+}
+
+.panel-header {
+	height: 260px;
+	padding-top: 80px;
+	padding-bottom: 45px;
+	background: #5f7397;
+	/* fallback for old browsers */
+	background: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		from(#79aa5c),
+		color-stop(60%, #777e86),
+		to(#889db3)
+	);
+	background: linear-gradient(to right, #7d9e6b 0%, #749dcc 60%, #939ba3 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+.panel-header .header .title {
+	color: #ffffff;
+}
+
+.panel-header .header .category {
+	max-width: 600px;
+	color: rgba(255, 255, 255, 0.5);
+	margin: 0 auto;
+	font-size: 13px;
+}
+
+.panel-header .header .category a {
+	color: #ffffff;
+}
+
+.panel-header-sm {
+	height: 135px;
+}
+
+.panel-header-lg {
+	height: 380px;
+}
+
+.card-chart .card-header .card-title {
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+
+.card-chart .card-header .card-category {
+	margin-bottom: 5px;
+}
+
+.card-chart .table {
+	margin-bottom: 0;
+}
+
+.card-chart .table td {
+	border-top: none;
+	border-bottom: 1px solid #e9ecef;
+}
+
+.card-chart .card-progress {
+	margin-top: 30px;
+}
+
+.card-chart .chart-area {
+	height: 190px;
+	width: calc(100% + 30px);
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.card-chart .card-footer {
+	margin-top: 15px;
+}
+
+.card-chart .card-footer .stats {
+	color: #9a9a9a;
+}
+
+.card-chart .dropdown {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+
+.card-chart .dropdown .btn {
+	margin: 0;
+}
+
+.imgHover1,
+.imgHover2,
+.imgHover3 {
+	opacity: 1;
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: 0.5s ease;
+	backface-visibility: hidden;
+}
+
+.imgHover2:hover,
+.imgHover3:hover {
+	opacity: 0.3;
+}
+
+a > .scrolltoo:hover {
+	color: #3498db;
+}

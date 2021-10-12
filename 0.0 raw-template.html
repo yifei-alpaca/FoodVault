@@ -8,24 +8,10 @@
 		<meta content="" name="description" />
 		<meta content="" name="keywords" />
 
-		<script src="https://unpkg.com/bcryptjs@2.4.3/dist/bcrypt.js"></script>
-
-		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<script
-			type="module"
-			src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"
-		></script>
-		<!-- This is the API from Firebase Realtime Database -->
-		<script
-			type="module"
-			src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"
-		></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 		<!-- Favicons -->
 		<link href="./assets/img/Logo/bar-icon.jpg" sizes="32x32" rel="icon" />
-
-		<!-- Axios-->
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 		<!-- Google Fonts -->
 		<link
@@ -52,86 +38,8 @@
 		<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
 		<!-- Template Main CSS File -->
-		<link href="assets/css/style.css" rel="stylesheet" />
-
-		<!-- Vue.js -->
-		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-
-		<!-- VueRecaptcha -->
-		<script src="https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.min.js"></script>
-		<script
-			src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit"
-			async
-			defer
-		></script>
-
-		<style>
-			.icon,
-			.icon2 {
-				font-size: 2rem;
-			}
-
-			input {
-				font: inherit;
-				outline: 0;
-			}
-
-			.form__input {
-				border-radius: 0.25em;
-				border-style: solid;
-				width: 70%;
-				padding: 0.5em 4em 0.5em 2em;
-			}
-
-			.search_input {
-				border-radius: 0.25em;
-				border-style: solid;
-				width: 70%;
-				padding: 0.5em 4em 0.5em 2em;
-			}
-
-			.list,
-			.add {
-				border-radius: 0.25em;
-				border-style: solid;
-				width: 70%;
-				padding: 0.5em 0em 0.5em 2em;
-				line-height: 25px;
-			}
-
-			.form__input2 {
-				border-color: firebrick;
-				border-radius: 0.25em;
-				border-style: solid;
-				padding: 0.5em 4em 0.5em 2em;
-				width: 70%;
-			}
-
-			form {
-				height: fit-content;
-				width: 50%;
-				background-color: #f8f8f8;
-			}
-
-			small {
-				color: firebrick;
-				display: none;
-			}
-
-			.form_val .empty ~ small {
-				display: block;
-			}
-
-			form {
-				height: fit-content;
-				width: 50%;
-				background-color: #f8f8f8;
-			}
-
-			.form_val .recaptcha_fail small {
-				display: block;
-			}
-		</style>
+		<link href="assets/css/recipe.css" rel="stylesheet" />
+		<style></style>
 	</head>
 
 	<body>
@@ -143,6 +51,7 @@
 					<!-- Uncomment below if you prefer to use an image logo -->
 					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 				</div>
+
 				<nav id="navbar" class="navbar">
 					<ul>
 						<li><a class="nav-link" href="foodvault_intro.html">Home</a></li>
@@ -159,29 +68,21 @@
 						</li>
 						<li><a class="nav-link" href="foodvault_intro.html#faq">FAQ</a></li>
 						<li><a class="nav-link" href="learn.html">Learn</a></li>
-						<li><a class="nav-link" href="signup.html">Sign up</a></li>
-						<li><a class="nav-link active" href="#">Sign in</a></li>
+						<li><a class="nav-link active" href="#">Sign up</a></li>
+						<li><a class="login" href="#">Sign in</a></li>
 					</ul>
+					<i class="bi bi-list mobile-nav-toggle"></i>
 				</nav>
 				<!-- .navbar -->
 			</div>
 		</header>
 		<!-- End Header -->
 
+		<!--  CONTENT GOES HERE  -->
+		<div style="margin: 1000px"></div>
+
+		<!-- End First Section -->
 		<main id="main">
-			<!-- Sign In Section -->
-
-			<section
-				id="login"
-				class="d-flex align-items-center"
-				style="height: fit-content; margin-top: 5%"
-			>
-				<div class="container-fluid" id="app">
-					<vue_login_form></vue_login_form>
-				</div>
-			</section>
-
-			<!-- End Sign In Section -->
 			<!-- ======= Special Thanks and Footer Section ======= -->
 			<section id="clients" class="clients clients">
 				<div class="container">
@@ -227,7 +128,6 @@
 			<!-- Special Thanks and Footer Section -->
 		</main>
 		<!-- End #main -->
-
 		<a
 			href="#"
 			class="back-to-top d-flex align-items-center justify-content-center"
@@ -244,8 +144,5 @@
 
 		<!-- Template Main JS File -->
 		<script src="assets/js/main.js"></script>
-
-		<!-- Reference to signin.js -->
-		<script src="signin.js"></script>
 	</body>
 </html>
