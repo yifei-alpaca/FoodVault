@@ -39,15 +39,24 @@
 
      
 		<!-- Template Main CSS File -->
-		<link href="assets/css/recipe.css" rel="stylesheet" />
-  <style>
+        <link href="assets/css/recipe.css" rel="stylesheet" />
+        <style>
+          .card , .card-body{
+              height:100%;
+          }
+    
+          .card-img-top{
+            height:250px;
+          }
+    
+
   .div{
       display: flex;
   }
 
 .dropzone-wrapper {
     margin: 25px auto;
-    width:85%;
+    width:90%;
 }
 
 .dropzone {
@@ -143,10 +152,11 @@
 
     <section id="home" class="d-flex align-items-center" style="height: fit-content;">
      
-        <body class="align">
-          <div class="container">
+       
+          <div class="container " data-aos="fade-up"
+          data-aos-delay="400">
 
-            <div class="section-title" style="width:85%; margin:auto;" >
+            <div class="section-title " style="width:85%; margin:auto;"       >
                 <h2>Recipe generator</h2>
                 <p style="margin-top:0px; margin-bottom: 0px;">Try out our recipe generator! You can either add your leftover food yourself, click and drag the common food waste item found in household, or a combination of both! Click generate when you are ready or click reset to remove all!</p>
               </div>
@@ -168,7 +178,7 @@
                 <div id="f" class="mt-2">
                    
                     <div class="div">
-                    <img class="draggable-food js-drag drag1"   src="assets/img/food/brocolli.png" alt="brocoli" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/brocolli.png" alt="broccoli" width="100" height="100">
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/carrot.png" alt="carrot" width="100" height="100">
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/apple.png" alt="apple" width="100" height="100">
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/bread.png" alt="bread" width="100" height="100">
@@ -176,7 +186,7 @@
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/corn.png" alt="corn" width="100" height="100">
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/cucumber.png" alt="cucumber" width="100" height="100">
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/potato.png" alt="potato" width="100" height="100">
-                    <img class="draggable-food js-drag drag1"   src="assets/img/food/bread.png" alt="bread" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/mushroom.png" alt="mushroom" width="100" height="100">
                 </div> </div>
 
             </div>
@@ -184,19 +194,32 @@
                     
                 </div>
 
-                <div class="mt-3"> <button type="button" class="btn btn-outline-primary">Generate Recipe</button>
+                <div class="mt-3"> <button type="button" class="btn btn-outline-primary" onclick="generate()">Generate Recipe</button>
                     <button type="button" class="btn btn-outline-primary" onclick="reset()">Reset</button>
                   
                 
                 </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-2 m-auto" style="width:100%" id="recipes"></div>
             </div>
-            </div></div>
+            </div>
+            
+        </div>
 
 
-        </body>
+    
       </div>
     </section>
 
+
+  
+
+                          
+           
+
+                
+    </div>
+
+    <br><br><br><br><br>
 
     <!-- End First Section -->
     <main id="main">
@@ -256,6 +279,9 @@
     
 <script>
 
+
+
+
     var list_of_food = [];
    
     function reset(){
@@ -264,7 +290,7 @@
         var a = document.getElementById("f");
         var original_a =`                 
         <div class="div">
-            <img class="draggable-food js-drag drag1"   src="assets/img/food/brocolli.png" alt="brocoli" width="100" height="100">
+            <img class="draggable-food js-drag drag1"   src="assets/img/food/brocolli.png" alt="broccoli" width="100" height="100">
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/carrot.png" alt="carrot" width="100" height="100">
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/apple.png" alt="apple" width="100" height="100">
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/bread.png" alt="bread" width="100" height="100">
@@ -272,7 +298,7 @@
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/corn.png" alt="corn" width="100" height="100">
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/cucumber.png" alt="cucumber" width="100" height="100">
                     <img class="draggable-food js-drag drag1"   src="assets/img/food/potato.png" alt="potato" width="100" height="100">
-                    <img class="draggable-food js-drag drag1"   src="assets/img/food/bread.png" alt="bread" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/mushroom.png" alt="mushroom" width="100" height="100">
                 </div>
         
         `; 
@@ -285,10 +311,18 @@
         list_of_food = [];
         var dropzone = document.getElementById("dropzone1");
 dropzone.textContent = "Ingredients Basket : ";
-        console.log(list_of_food);
-
        
     }
+
+    function generate(){
+        if (list_of_food.length==0){
+            alert("Please select some ingredient first!")
+        }
+        else{
+            generateRecipe(list_of_food);
+        }
+    }
+    
 
 
 
@@ -377,13 +411,13 @@ dropzone.textContent = "Ingredients Basket : ";
                 list_of_food = list_of_food.filter(e => e !== event.relatedTarget.alt); 
                 var dropzone = document.getElementById("dropzone1");
 dropzone.textContent = "Ingredients Basket : " + list_of_food;
-                console.log(list_of_food);
+                
             })
             .on('drop', function (event) {
                 removeClass(event.target, '-drop-over');
                 list_of_food = list_of_food.filter(e => e !== event.relatedTarget.alt); 
                 list_of_food.push(event.relatedTarget.alt);
-                console.log(list_of_food);
+             
                 var dropzone = document.getElementById("dropzone1");
 dropzone.textContent ="Ingredients Basket : "  + list_of_food;
                 event.relatedTarget.textContent = 'Dropped';   
@@ -433,13 +467,129 @@ list_of_food = list_of_food.filter(e => e !== a);
 list_of_food.push(a);
 dropzone.textContent = "Ingredients Basket : " + list_of_food;
 }
-
-
-
 }
 
 
 </script>  
+
+
+
+<script>
+
+    function generateRecipe(ingredient){
+
+    ingredient = ingredient.toString();
+  
+    var key = "daeb006481e240f4b2d4cff4bbbfcf8e";
+    var url = "https://api.spoonacular.com/recipes/findByIngredients";
+    axios
+      .get(url, {
+        params: {
+          apiKey: key,
+          ingredients: ingredient,
+          number: 10,
+          ranking: 1,
+        },
+      })
+      .then((response) => {
+        generateToDiv(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        // process error object
+      });  }
+  </script>
+
+  <script>
+
+    function generateToDiv(res){
+    
+  
+    var recipe_container = document.getElementById("recipes");
+    var str = "";
+
+    if (res.length==0){
+        str = `<p class="text-danger"> No recipes found :( </p>`;
+    }
+    else{
+
+
+    for (recipe of res) {
+      
+      str += `          <div class="col">
+                              <div class="card"> 
+                                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+          <img class="card-img-top"  src="${recipe.image}" alt="" srcset="">
+          <div class="card-body">
+                                    <h5 class="card-title"><a href="">${recipe.title}</a></h5>
+                                    <p class="card-text" style="margin-bottom:20%;">`;
+
+
+      var missing = recipe.missedIngredientCount;
+      if (missing == 0) {
+        str += `That's all you need to cook! Have a good meal `;
+      } else {
+        str += `You will also need `;
+
+        for (i=0; i < missing ; i++) {
+          if(missing ==1){
+            str+=`${recipe.missedIngredients[i].name} `;
+          }
+
+          else if(i+1==missing){
+            str+=`and ${recipe.missedIngredients[i].name}`;
+          }
+
+          else{
+            str+=`${recipe.missedIngredients[i].name}, `;
+          }
+         
+        }
+      }
+
+      str += ` .</p>   
+   
+
+                         </div>
+                         </div>           <div class="px-3" style="position:absolute; bottom:10px;" >
+                          <button class="btn btn-outline-primary flex-shrink-0" type="button" onclick="direct(${recipe.id})"
+                                                 >Read More
+                                                  </button>
+  </div></div>
+              
+                   </div>`;
+    }
+      
+}
+                      
+
+    recipe_container.innerHTML = str;  }
+  </script>
+
+  <script>
+      function direct(id){
+        var key = "daeb006481e240f4b2d4cff4bbbfcf8e";
+    var url = "https://api.spoonacular.com/recipes/"+id+"/information";
+    axios
+      .get(url, {
+        params: {
+          apiKey: key,
+          includeNutrition: false,
+        },
+      })
+
+      .then((response) => {
+        window.open(response.data.sourceUrl, '_blank').focus();
+  
+      })
+      .catch((error) => {
+        console.log(error);
+        // process error object
+      });  
+      }
+
+  </script>
+
 
 <script src="assets/vendor/aos/aos.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
