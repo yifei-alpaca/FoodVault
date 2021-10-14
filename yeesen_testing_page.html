@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+		<title>Food Vault</title>
+		<meta content="" name="description" />
+		<meta content="" name="keywords" />
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+		<!-- Favicons -->
+		<link href="./assets/img/Logo/bar-icon.jpg" sizes="32x32" rel="icon" />
+
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+			rel="stylesheet"
+		/>
+
+		<!-- Vendor CSS Files -->
+		<link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+		<link
+			href="assets/vendor/bootstrap/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+			rel="stylesheet"
+		/>
+		<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+		<link
+			href="assets/vendor/glightbox/css/glightbox.min.css"
+			rel="stylesheet"
+		/>
+		<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+		<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+     
+		<!-- Template Main CSS File -->
+		<link href="assets/css/recipe.css" rel="stylesheet" />
+  <style>
+  .div{
+      display: flex;
+  }
+
+.dropzone-wrapper {
+    margin: 25px auto;
+    width:85%;
+}
+
+.dropzone {
+    overflow: hidden;
+    margin:auto;
+    width: 100%;
+    height: auto;
+    color: #3498db;
+    text-align: center;
+    background: #fff;
+    line-height: fit-content;
+    min-height:200px;
+    border: 2px dashed transparent;
+    border-color: #3498db;
+    transition: background .15s linear, border-color .15s linear;
+   
+}
+
+#dropzone1{
+    width: 100%;
+    height:fit-content;
+    word-wrap: break-word;
+    line-height: fit-content;
+}
+
+.dropzone.-drop-possible {
+  border-color: #3498db;
+}
+
+.dropzone.-drop-over {
+    background: #77bef0;
+    color: #fff;
+}
+
+
+.draggable-food {
+    position: relative;
+    z-index: 10;
+    width: 10%;
+    margin:auto;
+    height: auto;
+    line-height: 150px;
+    color: #fff;
+    text-align: center;
+    border-radius: 100%;
+    -ms-touch-action: none;
+        touch-action: none;
+}
+
+
+#f{
+    border:2px solid rgb(89, 139, 248);
+    padding: 5px;
+}
+
+
+
+  </style>
+</head>
+<body>
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <h1><a href="foodvault_intro.html">Food Vault</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link" href="foodvault_intro.html">Home</a></li>
+                    <li>
+                        <a class="nav-link" href="foodvault_intro.html#about">About</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="foodvault_intro.html#services"
+                            >Services</a
+                        >
+                    </li>
+                    <li>
+                        <a class="nav-link" href="foodvault_intro.html#team">Team</a>
+                    </li>
+                    <li><a class="nav-link" href="foodvault_intro.html#faq">FAQ</a></li>
+                    <li><a class="nav-link" href="learn.html">Learn</a></li>
+                    <li><a class="nav-link active" href="#">Sign up</a></li>
+                    <li><a class="login" href="#">Sign in</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+        </div>
+    </header>
+
+    <section id="home" class="d-flex align-items-center" style="height: fit-content;">
+     
+        <body class="align">
+          <div class="container">
+
+            <div class="section-title" style="width:85%; margin:auto;" >
+                <h2>Recipe generator</h2>
+                <p style="margin-top:0px; margin-bottom: 0px;">Try out our recipe generator! You can either add your leftover food yourself, click and drag the common food waste item found in household, or a combination of both! Click generate when you are ready or click reset to remove all!</p>
+              </div>
+          <div class=" py-2 m-auto">
+           
+          
+            <div class="dropzone-wrapper">
+               
+                  
+            
+                <div id="parentfood">
+                    <div style="width:50%;"  class="input-group mb-2">
+                        <input type="text" id="foodinput" class="form-control" placeholder="Ingredient" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-primary" type="button" id="button-addon2" onclick="add()">Add</button>
+                      </div>
+                  
+                        
+                       
+                <div id="f" class="mt-2">
+                   
+                    <div class="div">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/brocolli.png" alt="brocoli" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/carrot.png" alt="carrot" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/apple.png" alt="apple" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/bread.png" alt="bread" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/cabbage.png" alt="cabbage" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/corn.png" alt="corn" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/cucumber.png" alt="cucumber" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/potato.png" alt="potato" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/bread.png" alt="bread" width="100" height="100">
+                </div> </div>
+
+            </div>
+                <div id="dropzone1" class="dropzone mt-3 pt-2">Ingredients Basket : 
+                    
+                </div>
+
+                <div class="mt-3"> <button type="button" class="btn btn-outline-primary">Generate Recipe</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="reset()">Reset</button>
+                  
+                
+                </div>
+            </div>
+            </div></div>
+
+
+        </body>
+      </div>
+    </section>
+
+
+    <!-- End First Section -->
+    <main id="main">
+        <!-- ======= Special Thanks and Footer Section ======= -->
+        <section id="clients" class="clients clients">
+            <div class="container">
+                <br />
+                <h3>Special Thanks to :</h3>
+                <div class="row my-4">
+                    <div class="col-lg-4 col-md-4 col-4">
+                        <img
+                            style="height: auto"
+                            title="SMU"
+                            src="assets/img/footer/SMU.png"
+                            class="img-fluid"
+                            alt=""
+                            data-aos="zoom-in"
+                        />
+                    </div>
+                    <div class="col-lg-4 my-auto col-md-4 col-4">
+                        <img
+                            src="assets/img/footer/SCIS.webp"
+                            class="img-fluid"
+                            alt=""
+                            data-aos="zoom-in"
+                            data-aos-delay="300"
+                        />
+                    </div>
+
+                    <div class="col-lg-4 my-auto col-md-4 col-4">
+                        <img
+                            src="assets/img/footer/prof.png"
+                            class="img-fluid"
+                            alt=""
+                            data-aos="zoom-in"
+                            data-aos-delay="100"
+                        />
+                    </div>
+                </div>
+            </div>
+            <br />
+            &copy; Copyright <strong>Food Vault </strong>. All Rights Reserved
+            <br />
+            <br />
+        </section>
+        <!-- Special Thanks and Footer Section -->
+    </main>
+    <!-- End #main -->
+    <a
+        href="#"
+        class="back-to-top d-flex align-items-center justify-content-center"
+        ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+  
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js'></script>
+    
+<script>
+
+    var list_of_food = [];
+   
+    function reset(){
+
+        var d = document.getElementById("parentfood");
+        var a = document.getElementById("f");
+        var original_a =`                 
+        <div class="div">
+            <img class="draggable-food js-drag drag1"   src="assets/img/food/brocolli.png" alt="brocoli" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/carrot.png" alt="carrot" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/apple.png" alt="apple" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/bread.png" alt="bread" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/cabbage.png" alt="cabbage" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/corn.png" alt="corn" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/cucumber.png" alt="cucumber" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/potato.png" alt="potato" width="100" height="100">
+                    <img class="draggable-food js-drag drag1"   src="assets/img/food/bread.png" alt="bread" width="100" height="100">
+                </div>
+        
+        `; 
+       
+        a.remove();
+        var b = document.createElement("div");
+        b.setAttribute("id","f");
+        b.innerHTML = original_a;
+        d.appendChild(b);
+        list_of_food = [];
+        var dropzone = document.getElementById("dropzone1");
+dropzone.textContent = "Ingredients Basket : ";
+        console.log(list_of_food);
+
+       
+    }
+
+
+
+    (function (interact) {
+    'use strict';
+    var transformProp;
+
+    interact.maxInteractions(Infinity);
+
+    // setup draggable elements.
+    interact('.js-drag')
+        .draggable({ max: Infinity })
+        .on('dragstart', function (event) {
+            event.interaction.x = parseInt(event.target.getAttribute('data-x'), 10) || 0;
+            event.interaction.y = parseInt(event.target.getAttribute('data-y'), 10) || 0;
+        })
+        .on('dragmove', function (event) {
+            event.interaction.x += event.dx;
+            event.interaction.y += event.dy;
+
+            if (transformProp) {
+                event.target.style[transformProp] =
+                    'translate(' + event.interaction.x + 'px, ' + event.interaction.y + 'px)';
+            }
+            else {
+                event.target.style.left = event.interaction.x + 'px';
+                event.target.style.top  = event.interaction.y + 'px';
+            }
+        })
+        .on('dragend', function (event) {
+            event.target.setAttribute('data-x', event.interaction.x);
+            event.target.setAttribute('data-y', event.interaction.y);
+        });
+
+    // setup drop areas.
+    // dropzone #1 accepts draggable #1
+    setupDropzone('#dropzone1', '.drag1');
+
+    /**
+     * Setup a given element as a dropzone.
+     *
+     * @param {HTMLElement|String} el
+     * @param {String} accept
+     */
+    function setupDropzone(el, accept) {
+        interact(el)
+            .dropzone({
+                accept: accept,
+                ondropactivate: function (event) {
+                    addClass(event.relatedTarget, '-drop-possible');
+                },
+                ondropdeactivate: function (event) {
+                    removeClass(event.relatedTarget, '-drop-possible');
+                }
+            })
+            .on('dropactivate', function (event) {
+                var active = event.target.getAttribute('active')|0;
+
+                // change style if it was previously not active
+                if (active === 0) {
+                    addClass(event.target, '-drop-possible');
+                    event.target.textContent = 'Drop me here!';
+                }
+
+                event.target.setAttribute('active', active + 1);
+            })
+            .on('dropdeactivate', function (event) {
+                var active = event.target.getAttribute('active')|0;
+
+                // change style if it was previously active
+                // but will no longer be active
+                if (active === 1) {
+                    removeClass(event.target, '-drop-possible');
+                    event.target.textContent = 'Ingredients Basket : '+ list_of_food;
+                }
+
+                event.target.setAttribute('active', active - 1);
+            })
+            .on('dragenter', function (event) {
+                addClass(event.target, '-drop-over');
+                event.relatedTarget.textContent = 'I\'m in';
+            })
+            .on('dragleave', function (event) {
+                removeClass(event.target, '-drop-over');
+                event.relatedTarget.textContent = 'Drag me…';
+                list_of_food = list_of_food.filter(e => e !== event.relatedTarget.alt); 
+                var dropzone = document.getElementById("dropzone1");
+dropzone.textContent = "Ingredients Basket : " + list_of_food;
+                console.log(list_of_food);
+            })
+            .on('drop', function (event) {
+                removeClass(event.target, '-drop-over');
+                list_of_food = list_of_food.filter(e => e !== event.relatedTarget.alt); 
+                list_of_food.push(event.relatedTarget.alt);
+                console.log(list_of_food);
+                var dropzone = document.getElementById("dropzone1");
+dropzone.textContent ="Ingredients Basket : "  + list_of_food;
+                event.relatedTarget.textContent = 'Dropped';   
+            });
+    }
+
+    function addClass (element, className) {
+        if (element.classList) {
+            return element.classList.add(className);
+        }
+        else {
+            element.className += ' ' + className;
+        }
+    }
+
+    function removeClass (element, className) {
+        if (element.classList) {
+            return element.classList.remove(className);
+        }
+        else {
+            element.className = element.className.replace(new RegExp(className + ' *', 'g'), '');
+        }
+    }
+
+    interact(document).on('ready', function () {
+        transformProp = 'transform' in document.body.style
+            ? 'transform': 'webkitTransform' in document.body.style
+            ? 'webkitTransform': 'mozTransform' in document.body.style
+            ? 'mozTransform': 'oTransform' in document.body.style
+            ? 'oTransform': 'msTransform' in document.body.style
+            ? 'msTransform': null;
+    });
+
+}(window.interact));
+
+function add(){
+var a = document.getElementById("foodinput").value;
+a = a.toLowerCase();
+
+if(a.length==0){
+    alert("Enter something!");
+}
+else{
+    document.getElementById("foodinput").value="";
+var dropzone = document.getElementById("dropzone1");
+list_of_food = list_of_food.filter(e => e !== a); 
+list_of_food.push(a);
+dropzone.textContent = "Ingredients Basket : " + list_of_food;
+}
+
+
+
+}
+
+
+</script>  
+
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/purecounter/purecounter.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+</body>
+  </html>
+  
