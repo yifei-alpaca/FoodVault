@@ -131,6 +131,40 @@
 			.form_val .recaptcha_fail small {
 				display: block;
 			}
+
+			@media screen and (max-width: 700px) {
+            	.mt-2{
+                	font-size: 20px
+            	}
+
+            	h5{
+                	font-size: 15px 
+            	}
+
+            	input {
+                	width: 50%
+            	}
+
+            	form {
+                	width: 100%
+            	}
+        	}
+
+        	@media screen and (max-width: 400px) {
+            	input {
+                	width: 50% !important
+            	}
+        	}
+
+        	@media screen and (max-width: 330px) {
+            	form {
+					width: fit-content !important
+				}
+
+            	input {
+                	width: 40% !important
+            	}
+        	}
 		</style>
 	</head>
 
@@ -181,8 +215,8 @@
 					<vue_login_form></vue_login_form>
 				</div>
 			</section>
-
 			<!-- End Sign In Section -->
+
 			<!-- ======= Special Thanks and Footer Section ======= -->
 			<section id="clients" class="clients clients">
 				<div class="container">
