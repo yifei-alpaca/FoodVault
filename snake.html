@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dont waste food!</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="assets/snake/snake.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+      }
+
+      .button-box {
+        /*   background-color: blue; */
+        height: 100px;
+        width: 85px;
+        margin: auto;
+        position: relative;
+        top: 10px;
+      }
+
+      .arrow-group {
+        height: 85px;
+        width: 85px;
+        /*   background-color: yellow; */
+        position: absolute;
+        margin: auto;
+      }
+
+      .up-box {
+        background-color: rgb(127, 117, 116);
+        border-radius: 4px 4px 0 0;
+        box-shadow: 2px 2px 4px black, inset 2px 2px 4px darkgray,
+          -1px -1px 2px black;
+        height: 33%;
+        width: 33%;
+        left: 33%;
+        position: absolute;
+      }
+
+      .right-box {
+        background-color: rgb(127, 117, 116);
+        border-radius: 0 4px 4px 0;
+        box-shadow: 2px 2px 4px black, inset 0px 4px 4px -2px darkgray,
+          -1px -1px 2px black;
+        height: 33%;
+        width: 33%;
+        right: 0%;
+        top: 33%;
+        position: absolute;
+      }
+
+      .down-box {
+        background-color: rgb(127, 117, 116);
+        border-radius: 0 0 4px 4px;
+        box-shadow: 2px 2px 4px black, inset 4px 0px 4px -2px darkgray,
+          -1px -1px 2px black;
+        height: 34%;
+        width: 33%;
+        bottom: 0%;
+        left: 33%;
+        position: absolute;
+      }
+
+      .center-box {
+        background-color: rgb(127, 117, 116);
+        height: 33%;
+        width: 33%;
+        left: 33%;
+        top: 33%;
+        position: absolute;
+      }
+
+      .left-box {
+        background-color: rgb(127, 117, 116);
+        border-radius: 4px 0 0 4px;
+        box-shadow: 0px 4px 4px -2px black, inset 2px 2px 4px darkgray,
+          -1px -1px 2px black;
+        height: 33%;
+        width: 33%;
+        top: 33%;
+        position: absolute;
+      }
+
+      .arrow {
+        height: 0;
+        width: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 18px solid rgb(75, 70, 66);
+        left: 6px;
+        top: 5px;
+        position: absolute;
+        z-index: 1;
+      }
+
+      .arrow::after {
+        content: "";
+        height: 0;
+        width: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 15px solid rgb(89, 79, 77);
+        left: -7px;
+        top: 3px;
+        position: absolute;
+      }
+
+      .right {
+        transform: rotate(90deg);
+      }
+
+      .down {
+        transform: rotate(180deg);
+      }
+
+      .left {
+        transform: rotate(270deg);
+      }
+
+      .dent {
+        background-color: rgb(75, 70, 66);
+        border-radius: 50%;
+        left: 6px;
+        top: 6px;
+        position: absolute;
+        height: 17px;
+        width: 17px;
+      }
+
+      .dent-highlight {
+        background-color: rgb(155, 145, 144);
+        border-radius: 50%;
+        box-shadow: 0 0 6px 3px rgb(155, 145, 144);
+        height: 5px;
+        width: 5px;
+        position: absolute;
+        right: 2px;
+        bottom: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div id="g" class="col text-center mt-1">
+          <div class="row">
+            <div class="col">
+              <span>Choose your favorite fruit </span>
+              <select
+                v-model="text"
+                class="form-select mt-1"
+                id="fruit"
+                aria-label="Default select example"
+                style="width: 50%; margin: auto; min-width:250px;"
+              >
+                <option selected value="Orange">Orange</option>
+                <option value="Apple">Apple</option>
+                <option value="Avocado">Avocado</option>
+                <option value="Strawberry">Strawberry</option>
+              </select>
+            </div>
+          </div>
+          <div class="col mb-0 p-0">
+            <canvas
+              id="viewport"
+              class="mt-4 mb-0"
+              style="
+                width: 50%;
+                height: 70%;
+                min-width: 250px;
+                min-height: auto;
+              "
+            ></canvas>
+          </div>
+
+          <br />
+          <p class="mb-0 mt-0 p-0">{{getFruit()}}</p>
+          <h3 class="mt-0 mb-0 p-0 animate__animated animate__bounce" id="num">
+            0
+          </h3>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col text-center mt-1">
+          <div class="button-box">
+            <div class="arrow-group">
+              <div class="up-box">
+                <span class="arrow up"></span>
+              </div>
+              <div class="right-box">
+                <span class="arrow right"></span>
+              </div>
+              <div class="down-box">
+                <span class="arrow down"></span>
+              </div>
+              <div class="center-box">
+                <span class="dent"><span class="dent-highlight"></span></span>
+              </div>
+              <div class="left-box">
+                <span class="arrow left"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.addEventListener(
+      "keydown",
+      function (e) {
+        if (
+          ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(
+            e.code
+          ) > -1
+        ) {
+          e.preventDefault();
+        }
+      },
+      false
+    );
+  </script>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          text: "Orange",
+        };
+      },
+      methods: {
+        getFruit() {
+          // method doesn't necessarily need to 'return'
+          return "Number of " + this.text + " eaten : ";
+        },
+      },
+    });
+
+    const vm = app.mount("#g");
+  </script>
+</html>
