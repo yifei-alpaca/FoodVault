@@ -119,18 +119,18 @@ window.onload = function () {
     Snake.prototype.init = function (x, y, direction, speed, numsegments) {
         var f = fruit.value;
         if (f == "Orange") {
-            images = loadImages(["snake-graphic1.png"]);
+            images = loadImages(["assets/snake/snake-graphic1.png"]);
             tileimage = images[0];
         } else if (f == "Apple") {
-            images = loadImages(["snake-graphic2.png"]);
+            images = loadImages(["assets/snake/snake-graphic2.png"]);
             tileimage = images[0];
 
         } else if (f == "Avocado") {
-            images = loadImages(["snake-graphic3.png"]);
+            images = loadImages(["assets/snake/snake-graphic3.png"]);
             tileimage = images[0];
 
         } else {
-            images = loadImages(["snake-graphic4.png"]);
+            images = loadImages(["assets/snake/snake-graphic4.png"]);
             tileimage = images[0];
         }
         this.x = x;
