@@ -10,6 +10,8 @@
 
     	<!-- Favicons -->
 		<link href="./assets/img/Logo/bar-icon.jpg" sizes="32x32" rel="icon" />
+    <!-- Chart JS -->
+    <script src="./assets/js/merchant/plugins/chartjs.min.js"></script>
 
 
     <!-- Google Fonts -->
@@ -77,10 +79,73 @@
       <!-- ======= Portfolio Section ======= -->
       <section id="portfolio" class="portfolio mt-5">
         <div class="container">
-          <div class="section-title mt-5" >
+          <div class="section-title mt-4" >
             <h2>Learn</h2>
             <p>Learn more about how food wastage and how you can help!</p>
           </div>
+          <!-- ======= Charts Section ======= -->
+            <div class="container mb-5 pb-5" style="width: 800px; height: 800px">
+              <canvas id="myChart" width="100" height="100"></canvas>
+            </div>
+            <!-- Data retrieved from https://www.nea.gov.sg/our-services/waste-management/3r-programmes-and-resources/food-waste-management-->
+            <script>
+              var ctx = document.getElementById("myChart").getContext("2d");
+              var myChart = new Chart(ctx, {
+                type: "bar",
+                data: {
+                  labels: [
+                    "2011",
+                    "2012",
+                    "2013",
+                    "2014",
+                    "2015",
+                    "2016",
+                    "2017",
+                    "2018",
+                    "2019",
+                    "2020",
+                  ],
+                  datasets: [
+                    {
+                      label: "Food Waste Disposed of('000 tonnes)",
+                      data: [606, 618, 696, 687, 681, 680, 677, 637, 607, 539],
+                      backgroundColor: "rgba(74, 140, 112, 0.6)",
+                      borderColor: ["rgba(74, 140, 112)"],
+                    },
+                    {
+                      label: "Food Waste Recycled('000 tonnes)",
+                      data: [70, 85, 100, 101, 104, 111, 133, 126, 136, 126],
+                      backgroundColor: "rgba(74, 119, 140, 0.6)",
+                      borderColor: ["rgba(74, 119, 140)"],
+                    },
+                    {
+                      label: "Total Food Waste Generated('000 tonnes)",
+                      data: [676, 703, 796, 789, 786, 791, 810, 763, 744, 655],
+                      backgroundColor: "rgba(135, 140, 74, 0.6)",
+                      borderColor: ["rgba(135, 140, 74)"],
+                    },
+                  ],
+                },
+                options: {
+                  scales: {
+                    y: {
+                      title: {
+                        display: true,
+                        text: "('000 tonnes)",
+                      },
+                      min: 0,
+                      max: 100,
+                      ticks: {
+                        // forces step size to be 50 units
+                        stepSize: 50,
+                      },
+                    },
+                  },
+                },
+              });
+            </script>
+
+            <!-- End Charts Section -->
 
           <div class="row mt-5" data-aos="fade-up" data-aos-delay="200">
             <div class="col-lg-12 d-flex justify-content-center">
