@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+		<title>Food Vault</title>
+		<meta content="" name="description" />
+		<meta content="" name="keywords" />
+
+		<!-- Chart JS -->
+		<script src="./assets/js/merchant/plugins/chartjs.min.js"></script>
+
+		<!-- Favicons -->
+		<link href="./assets/img/Logo/bar-icon.jpg" sizes="32x32" rel="icon" />
+
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+			rel="stylesheet"
+		/>
+
+		<!-- Vendor CSS Files -->
+		<link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+		<link
+			href="assets/vendor/bootstrap/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+			rel="stylesheet"
+		/>
+		<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+		<link
+			href="assets/vendor/glightbox/css/glightbox.min.css"
+			rel="stylesheet"
+		/>
+		<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+		<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+		<!-- Template Main CSS File -->
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<!-- Carousel style -->
+		<link rel="stylesheet" href="./assets/css/carou-style.css" />
+	</head>
+
+	<body>
+		<!-- ======= Header ======= -->
+		<header id="header" class="fixed-top d-flex align-items-center">
+			<div class="container d-flex align-items-center justify-content-between">
+				<div class="logo">
+					<h1><a href="foodvault_intro.html">Food Vault</a></h1>
+					<!-- Uncomment below if you prefer to use an image logo -->
+					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+				</div>
+				<nav id="navbar" class="navbar">
+					<ul>
+						<li>
+							<a
+								class="nav-link scrollto active"
+								href="./foodvault_intro_v2.html"
+								>Home</a
+							>
+						</li>
+						<li><a class="nav-link scrollto" href="#about">About</a></li>
+						<!-- <li><a class="nav-link scrollto" href="#services"></a></li> -->
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link scrollto dropdown-toggle"
+								href="#services"
+								id="navbarDropdownMenuLink"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Services
+							</a>
+							<ul
+								class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink"
+							>
+								<li><a class="dropdown-item" href="./learn.html">Learn</a></li>
+								<li><a class="dropdown-item" href="#">Games</a></li>
+								<li>
+									<a class="dropdown-item" href="./foodrecipes.html"
+										>Food recipes</a
+									>
+								</li>
+								<li>
+									<a class="dropdown-item" href="./main_merchants.html"
+										>List of merchants</a
+									>
+								</li>
+							</ul>
+						</li>
+						<li><a class="nav-link scrollto" href="#team">Team</a></li>
+						<li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+						<li><a class="nav-link" href="signup.html">Sign up</a></li>
+						<li><a class="nav-link" href="signin.html">Sign in</a></li>
+					</ul>
+					<i class="bi bi-list mobile-nav-toggle"></i>
+				</nav>
+				<!-- .navbar -->
+			</div>
+		</header>
+		<!-- End Header -->
+
+		<div
+			id="app"
+			class="wrapper mt-5"
+			v-cloak
+			v-bind:class="{'is-previous': isPreviousSlide, 'first-load': isFirstLoad}"
+		>
+			<div
+				class="slide-wrapper"
+				v-for="(slide, index) in slides"
+				v-bind:class="{ active: index === currentSlide }"
+				v-bind:style="{ 'z-index': (slides.length - index), 'background-image': 'url(' + slide.bgImg + ')' }"
+			>
+				<div class="slide-inner">
+					<div class="slide-bg-text">
+						<p>{{ slide.headlineFirstLine }}</p>
+						<p>{{ slide.headlineSecondLine }}</p>
+					</div>
+					<div class="slide-rect-filter">
+						<div
+							class="slide-rect"
+							v-bind:style="{'border-image-source': 'url(' + slide.rectImg + ')'}"
+						></div>
+					</div>
+					<div class="slide-content">
+						<h1 class="slide-content-text">
+							<p>{{ slide.headlineFirstLine }}</p>
+							<p>{{ slide.headlineSecondLine }}</p>
+						</h1>
+						<!-- <a class="slide-content-cta">Call To Action</a> -->
+					</div>
+					<h2 class="slide-side-text">
+						<span>{{ slide.sublineFirstLine }} / </span
+						><span>{{ slide.sublineSecondLine }}</span>
+					</h2>
+				</div>
+			</div>
+			<div class="controls-container">
+				<button
+					class="controls-button"
+					v-for="(slide, index) in slides"
+					v-bind:class="{ active: index === currentSlide }"
+					v-on:click="updateSlide(index)"
+				>
+					{{ slide.headlineFirstLine }} {{ slide.headlineSecondLine }}
+				</button>
+			</div>
+			<div class="pagination-container">
+				<span
+					class="pagination-item"
+					v-for="(slide, index) in slides"
+					v-bind:class="{ active: index === currentSlide }"
+					v-on:click="updateSlide(index)"
+				></span>
+			</div>
+		</div>
+
+		<main id="main">
+			<!-- ======= About Us Section ======= -->
+			<section id="about" class="about">
+				<div class="container">
+					<div class="section-title mb-4" data-aos="fade-up">
+						<h2>About</h2>
+					</div>
+
+					<div class="row content">
+						<div
+							class="col text-center"
+							data-aos="fade-up"
+							data-aos-delay="150"
+						>
+							<!-- <h3>Overview</h3> -->
+							<p>
+								We are team of Singapore Management University (SMU) students
+								trying to reduce food waste in Singapore.
+							</p>
+
+							<p class="lh-lg">
+								Our main audience is the public and F&B stalls. According to
+								statistics, F&B stalls waste large amount of food daily. By
+								allowing F&B stalls to sign up with us, they would be able to
+								donate surplus food to the public instead of disposing the extra
+								food. This way, food wastage can be reduced while providing food
+								aid to the wider public. Additionally, the platform is also open
+								to the public to learn more about food wastage interactively and
+								try out our recipes generator based on the leftover food in
+								their home.
+							</p>
+
+							<!-- <a href="#" class="btn-learn-more">Learn More</a> -->
+						</div>
+					</div>
+					<div class="row content m-2">
+						<div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+							<h3 class="mt-4">Mission</h3>
+							<p class="lh-lg">
+								Slow down climate change and alleviate hunger, by providing a
+								platform for F&Bs to donate surplus food to the public through
+								distribution programs.
+							</p>
+						</div>
+						<div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+							<h3 class="mt-4">Goals</h3>
+							<ul>
+								<li>
+									<i class="ri-check-double-line"></i> Mitigate Climate Change
+									by reducing Food Wastage
+								</li>
+								<li>
+									<i class="ri-check-double-line"></i> Minimize Food Wastage for
+									F&B Stalls locally
+								</li>
+								<li>
+									<i class="ri-check-double-line"></i> Providing free surplus
+									food as means of charity
+								</li>
+								<li>
+									<i class="ri-check-double-line"></i> Generate Recipes based on
+									leftover food
+								</li>
+								<li>
+									<i class="ri-check-double-line"></i> Educate the public on
+									food wastage interactively and creatively
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End About Us Section -->
+			<!-- ======= Counts Section ======= -->
+			<section id="counts" class="counts">
+				<div class="container">
+					<div class="row">
+						<div
+							class="
+								image
+								col-xl-5
+								d-flex
+								align-items-stretch
+								justify-content-center justify-content-xl-start
+							"
+							data-aos="fade-right"
+							data-aos-delay="150"
+						>
+							<img src="assets/img/counts-img.svg" alt="" class="img-fluid" />
+						</div>
+
+						<div
+							class="col-xl-7 d-flex align-items-stretch pt-4 pt-xl-0"
+							data-aos="fade-left"
+							data-aos-delay="300"
+						>
+							<div class="content d-flex flex-column justify-content-center">
+								<div class="row">
+									<div class="col-md-6 d-md-flex align-items-md-stretch">
+										<div class="count-box">
+											<i class="bi bi-emoji-smile"></i>
+											<span
+												data-purecounter-start="0"
+												data-purecounter-end="65"
+												data-purecounter-duration="1"
+												class="purecounter"
+											></span>
+											<p>
+												<strong>Lives and household</strong> impacted positively
+												after using our platform
+											</p>
+										</div>
+									</div>
+
+									<div class="col-md-6 d-md-flex align-items-md-stretch">
+										<div class="count-box">
+											<i class="bi bi-journal-richtext"></i>
+											<span
+												data-purecounter-start="0"
+												data-purecounter-end="35"
+												data-purecounter-duration="1"
+												class="purecounter"
+											></span>
+											<p>
+												<strong>F&B Businesses</strong> impacted and improved
+												food resource planning after using our platform.
+											</p>
+										</div>
+									</div>
+
+									<div class="col-md-6 d-md-flex align-items-md-stretch">
+										<div class="count-box">
+											<i class="bi bi-clock"></i>
+											<span
+												data-purecounter-start="0"
+												data-purecounter-end="2"
+												data-purecounter-duration="1"
+												class="purecounter"
+											></span>
+											<p>
+												<strong>Years of experience</strong> in the community
+												service industry before official launch
+											</p>
+										</div>
+									</div>
+
+									<div class="col-md-6 d-md-flex align-items-md-stretch">
+										<div class="count-box">
+											<i class="bi bi-award"></i>
+											<span
+												data-purecounter-start="0"
+												data-purecounter-end="2"
+												data-purecounter-duration="1"
+												class="purecounter"
+											></span>
+											<p>
+												<strong>Awards</strong> given by National Environment
+												Agency (NEA) for making an impact
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- End content-->
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Counts Section -->
+			<!-- ======= Services Section ======= -->
+			<section id="services" class="services">
+				<div class="container">
+					<div class="section-title" data-aos="fade-up">
+						<h2>Services</h2>
+					</div>
+				</div>
+
+				<!-- ======= More Services Section ======= -->
+				<section id="more-services" class="more-services">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 d-flex align-items-stretch">
+								<div
+									class="card"
+									style="
+										background-image: url('assets/img/fight_food_waste.jpg');
+									"
+									data-aos="fade-up"
+									data-aos-delay="100"
+								>
+									<div class="card-body">
+										<h5 class="card-title"><a href="">Learn</a></h5>
+										<p class="card-text">
+											Learn more about Singapore's food waste statistics and how
+											you can help.
+										</p>
+										<div class="read-more">
+											<a href="./learn.html"
+												><i class="bi bi-arrow-right"></i> Read More</a
+											>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+								<div
+									class="card"
+									style="background-image: url('assets/img/games.jpg')"
+									data-aos="fade-up"
+									data-aos-delay="200"
+								>
+									<div class="card-body">
+										<h5 class="card-title"><a href="">Games</a></h5>
+										<p class="card-text">
+											Feeling bored? <br />Challenge yourself with how much you
+											know about food!
+										</p>
+										<div class="read-more">
+											<a href="#"
+												><i class="bi bi-arrow-right"></i> Click here</a
+											>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 d-flex align-items-stretch mt-4">
+								<div
+									class="card"
+									style="background-image: url('assets/img/recipesbook.jpeg')"
+									data-aos="fade-up"
+									data-aos-delay="100"
+								>
+									<div class="card-body">
+										<h5 class="card-title"><a href="">Food Recipes</a></h5>
+										<p class="card-text">
+											Meet your new cooking coach! Tasty recipes now at your
+											fingertips.
+										</p>
+										<div class="read-more">
+											<a href="./foodrecipes.html"
+												><i class="bi bi-arrow-right"></i> Read More</a
+											>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 d-flex align-items-stretch mt-4">
+								<div
+									class="card"
+									style="
+										background-image: url('assets/img/more-services-4.jpg');
+									"
+									data-aos="fade-up"
+									data-aos-delay="200"
+								>
+									<div class="card-body">
+										<h5 class="card-title"><a href="">List of Merchant</a></h5>
+										<p class="card-text">
+											Explore more about our merchant!
+											<br />
+										</p>
+										<div class="read-more">
+											<a href="./main_merchants.html"
+												><i class="bi bi-arrow-right"></i> Read More</a
+											>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- End More Services Section -->
+			</section>
+
+			<!-- ======= Team Section ======= -->
+			<section id="team" class="team section-bg">
+				<div class="container">
+					<div class="section-title" data-aos="fade-up">
+						<h2>Team</h2>
+						<p>
+							Sophomore student studying Computing and Information Systems @ SMU
+						</p>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+							<div class="member" data-aos="fade-up" data-aos-delay="100">
+								<div class="member-img">
+									<img
+										src="assets/img/team/team-1.jpg"
+										class="img-fluid"
+										alt=""
+									/>
+								</div>
+								<div class="member-info">
+									<h4>Tan Yee Sen</h4>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+							<div class="member" data-aos="fade-up" data-aos-delay="200">
+								<div class="member-img">
+									<img
+										src="assets/img/team/team-2.jpg"
+										class="img-fluid"
+										alt=""
+									/>
+								</div>
+								<div class="member-info">
+									<h4>Sherry Ng</h4>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+							<div class="member" data-aos="fade-up" data-aos-delay="300">
+								<div class="member-img">
+									<img
+										src="assets/img/team/team-3.jpg"
+										class="img-fluid"
+										alt=""
+									/>
+								</div>
+								<div class="member-info">
+									<h4>Seah Pei Ming</h4>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+							<div class="member" data-aos="fade-up" data-aos-delay="400">
+								<div class="member-img">
+									<img
+										src="assets/img/team/team-4.jpg"
+										class="img-fluid"
+										alt=""
+									/>
+								</div>
+								<div class="member-info">
+									<h4>Leon Tan</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Team Section -->
+
+			<!-- ======= F.A.Q Section ======= -->
+			<section id="faq" class="faq">
+				<div class="container">
+					<div class="section-title" data-aos="fade-up">
+						<h2>Frequently Asked Questions</h2>
+					</div>
+
+					<div
+						class="row faq-item d-flex align-items-stretch"
+						data-aos="fade-up"
+						data-aos-delay="100"
+					>
+						<div class="col-lg-5">
+							<i class="ri-question-line"></i>
+							<h4>What is Food Vault?</h4>
+						</div>
+						<div class="col-lg-7">
+							<p>
+								Food Vault is an responsive platform for F&B stalls to donate
+								their excess food for the day, or any food items that are
+								expiring soon and unused, to the public who require food aid.
+							</p>
+						</div>
+					</div>
+					<!-- End F.A.Q Item-->
+
+					<div
+						class="row faq-item d-flex align-items-stretch"
+						data-aos="fade-up"
+						data-aos-delay="200"
+					>
+						<div class="col-lg-5">
+							<i class="ri-question-line"></i>
+							<h4>How does Food Vault works?</h4>
+						</div>
+						<div class="col-lg-7">
+							<p>
+								The public can see and choose to come down to the venue if they
+								require any food aid. Users can use utilise the website to
+								generate feed recipes based on their leftovers, educate
+								themselves on how they can contribute to reduce food wastage via
+								posters and games.
+							</p>
+						</div>
+					</div>
+					<!-- End F.A.Q Item-->
+
+					<div
+						class="row faq-item d-flex align-items-stretch"
+						data-aos="fade-up"
+						data-aos-delay="300"
+					>
+						<div class="col-lg-5">
+							<i class="ri-question-line"></i>
+							<h4>Where do I find the merchants?</h4>
+						</div>
+						<div class="col-lg-7">
+							<p>
+								You can click on "Service" at the top of the Navigation bar and
+								select "List of Merchants".
+							</p>
+						</div>
+					</div>
+					<!-- End F.A.Q Item-->
+
+					<div
+						class="row faq-item d-flex align-items-stretch"
+						data-aos="fade-up"
+						data-aos-delay="400"
+					>
+						<div class="col-lg-5">
+							<i class="ri-question-line"></i>
+							<h4>Do we need to register if we are collecting the food?</h4>
+						</div>
+						<div class="col-lg-7">
+							<p>
+								You do NOT need to register an account to collect the food. You
+								can go straight down to the location without any hassle.
+								However, upon collecting you can write a review on the
+								merchant's page.
+							</p>
+						</div>
+					</div>
+					<!-- End F.A.Q Item-->
+
+					<div
+						class="row faq-item d-flex align-items-stretch"
+						data-aos="fade-up"
+						data-aos-delay="500"
+					>
+						<div class="col-lg-5">
+							<i class="ri-question-line"></i>
+							<h4>
+								Im a F&B store owner. How do I know my company has helped in
+								reducing food waste?
+							</h4>
+						</div>
+						<div class="col-lg-7">
+							<p>
+								You can register with us and we would provide you an overview
+								dashboard of how much have you been donating food and reducing
+								food wastage.
+							</p>
+						</div>
+					</div>
+					<!-- End F.A.Q Item-->
+				</div>
+			</section>
+			<!-- End F.A.Q Section -->
+
+			<!-- ======= Special Thanks and Footer Section ======= -->
+			<section id="clients" class="clients clients">
+				<div class="container">
+					<br />
+					<h3>Special Thanks to :</h3>
+					<div class="row my-4">
+						<div class="col-lg-4 col-md-4 col-4">
+							<img
+								style="height: auto"
+								title="SMU"
+								src="assets/img/footer/SMU.png"
+								class="img-fluid"
+								alt=""
+								data-aos="zoom-in"
+							/>
+						</div>
+						<div class="col-lg-4 my-auto col-md-4 col-4">
+							<img
+								src="assets/img/footer/SCIS.webp"
+								class="img-fluid"
+								alt=""
+								data-aos="zoom-in"
+								data-aos-delay="300"
+							/>
+						</div>
+
+						<div class="col-lg-4 my-auto col-md-4 col-4">
+							<img
+								src="assets/img/footer/prof.png"
+								class="img-fluid"
+								alt=""
+								data-aos="zoom-in"
+								data-aos-delay="100"
+							/>
+						</div>
+					</div>
+				</div>
+				<br />
+				&copy; Copyright <strong>Food Vault </strong>. All Rights Reserved
+				<br />
+				<br />
+			</section>
+			<!-- Special Thanks and Footer Section -->
+		</main>
+		<!-- End #main -->
+
+		<a
+			href="#"
+			class="back-to-top d-flex align-items-center justify-content-center"
+			><i class="bi bi-arrow-up-short"></i
+		></a>
+
+		<!-- Vendor JS Files -->
+		<script src="assets/vendor/aos/aos.js"></script>
+		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+		<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+		<script src="assets/vendor/php-email-form/validate.js"></script>
+		<script src="assets/vendor/purecounter/purecounter.js"></script>
+		<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+		<!-- Template Main JS File -->
+		<script src="assets/js/main.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js"></script>
+
+		<script src="./assets/js/Carousel.js"></script>
+	</body>
+</html>
