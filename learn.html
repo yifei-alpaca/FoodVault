@@ -45,30 +45,64 @@
 
   <body>
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center">
-      <div class="container d-flex align-items-center justify-content-between">
-        <div class="logo">
-          <h1><a href="foodvault_intro.html">Food Vault</a></h1>
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-        </div>
-        <nav id="navbar" class="navbar">
-          <ul>
-            <li><a class="nav-link  " href="foodvault_intro.html">Home</a></li>
-            <li><a class="nav-link " href="foodvault_intro.html#about">About</a></li>
-          <li><a class="nav-link " href="foodvault_intro.html#services">Services</a></li>
-          <li><a class="nav-link " href="foodvault_intro.html#team">Team</a></li>
-          <li><a class="nav-link " href="foodvault_intro.html#faq">FAQ</a></li>
-          <li><a class="nav-link  active" href="#">Learn</a></li>
-          <li><a class="nav-link" href="signup.html">Sign up</a></li>
-          <li><a class="nav-link" href="signin.html">Sign in</a></li>
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
-        <!-- .navbar -->
-      </div>
-    </header>
-    <!-- End Header -->
+		<header id="header" class="fixed-top d-flex align-items-center">
+			<div class="container d-flex align-items-center justify-content-between">
+				<div class="logo">
+					<h1><a href="foodvault_intro.html">Food Vault</a></h1>
+					<!-- Uncomment below if you prefer to use an image logo -->
+					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+				</div>
+				<nav id="navbar" class="navbar">
+					<ul>
+						<li>
+							<a
+								class="nav-link scrollto "
+								href="./foodvault_intro_v2.html"
+								>Home</a
+							>
+						</li>
+						<li><a class="nav-link scrollto" href="#about">About</a></li>
+						<!-- <li><a class="nav-link scrollto" href="#services"></a></li> -->
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link scrollto dropdown-toggle active"
+								href="#services"
+								id="navbarDropdownMenuLink"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Services
+							</a>
+							<ul
+								class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink"
+							>
+								<li><a class="dropdown-item" href="./learn.html">Learn</a></li>
+								<li><a class="dropdown-item" href="#">Games</a></li>
+								<li>
+									<a class="dropdown-item" href="./foodrecipes.html"
+										>Food recipes</a
+									>
+								</li>
+								<li>
+									<a class="dropdown-item" href="./main_merchants.html"
+										>List of merchants</a
+									>
+								</li>
+							</ul>
+						</li>
+						<li><a class="nav-link scrollto" href="#team">Team</a></li>
+						<li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+						<li><a class="nav-link" href="signup.html">Sign up</a></li>
+						<li><a class="nav-link" href="signin.html">Sign in</a></li>
+					</ul>
+					<i class="bi bi-list mobile-nav-toggle"></i>
+				</nav>
+				<!-- .navbar -->
+			</div>
+		</header>
+		<!-- End Header -->
 
     <!-- ======= First Section ======= -->
 
@@ -78,14 +112,34 @@
 
       <!-- ======= Portfolio Section ======= -->
       <section id="portfolio" class="portfolio mt-5">
-        <div class="container">
-          <div class="section-title mt-4" >
-            <h2>Learn</h2>
-            <p>Learn more about how food wastage and how you can help!</p>
-          </div>
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col">
+              <br>
+                <h2> 
+                  Singapore's Food Waste Management
+                </h2>
+                <br>
+                <br>
+                <br>
+                <p class="lh-lg">Food waste accounts for about 11 per cent of the total waste generated in Singapore.
+
+                  The overall amount of food waste generated in 2020 was 665,000 tonnes, which was 11 per cent less than the 744,000 tonnes in 2019. There was a slight increase in the recycling rate for food waste from 18 per cent in 2019 to 19 per cent in 2020, and the rest of it is disposed of at the waste-to-energy (WTE) plants for incineration. </p>
+                  <br>
+                  <p class="lh-lg">
+                    Reducing food wastage, redistributing unsold or excess food, and recycling/treating food waste are important components of our national waste management strategies to work towards Singapore becoming a Zero Waste Nation. 
+                  </p>
+            </div>
+            <div class="col">
+              
           <!-- ======= Charts Section ======= -->
-            <div class="container mb-5 pb-5" style="width: 800px; height: 800px">
+         
+            <div class="container mb-5 pb-5" style="width: 550px; height: 550px">
               <canvas id="myChart" width="100" height="100"></canvas>
+            <p class="text-muted text-center">Data: https://www.nea.gov.sg</p>
+            <br>
+            <br>
+
             </div>
             <!-- Data retrieved from https://www.nea.gov.sg/our-services/waste-management/3r-programmes-and-resources/food-waste-management-->
             <script>
@@ -144,9 +198,12 @@
                 },
               });
             </script>
+            </div>
+          </div>
+
+            <hr>
 
             <!-- End Charts Section -->
-
           <div class="row mt-5" data-aos="fade-up" data-aos-delay="200">
             <div class="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
