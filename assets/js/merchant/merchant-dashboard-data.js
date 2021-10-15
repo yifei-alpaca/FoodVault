@@ -204,7 +204,7 @@ data = {
 
 		var gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
 		gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-		gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
+		gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.4)");
 
 		var myChart = new Chart(ctx, {
 			type: "line",
@@ -266,7 +266,7 @@ data = {
 					position: "nearest",
 				},
 				legend: {
-					position: "bottom",
+					position: "left",
 					fillStyle: "#FFF",
 					display: false,
 				},
@@ -274,7 +274,7 @@ data = {
 					yAxes: [
 						{
 							ticks: {
-								fontColor: "rgba(255,255,255,0.4)",
+								fontColor: "rgba(255,255,255,0.9)",
 								fontStyle: "bold",
 								beginAtZero: true,
 								maxTicksLimit: 5,
@@ -284,7 +284,7 @@ data = {
 								drawTicks: true,
 								drawBorder: false,
 								display: true,
-								color: "rgba(255,255,255,0.1)",
+								color: "rgba(255,255,255,0.5)",
 								zeroLineColor: "transparent",
 							},
 						},
@@ -297,7 +297,7 @@ data = {
 							},
 							ticks: {
 								padding: 10,
-								fontColor: "rgba(255,255,255,0.4)",
+								fontColor: "rgba(255,255,255,0.9)",
 								fontStyle: "bold",
 							},
 						},

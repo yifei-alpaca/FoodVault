@@ -21,9 +21,27 @@
 			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 			crossorigin="anonymous"
 		/>
+		<!-- Vendor CSS Files -->
+		<link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+		<link
+			href="assets/vendor/bootstrap/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+			rel="stylesheet"
+		/>
+		<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+		<link
+			href="assets/vendor/glightbox/css/glightbox.min.css"
+			rel="stylesheet"
+		/>
+		<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+		<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
-		<!-- main style sheet -->
+		<!-- Template Main CSS File -->
 		<link href="assets/css/style.css" rel="stylesheet" />
+
 		<!--  Dashboard style sheets -->
 		<link href="assets/css/styledashboard.css" rel="stylesheet" />
 	</head>
@@ -32,92 +50,87 @@
 		<header id="header" class="fixed-top d-flex align-items-center">
 			<div class="container d-flex align-items-center justify-content-between">
 				<div class="logo">
-					<h1>
-						<a href="foodvault_intro.html"> Food Vault</a>
-					</h1>
+					<h1><a href="foodvault_intro.html">Food Vault</a></h1>
 				</div>
-
-				<!-- NAV BAR -->
-				<nav class="navbar navbar-expand-lg navbar-light">
-					<div class="container-fluid">
-						<button
-							class="navbar-toggler"
-							type="button"
-							data-bs-toggle="collapse"
-							data-bs-target="#navbarNavAltMarkup"
-							aria-controls="navbarNavAltMarkup"
-							aria-expanded="false"
-							aria-label="Toggle navigation"
-						>
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-							<div class="navbar-nav">
-								<a class="nav-link scrolltoo" href="foodvault_intro.html"
-									>Home</a
+				<nav id="navbar" class="navbar">
+					<ul>
+						<li>
+							<a class="nav-link scrollto" href="./foodvault_intro_v2.html"
+								>Home</a
+							>
+						</li>
+						<!-- Notification -->
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link"
+								href="http://example.com"
+								id="navbarDropdownMenuLink"
+								data-toggle="dropdown"
+								aria-haspopup="true"
+								aria-expanded="false"
+							>
+								<!-- <i class="material-icons">notifications</i> -->
+								<img src="assets/img/merchant/notification.png" width="30x30" />
+							</a>
+							<div
+								class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink"
+								style="padding-right: 15px"
+							>
+								<a class="dropdown-item" href="#" style="font-size: small"
+									>User0456 leaves a review</a
 								>
-
-								<!-- to be confirm  -->
-								<li class="nav-item dropdown">
-									<a
-										class="nav-link"
-										href="http://example.com"
-										id="navbarDropdownMenuLink"
-										data-toggle="dropdown"
-										aria-haspopup="true"
-										aria-expanded="false"
-									>
-										<!-- <i class="material-icons">notifications</i> -->
-										<img
-											src="assets/img/merchant/notification.png"
-											width="35x35"
-										/>
-									</a>
-									<div
-										class="dropdown-menu"
-										aria-labelledby="navbarDropdownMenuLink"
-										style="padding-right: 15px"
-									>
-										<a class="dropdown-item" href="#" style="font-size: small"
-											>User0456 leaves a review</a
-										>
-										<a class="dropdown-item" href="#" style="font-size: small"
-											>You have 3 new tasks</a
-										>
-										<a class="dropdown-item" href="#" style="font-size: small"
-											>User0218 leaves a review</a
-										>
-										<a class="dropdown-item" href="#" style="font-size: small"
-											>User0067 leaves a review
-										</a>
-									</div>
-								</li>
-								<li class="nav-item dropdown">
-									<a
-										class="nav-link dropdown-toggle"
-										href="#"
-										id="navbarDropdown"
-										role="button"
-										data-bs-toggle="dropdown"
-										aria-expanded="false"
-									>
-										<img src="assets/img/merchant/user.png" width="40x40" />
-									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="#">Profile</a></li>
-										<li>
-											<a class="dropdown-item" href="#">Settings</a>
-										</li>
-										<li><hr class="dropdown-divider" /></li>
-										<li>
-											<a class="dropdown-item" href="#">Log out</a>
-										</li>
-									</ul>
-								</li>
+								<a class="dropdown-item" href="#" style="font-size: small"
+									>You have 3 new tasks</a
+								>
+								<a class="dropdown-item" href="#" style="font-size: small"
+									>User0218 leaves a review</a
+								>
+								<a class="dropdown-item" href="#" style="font-size: small"
+									>User0067 leaves a review
+								</a>
 							</div>
-						</div>
-					</div>
+						</li>
+						<!-- Profile -->
+						<li class="nav-item">
+							<a
+								class="btn"
+								type="button"
+								data-bs-toggle="offcanvas"
+								data-bs-target="#offcanvasRight"
+								aria-controls="offcanvasRight"
+							>
+								<img src="assets/img/merchant/user.png" width="30x30" />
+							</a>
+
+							<div
+								class="offcanvas offcanvas-end"
+								tabindex="-1"
+								id="offcanvasRight"
+								aria-labelledby="offcanvasRightLabel"
+							>
+								<div class="offcanvas-header">
+									<h5 id="offcanvasRightLabel">Company Name</h5>
+									<button
+										type="button"
+										class="btn-close text-reset"
+										data-bs-dismiss="offcanvas"
+										aria-label="Close"
+									></button>
+								</div>
+								<div class="offcanvas-body">
+									<div class="container">
+										<img src="./assets/img/clients/client-2.png" width="50px" />
+										<h1>Address</h1>
+										<h2>Infomation</h2>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<i class="bi bi-list mobile-nav-toggle"></i>
 				</nav>
+				<!-- .navbar -->
 			</div>
 		</header>
 		<!-- End Header -->
@@ -133,342 +146,360 @@
 			</p>
 			<hr class="my-4" />
 		</div>
-		<!-- Line chart -->
+
+		<!-- CONTAINER -->
 		<div class="container">
-			<h3 class="lead text-center fs-3">
-				Food Donated <br /><span class="lead fs-6">by month</span>
-			</h3>
-			<div class="panel-header panel-header-lg mt-3">
-				<canvas id="bigDashboardChart"></canvas>
-			</div>
-		</div>
-
-		<!-- cards -->
-		<div class="card-deck mt-5 container">
-			<div class="row justify-content-between">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="card mb-3">
-						<div class="row g-0">
-							<div class="col-md-7 imgHover1">
-								<img
-									src="assets/img/merchant/melanie-lim-nD3wunG16Fo-unsplash.jpg"
-									class="img-fluid rounded-start"
-								/>
-							</div>
-							<div class="col-md">
-								<div class="card-body">
-									<p class="card-text">
-										<small class="text-muted">No. of receiver</small>
-									</p>
-									<h5 class="card-title">000000</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- style imgHover -->
-				<div
-					class="col-lg-3 col-md-6 col-sm-6"
-					onclick="document.getElementById('staticBackdropLabel').style.display='block'"
-					data-bs-toggle="modal"
-					data-bs-target="#staticBackdrop"
-				>
-					<div class="card mb-3">
-						<div class="row g-0">
-							<div class="col-md-7 imgHover2">
-								<img
-									src="assets/img/merchant/joel-muniz-BErJJL_KsjA-unsplash.jpg"
-									class="img-fluid rounded-start"
-								/>
-							</div>
-							<div class="col-md">
-								<div class="card-body">
-									<p class="card-text">
-										<small class="text-muted">No. of food donated</small>
-									</p>
-									<h5 class="card-title">000000</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Modal -->
-				<div
-					class="modal fade"
-					id="staticBackdrop"
-					data-bs-backdrop="static"
-					data-bs-keyboard="false"
-					tabindex="-1"
-					aria-labelledby="staticBackdropLabel"
-					aria-hidden="true"
-				>
-					<div class="modal-dialog modal-dialog-centered">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel">
-									Food Donated
-								</h5>
-								<button
-									type="button"
-									class="btn-close"
-									data-bs-dismiss="modal"
-									aria-label="Close"
-								></button>
-							</div>
-							<div class="modal-body">
-								<table class="table">
-									<thead>
-										<tr>
-											<th scope="col">Days</th>
-											<th scope="col">#</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<th scope="row">Monday</th>
-											<td>0000</td>
-										</tr>
-										<tr>
-											<th scope="row">Tuesday</th>
-											<td>0000</td>
-										</tr>
-										<tr>
-											<th scope="row">Wednesday</th>
-											<td>0000</td>
-										</tr>
-										<tr>
-											<th scope="row">Thursday</th>
-											<td>0000</td>
-										</tr>
-										<tr>
-											<th scope="row">Friday</th>
-											<td>0000</td>
-										</tr>
-										<tr>
-											<th scope="row">Saturday</th>
-											<td>0000</td>
-										</tr>
-										<tr>
-											<th scope="row">Sunday</th>
-											<td>0000</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="modal-footer">
-								<button
-									type="button"
-									class="btn btn-secondary"
-									data-bs-dismiss="modal"
-								>
-									Close
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!--  Card 3 -->
-				<div
-					class="col-lg-3 col-md-6 col-sm-6"
-					onclick="document.getElementById('staticBackdropLabel2').style.display='block'"
-					data-bs-toggle="modal"
-					data-bs-target="#staticBackdrop2"
-				>
-					<div class="card mb-3">
-						<div class="row">
-							<div class="col-md-7 imgHover3">
-								<img
-									src="assets/img/merchant/joel-muniz-3k3l2brxmwQ-unsplash.jpg"
-									class="img-fluid rounded-start"
-								/>
-							</div>
-							<div class="col-md">
-								<div class="card-body">
-									<p class="card-text">
-										<small class="text-muted">Reviews</small>
-									</p>
-									<h5 class="card-title">
-										4.5/5
-										<img
-											src="assets/img/merchant/4.5.PNG"
-											align="right"
-											width="80px"
-										/>
-									</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Modal Review -->
-				<div
-					class="modal fade"
-					id="staticBackdrop2"
-					data-bs-backdrop="static"
-					data-bs-keyboard="false"
-					tabindex="-1"
-					aria-labelledby="staticBackdropLabel2"
-					aria-hidden="true"
-				>
-					<div
-						class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-					>
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel2">
-									Reviews from Receiver
-								</h5>
-								<button
-									type="button"
-									class="btn-close"
-									data-bs-dismiss="modal"
-									aria-label="Close"
-								></button>
-							</div>
-							<div class="modal-body">
-								<div class="card text-dark mb-3" style="max-width: 30rem">
-									<div class="card-header fs-5 bg-transparent">
-										User0456
-										<img
-											src="assets/img/merchant/5.PNG"
-											align="right"
-											width="100px"
-										/>
-									</div>
-									<div class="card-body bg-light">
-										<p class="card-text">
-											I'm so glad that they have this service. Their service is
-											good & have friendly staff too. Thank you.
-										</p>
-									</div>
-								</div>
-								<div class="card text-dark mb-3" style="max-width: 30rem">
-									<div class="card-header fs-5 bg-transparent">
-										User0218
-										<img
-											src="assets/img/merchant/4.5.PNG"
-											align="right"
-											width="100px"
-										/>
-									</div>
-									<div class="card-body bg-light">
-										<p class="card-text">
-											Portion of the food is reasonable, eventho its free
-										</p>
-									</div>
-								</div>
-								<div class="card text-dark mb-3" style="max-width: 30rem">
-									<div class="card-header fs-5 bg-transparent">
-										User0067
-										<img
-											src="assets/img/merchant/3.5.PNG"
-											align="right"
-											width="100px"
-										/>
-									</div>
-									<div class="card-body bg-light">
-										<p class="card-text text-muted">No comments</p>
-									</div>
-								</div>
-								<div class="card text-dark mb-3" style="max-width: 30rem">
-									<div class="card-header fs-5 bg-transparent">
-										User1321
-										<img
-											src="assets/img/merchant/4.PNG"
-											align="right"
-											width="100px"
-										/>
-									</div>
-									<div class="card-body bg-light">
-										<p class="card-text">Good.</p>
-									</div>
-								</div>
-								<div class="card text-dark mb-3" style="max-width: 30rem">
-									<div class="card-header fs-5 bg-transparent">
-										User0980
-										<img
-											src="assets/img/merchant/4.5.PNG"
-											align="right"
-											width="100px"
-										/>
-									</div>
-									<div class="card-body bg-light">
-										<p class="card-text">Good Service & friendly staff</p>
-									</div>
-								</div>
-								<div class="card text-dark mb-3" style="max-width: 30rem">
-									<div class="card-header fs-5 bg-transparent">
-										User2139
-										<img
-											src="assets/img/merchant/3.5.PNG"
-											align="right"
-											width="100px"
-										/>
-									</div>
-									<div class="card-body bg-light">
-										<p class="card-text text-muted">No comments</p>
-									</div>
-								</div>
-								<div class="card text-dark mb-3" style="max-width: 30rem">
-									<div class="card-header fs-5 bg-transparent">
-										User0892
-										<img
-											src="assets/img/merchant/5.PNG"
-											align="right"
-											width="100px"
-										/>
-									</div>
-									<div class="card-body bg-light">
-										<p class="card-text text-muted">No comments</p>
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button
-									type="button"
-									class="btn btn-secondary"
-									data-bs-dismiss="modal"
-								>
-									Close
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Line chart -->
-		<div class="container mt-4 mb-5">
 			<div class="row">
-				<div class="col-lg-6">
-					<div class="card card-chart">
-						<div class="card-header">
-							<h4 class="card-title lead">No. of Receiver</h4>
-							<p class="fs-6 lead">By Hours</p>
+				<div class="col-9">
+					<!-- Line chart -->
+					<div class="container">
+						<!-- <h3 class="lead text-center fs-3">Overview<br /></h3> -->
+						<div class="panel-header panel-header-lg rounded-3 shadow-lg">
+							<canvas id="bigDashboardChart"></canvas>
 						</div>
-						<div class="card-body">
-							<div class="chart-area">
-								<canvas id="lineChartExampleWithNumbersAndGrid"></canvas>
+					</div>
+
+					<!-- cards -->
+					<div class="card-deck mt-5 container">
+						<div class="row justify-content-between">
+							<div class="col-lg-3 col-md-6 col-sm-6">
+								<div class="card mb-3 shadow">
+									<div class="row g-0">
+										<div class="col-md-7 imgHover1">
+											<img
+												src="assets/img/merchant/melanie-lim-nD3wunG16Fo-unsplash.jpg"
+												class="img-fluid rounded-start"
+											/>
+										</div>
+										<div class="col-md">
+											<div class="card-body">
+												<p class="card-text">
+													<small class="text-muted">No. of receiver</small>
+												</p>
+												<h5 class="card-title">000000</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- style imgHover -->
+							<div
+								class="col-lg-3 col-md-6 col-sm-6"
+								onclick="document.getElementById('staticBackdropLabel').style.display='block'"
+								data-bs-toggle="modal"
+								data-bs-target="#staticBackdrop"
+							>
+								<div class="card mb-3 shadow">
+									<div class="row g-0">
+										<div class="col-md-7 imgHover2">
+											<img
+												src="assets/img/merchant/joel-muniz-BErJJL_KsjA-unsplash.jpg"
+												class="img-fluid rounded-start"
+											/>
+										</div>
+										<div class="col-md">
+											<div class="card-body">
+												<p class="card-text">
+													<small class="text-muted">No. of food donated</small>
+												</p>
+												<h5 class="card-title">000000</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Modal -->
+							<div
+								class="modal fade"
+								id="staticBackdrop"
+								data-bs-backdrop="static"
+								data-bs-keyboard="false"
+								tabindex="-1"
+								aria-labelledby="staticBackdropLabel"
+								aria-hidden="true"
+							>
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="staticBackdropLabel">
+												Food Donated
+											</h5>
+											<button
+												type="button"
+												class="btn-close"
+												data-bs-dismiss="modal"
+												aria-label="Close"
+											></button>
+										</div>
+										<div class="modal-body">
+											<table class="table">
+												<thead>
+													<tr>
+														<th scope="col">Days</th>
+														<th scope="col">#</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th scope="row">Monday</th>
+														<td>0000</td>
+													</tr>
+													<tr>
+														<th scope="row">Tuesday</th>
+														<td>0000</td>
+													</tr>
+													<tr>
+														<th scope="row">Wednesday</th>
+														<td>0000</td>
+													</tr>
+													<tr>
+														<th scope="row">Thursday</th>
+														<td>0000</td>
+													</tr>
+													<tr>
+														<th scope="row">Friday</th>
+														<td>0000</td>
+													</tr>
+													<tr>
+														<th scope="row">Saturday</th>
+														<td>0000</td>
+													</tr>
+													<tr>
+														<th scope="row">Sunday</th>
+														<td>0000</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="modal-footer">
+											<button
+												type="button"
+												class="btn btn-secondary"
+												data-bs-dismiss="modal"
+											>
+												Close
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--  Card 3 -->
+							<div
+								class="col-lg-3 col-md-6 col-sm-6"
+								onclick="document.getElementById('staticBackdropLabel2').style.display='block'"
+								data-bs-toggle="modal"
+								data-bs-target="#staticBackdrop2"
+							>
+								<div class="card mb-3 shadow">
+									<div class="row">
+										<div class="col-md-7 imgHover3">
+											<img
+												src="assets/img/merchant/joel-muniz-3k3l2brxmwQ-unsplash.jpg"
+												class="img-fluid rounded-start"
+											/>
+										</div>
+										<div class="col-md">
+											<div class="card-body">
+												<p class="card-text">
+													<small class="text-muted">Reviews</small>
+												</p>
+												<h5 class="card-title">
+													4.5/5
+													<img
+														src="assets/img/merchant/4.5.PNG"
+														align="right"
+														width="80px"
+													/>
+												</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Modal Review -->
+							<div
+								class="modal fade"
+								id="staticBackdrop2"
+								data-bs-backdrop="static"
+								data-bs-keyboard="false"
+								tabindex="-1"
+								aria-labelledby="staticBackdropLabel2"
+								aria-hidden="true"
+							>
+								<div
+									class="
+										modal-dialog modal-dialog-centered modal-dialog-scrollable
+									"
+								>
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="staticBackdropLabel2">
+												Reviews from Receiver
+											</h5>
+											<button
+												type="button"
+												class="btn-close"
+												data-bs-dismiss="modal"
+												aria-label="Close"
+											></button>
+										</div>
+										<div class="modal-body">
+											<div class="card text-dark mb-3" style="max-width: 30rem">
+												<div class="card-header fs-5 bg-transparent">
+													User0456
+													<img
+														src="assets/img/merchant/5.PNG"
+														align="right"
+														width="100px"
+													/>
+												</div>
+												<div class="card-body bg-light">
+													<p class="card-text">
+														I'm so glad that they have this service. Their
+														service is good & have friendly staff too. Thank
+														you.
+													</p>
+												</div>
+											</div>
+											<div class="card text-dark mb-3" style="max-width: 30rem">
+												<div class="card-header fs-5 bg-transparent">
+													User0218
+													<img
+														src="assets/img/merchant/4.5.PNG"
+														align="right"
+														width="100px"
+													/>
+												</div>
+												<div class="card-body bg-light">
+													<p class="card-text">
+														Portion of the food is reasonable, eventho its free
+													</p>
+												</div>
+											</div>
+											<div class="card text-dark mb-3" style="max-width: 30rem">
+												<div class="card-header fs-5 bg-transparent">
+													User0067
+													<img
+														src="assets/img/merchant/3.5.PNG"
+														align="right"
+														width="100px"
+													/>
+												</div>
+												<div class="card-body bg-light">
+													<p class="card-text text-muted">No comments</p>
+												</div>
+											</div>
+											<div class="card text-dark mb-3" style="max-width: 30rem">
+												<div class="card-header fs-5 bg-transparent">
+													User1321
+													<img
+														src="assets/img/merchant/4.PNG"
+														align="right"
+														width="100px"
+													/>
+												</div>
+												<div class="card-body bg-light">
+													<p class="card-text">Good.</p>
+												</div>
+											</div>
+											<div class="card text-dark mb-3" style="max-width: 30rem">
+												<div class="card-header fs-5 bg-transparent">
+													User0980
+													<img
+														src="assets/img/merchant/4.5.PNG"
+														align="right"
+														width="100px"
+													/>
+												</div>
+												<div class="card-body bg-light">
+													<p class="card-text">Good Service & friendly staff</p>
+												</div>
+											</div>
+											<div class="card text-dark mb-3" style="max-width: 30rem">
+												<div class="card-header fs-5 bg-transparent">
+													User2139
+													<img
+														src="assets/img/merchant/3.5.PNG"
+														align="right"
+														width="100px"
+													/>
+												</div>
+												<div class="card-body bg-light">
+													<p class="card-text text-muted">No comments</p>
+												</div>
+											</div>
+											<div class="card text-dark mb-3" style="max-width: 30rem">
+												<div class="card-header fs-5 bg-transparent">
+													User0892
+													<img
+														src="assets/img/merchant/5.PNG"
+														align="right"
+														width="100px"
+													/>
+												</div>
+												<div class="card-body bg-light">
+													<p class="card-text text-muted">No comments</p>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button
+												type="button"
+												class="btn btn-secondary"
+												data-bs-dismiss="modal"
+											>
+												Close
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Line chart -->
+					<div class="container mt-4 mb-5">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="card card-chart shadow">
+									<div class="list-group-item border-light">
+										<h4 class="card-title lead">No. of Receiver</h4>
+										<p class="fs-6 lead">By Hours</p>
+									</div>
+									<div class="card-body">
+										<div class="chart-area">
+											<canvas id="lineChartExampleWithNumbersAndGrid"></canvas>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Bar chart -->
+							<div class="col-lg-6">
+								<div class="card card-chart shadow">
+									<div class="list-group-item border-light">
+										<h4 class="card-title lead">No. of Receiver</h4>
+										<p class="fs-6 lead">By Week</p>
+									</div>
+									<div class="card-body">
+										<div class="chart-area">
+											<canvas id="barChartSimpleGradientsNumbers"></canvas>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- Bar chart -->
-				<div class="col-lg-6">
-					<div class="card card-chart">
-						<div class="card-header">
-							<h4 class="card-title lead">No. of Receiver</h4>
-							<p class="fs-6 lead">By Week</p>
-						</div>
-						<div class="card-body">
-							<div class="chart-area">
-								<canvas id="barChartSimpleGradientsNumbers"></canvas>
-							</div>
-						</div>
+				<div
+					class="col-3 rounded-3 mb-5 shadow"
+					style="background-color: #f5f7f8"
+				>
+					<!-- <h3>Company Name</h3> -->
+					<div class="mt-5 text-center">
+						<img src="./assets/img/clients/client-3.png" width="300px" />
 					</div>
 				</div>
 			</div>
@@ -530,7 +561,7 @@
 
 		<!-- Chart JS -->
 		<script src="assets/js/merchant/plugins/chartjs.min.js"></script>
-		<!-- https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js -->
+
 		<!-- layout and effects -->
 		<script src="assets/js/merchant/merchant-dashboard-data.js"></script>
 		<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
@@ -538,6 +569,18 @@
 			src="assets/js/merchant/dashboard.min.js"
 			type="text/javascript"
 		></script>
+
+		<!-- Vendor JS Files -->
+		<script src="assets/vendor/aos/aos.js"></script>
+		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+		<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+		<script src="assets/vendor/php-email-form/validate.js"></script>
+		<script src="assets/vendor/purecounter/purecounter.js"></script>
+		<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+		<!-- Template Main JS File -->
+		<script src="assets/js/main.js"></script>
 		<script>
 			$(document).ready(function () {
 				// Javascript method's body can be found in assets/js/demos.js

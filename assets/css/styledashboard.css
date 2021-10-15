@@ -53,13 +53,13 @@
 		color-stop(60%, #777e86),
 		to(#889db3)
 	);
-	background: linear-gradient(to right, #7d9e6b 0%, #749dcc 60%, #939ba3 100%);
+	background: linear-gradient(to right, #b6c9ab 0%, #b0c3da 60%, #c8ced4 100%);
 	position: relative;
 	overflow: hidden;
 }
 
 .panel-header .header .title {
-	color: #ffffff;
+	color: #cccccc;
 }
 
 .panel-header .header .category {
@@ -96,7 +96,7 @@
 
 .card-chart .table td {
 	border-top: none;
-	border-bottom: 1px solid #e9ecef;
+	border-bottom: 1px solid #b4b4b4;
 }
 
 .card-chart .card-progress {
