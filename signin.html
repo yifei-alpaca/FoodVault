@@ -55,17 +55,19 @@
 		<link href="assets/css/style.css" rel="stylesheet" />
 
 		<!-- Vue.js -->
-		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-		<!-- VueRecaptcha -->
+		<!-- Recaptcha -->
 		<script src="https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.min.js"></script>
-		<script
-			src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit"
-			async
-			defer
-		></script>
+		<script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer>
+		</script> 
+
 
 		<style>
+			.mt-2{
+				font-size: 30px;
+			}
+
 			.icon,
 			.icon2 {
 				font-size: 2rem;
@@ -83,38 +85,8 @@
 				padding: 0.5em 4em 0.5em 2em;
 			}
 
-			.search_input {
-				border-radius: 0.25em;
-				border-style: solid;
-				width: 70%;
-				padding: 0.5em 4em 0.5em 2em;
-			}
-
-			.list,
-			.add {
-				border-radius: 0.25em;
-				border-style: solid;
-				width: 70%;
-				padding: 0.5em 0em 0.5em 2em;
-				line-height: 25px;
-			}
-
-			.form__input2 {
-				border-color: firebrick;
-				border-radius: 0.25em;
-				border-style: solid;
-				padding: 0.5em 4em 0.5em 2em;
-				width: 70%;
-			}
-
-			form {
-				height: fit-content;
-				width: 50%;
-				background-color: #f8f8f8;
-			}
-
 			small {
-				color: firebrick;
+				color: red;
 				display: none;
 			}
 
@@ -126,13 +98,14 @@
 				height: fit-content;
 				width: 50%;
 				background-color: #f8f8f8;
+				padding-left: 5em;
 			}
 
 			.form_val .recaptcha_fail small {
 				display: block;
 			}
 
-			@media screen and (max-width: 700px) {
+			@media screen and (max-width: 747px) {
             	.mt-2{
                 	font-size: 20px
             	}
@@ -142,29 +115,46 @@
             	}
 
             	input {
-                	width: 50%
+                	width: 70%
             	}
 
             	form {
-                	width: 100%
+                	width: 60%;
+					padding-left: 3em
             	}
         	}
 
-        	@media screen and (max-width: 400px) {
+        	@media screen and (max-width: 500px) {
+				.mt-2{
+                	font-size: 18px
+            	}
+
+            	h5{
+                	font-size: 14px 
+            	}
+
             	input {
-                	width: 50% !important
+                	width: 70% 
             	}
-        	}
 
-        	@media screen and (max-width: 330px) {
-            	form {
-					width: fit-content !important
+				small{
+					font-size: 12px;
 				}
 
-            	input {
-                	width: 40% !important
-            	}
+				form{
+					width: 70%;
+					padding-left: 2em;
+				}
         	}
+
+			@media screen and (max-width: 400px) {
+				form{
+					width: 100%;
+					padding-left: 1em;
+				}
+        	}
+
+
 		</style>
 	</head>
 
@@ -211,7 +201,7 @@
 				class="d-flex align-items-center"
 				style="height: fit-content; margin-top: 5%"
 			>
-				<div class="container-fluid" id="app">
+				<div class="container-fluid" id="signin">
 					<vue_login_form></vue_login_form>
 				</div>
 			</section>
@@ -220,7 +210,7 @@
 			<!-- ======= Special Thanks and Footer Section ======= -->
 			<section id="clients" class="clients clients">
 				<div class="container">
-					<br />
+					<br>
 					<h3>Special Thanks to :</h3>
 					<div class="row my-4">
 						<div class="col-lg-4 col-md-4 col-4">
@@ -280,7 +270,156 @@
 		<!-- Template Main JS File -->
 		<script src="assets/js/main.js"></script>
 
-		<!-- Reference to signin.js -->
-		<script src="signin.js"></script>
+		<!-- Firebase -->
+		<script type="module">
+			import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
+			import { getDatabase,ref,set,get,child } from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
+			const firebaseConfig = {
+				apiKey: "AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk",
+				authDomain: "foodvault-6d35a.firebaseapp.com",
+				databaseURL: "https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app",
+				projectId: "foodvault-6d35a",
+				storageBucket: "foodvault-6d35a.appspot.com",
+				messagingSenderId: "863157964884",
+				appId: "1:863157964884:web:02b343ccf7a6d780459dc1",
+				measurementId: "G-S687X22CVW"
+			};
+			
+			const app = initializeApp(firebaseConfig);
+			const database = getDatabase(app);
+		
+
+			// Vue js
+			Vue.component('vue-recaptcha', VueRecaptcha)
+
+
+			Vue.component('vue_login_form', {
+				template: `
+				<form 
+					class="border py-5 m-auto"
+					@submit.prevent = "Submit"
+					:class= "{form_val: formVal}"
+				>
+					<h1 class="mt-2"> Login to Food Vault</h1>
+					<br>
+					<label for ="user_input"><h5>Enter your Username</h5></label>
+					<div class="form__field">
+						<input 
+						id="user_input"
+						type="text"
+						class="form__input" 
+						v-model = "user"
+						/><br>
+						<small v-if= "user == ''">Please input your username!</small>
+						<small v-else>Username is incorrect!</small>
+					</div>
+					<br>
+					<label for = "pw"><h5>Enter your password</h5></label>
+					<div class="form__field">
+						<input
+						id="pw"
+						type="password"
+						class="form__input"
+						v-model = "pass"
+						:class = "{empty: !pass}"
+						/><br>
+						<small v-if="pass == ''">Please input your password!</small>
+						<small v-else>Password is incorrect!</small>
+					</div>
+					<br>
+					<div
+						:class="{recaptcha_fail: !recaptcha}"
+					>
+						<vue-recaptcha
+							sitekey="6LfbTsMcAAAAAE1yuP37PSrBZaZiaEM5XJsugpNW"
+							@verify = "verify"
+							style = "					
+								transform: scale(0.7); 
+								-webkit-transform: scale(0.7); 
+								transform-origin: 0 0; 
+								-webkit-transform-origin: 0 0"
+						></vue-recaptcha>
+						<small>Please Check!</small>
+					</div>
+
+					<br>
+					<button class="btn btn-outline-primary">Login</button>
+				</form>
+			`,
+				data() {
+					return {
+						user: null,
+						pass: null,
+						formVal: false,
+						recaptcha: null,
+						userError: "empty",
+						passError: "empty"
+					}
+				},
+				methods: {
+					verify(response){
+						this.recaptcha = response
+					},
+
+					escape(user) {
+					user.replace(/&/g, "ysand")
+					.replace(/</g, "yslt")
+					.replace(/>/g, "ysgt")
+					.replace(/"/g, "ysquot")
+					.replace(/'/g, "ys39")
+					.replace(/#/g, "yshash")
+					.replace(new RegExp('\\$', 'g'), 'ysdollar')
+					.replace(new RegExp('\\[', 'g'), 'ysleft')
+					.replace(new RegExp('\\]', 'g'), 'ysright')
+					.replace(new RegExp('\\.', 'g'), 'ysdot')
+					},
+
+					Submit() {
+						if( this.user && this.pass){
+							var user_check = false;
+							var pass_check = false;
+
+							// Verify Username and Password
+							var bcrypt = dcodeIO.bcrypt;
+							var salt = bcrypt.genSaltSync(10);
+							var hash = bcrypt.hashSync(this.pass, salt);
+							var user = escape(this.user);
+							const db = getDatabase();
+							console.log(firebaseConfig);
+							set(ref(db, 'credentials/' + user), {
+								username: user,
+								password: hash,
+							});
+
+							const dbRef = ref(getDatabase());
+							get(child(dbRef, `credentials/${user}/username`)).then((snapshot) => {
+								if (snapshot.exists()) {
+									user_check = true;
+								}
+
+								else{
+									this.user 
+								}
+							});
+
+							get(child(dbRef, `credentials/${user}/password`)).then((snapshot) => {
+								if (snapshot.exists()) {
+									pass_check = true;
+								}
+							});
+						}
+
+					
+						else{
+							this.formVal =true
+						}
+					}
+				}
+			})
+			var signin = new Vue({
+				el: '#signin'
+			})
+		</script>
+
 	</body>
 </html>
