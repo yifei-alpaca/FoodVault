@@ -105,6 +105,7 @@
 				display: block;
 			}
 
+
 			@media screen and (max-width: 747px) {
             	.mt-2{
                 	font-size: 20px
@@ -345,7 +346,7 @@
 
 					<br>
 					<button class="btn btn-outline-primary">Login</button>
-					<small :class= "{form_val: formVal}">Incorrect username or password</small>
+					<small style = "display:block">{{error}}</small>
 				</form>
 			`,
 				data() {
@@ -354,6 +355,7 @@
 						pass: null,
 						formVal: false,
 						recaptcha: null,
+						error: null
 					}
 				},
 				methods: {
@@ -385,28 +387,27 @@
 							const dbRef = ref(getDatabase());
 							get(child(dbRef, `credentials/${user}/username`)).then((snapshot) => {
 								if (snapshot._node.value_ == user) {
-									console.log(snapshot._node.value_);
 									console.log("User pass")
+									get(child(dbRef, `credentials/${user}/password`)).then((snapshot) => {
+										if (bcrypt.compareSync(this.pass, snapshot._node.value_)){
+											console.log("Pass pass")
+										}
+		
+										else{
+											console.log("Pass fail")
+											this.error = "Incorrect Password"
+										}
+									});
 								}
 
 								else{
 									
 									console.log("User fail")
+									this.error = "Incorrect Username"
 									
 								}
 							});
 
-							get(child(dbRef, `credentials/${user}/password`)).then((snapshot) => {
-								if (bcrypt.compareSync(this.pass, snapshot._node.value_)){
-									console.log(snapshot._node.value_);
-									console.log("Pass pass")
-								}
-
-								else{
-									console.log("Pass fail")
-									
-								}
-							});
 						}
 
 					
