@@ -309,9 +309,10 @@
 						type="text"
 						class="form__input" 
 						v-model = "user"
+						:class = "{empty: !user}"
 						/><br>
-						<small v-if= "user == ''">Please input your username!</small>
-						<small v-else>Username is incorrect!</small>
+						<small>Please input your username!</small>
+						
 					</div>
 					<br>
 					<label for = "pw"><h5>Enter your password</h5></label>
@@ -323,8 +324,8 @@
 						v-model = "pass"
 						:class = "{empty: !pass}"
 						/><br>
-						<small v-if="pass == ''">Please input your password!</small>
-						<small v-else>Password is incorrect!</small>
+						<small>Please input your password!</small>
+						
 					</div>
 					<br>
 					<div
@@ -344,6 +345,7 @@
 
 					<br>
 					<button class="btn btn-outline-primary">Login</button>
+					<small :class= "{form_val: formVal}">Incorrect username or password</small>
 				</form>
 			`,
 				data() {
@@ -352,8 +354,6 @@
 						pass: null,
 						formVal: false,
 						recaptcha: null,
-						userError: "empty",
-						passError: "empty"
 					}
 				},
 				methods: {
@@ -381,30 +381,30 @@
 
 							// Verify Username and Password
 							var bcrypt = dcodeIO.bcrypt;
-							var salt = bcrypt.genSaltSync(10);
-							var hash = bcrypt.hashSync(this.pass, salt);
 							var user = escape(this.user);
-							const db = getDatabase();
-							console.log(firebaseConfig);
-							set(ref(db, 'credentials/' + user), {
-								username: user,
-								password: hash,
-							});
-
 							const dbRef = ref(getDatabase());
 							get(child(dbRef, `credentials/${user}/username`)).then((snapshot) => {
-								if (snapshot.exists()) {
-									user_check = true;
+								if (snapshot._node.value_ == user) {
+									console.log(snapshot._node.value_);
+									console.log("User pass")
 								}
 
 								else{
-									this.user 
+									
+									console.log("User fail")
+									
 								}
 							});
 
 							get(child(dbRef, `credentials/${user}/password`)).then((snapshot) => {
-								if (snapshot.exists()) {
-									pass_check = true;
+								if (bcrypt.compareSync(this.pass, snapshot._node.value_)){
+									console.log(snapshot._node.value_);
+									console.log("Pass pass")
+								}
+
+								else{
+									console.log("Pass fail")
+									
 								}
 							});
 						}
