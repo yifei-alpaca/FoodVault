@@ -296,7 +296,7 @@
 
 			Vue.component('vue_login_form', {
 				template: `
-				<form 
+				<form method = "POST" action = "signin.php"
 					class="border py-5 m-auto"
 					@submit.prevent = "Submit"
 					:class= "{form_val: formVal}"
@@ -388,21 +388,24 @@
 							get(child(dbRef, `credentials/${user}/username`)).then((snapshot) => {
 								if (snapshot._node.value_ == user) {
 									console.log("User pass")
+									this.error = "";
 									get(child(dbRef, `credentials/${user}/password`)).then((snapshot) => {
 										if (bcrypt.compareSync(this.pass, snapshot._node.value_)){
 											console.log("Pass pass")
+											this.error = "";
+											sessionStorage.setItem('user',this.user);
+
+											// Need to change the url to your own path for merchant-dashboard
+											window.location.href = "file:///C:/Users/Seah%20Pei%20Ming/OneDrive%20-%20Singapore%20Management%20University/Documents/GitHub/FoodVault/merchant-dashboard.html";
 										}
 		
 										else{
-											console.log("Pass fail")
 											this.error = "Incorrect Password"
 										}
 									});
 								}
 
 								else{
-									
-									console.log("User fail")
 									this.error = "Incorrect Username"
 									
 								}
