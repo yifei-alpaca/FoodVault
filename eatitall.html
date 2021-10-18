@@ -1,206 +1,170 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Dont waste food!</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="assets/css/quiz.css">
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
-      crossorigin="anonymous"
-    ></script>
-    <script type="text/javascript" src="assets/snake/snake.js"></script>
-    <script src="https://unpkg.com/vue@next"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <style>
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-        margin: 0px;
-        padding: 0px;
-        overflow-x: hidden;
-      }
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-      .button-box {
-        /*   background-color: blue; */
-        height: 100px;
-        width: 85px;
-        margin: auto;
-        position: relative;
-        top: 10px;
-      }
+		<title>Food Vault</title>
+		<meta content="" name="description" />
+		<meta content="" name="keywords" />
 
-      .arrow-group {
-        height: 85px;
-        width: 85px;
-        /*   background-color: yellow; */
-        position: absolute;
-        margin: auto;
-      }
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-      .up-box {
-        background-color: rgb(127, 117, 116);
-        border-radius: 4px 4px 0 0;
-        box-shadow: 2px 2px 4px black, inset 2px 2px 4px darkgray,
-          -1px -1px 2px black;
-        height: 33%;
-        width: 33%;
-        left: 33%;
-        position: absolute;
-      }
+		<!-- Favicons -->
+		<link href="./assets/img/Logo/bar-icon.jpg" sizes="32x32" rel="icon" />
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+			rel="stylesheet"
+		/>
 
-      .right-box {
-        background-color: rgb(127, 117, 116);
-        border-radius: 0 4px 4px 0;
-        box-shadow: 2px 2px 4px black, inset 0px 4px 4px -2px darkgray,
-          -1px -1px 2px black;
-        height: 33%;
-        width: 33%;
-        right: 0%;
-        top: 33%;
-        position: absolute;
-      }
+		<!-- Vendor CSS Files -->
+		<link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+		<link
+			href="assets/vendor/bootstrap/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+			rel="stylesheet"
+		/>
+		<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+		<link
+			href="assets/vendor/glightbox/css/glightbox.min.css"
+			rel="stylesheet"
+		/>
+		<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+		<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
-      .down-box {
-        background-color: rgb(127, 117, 116);
-        border-radius: 0 0 4px 4px;
-        box-shadow: 2px 2px 4px black, inset 4px 0px 4px -2px darkgray,
-          -1px -1px 2px black;
-        height: 34%;
-        width: 33%;
-        bottom: 0%;
-        left: 33%;
-        position: absolute;
-      }
+		<!-- Template Main CSS File -->
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="assets/css/quiz.css" />
+		<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+			crossorigin="anonymous"
+			/>
+			<link rel="stylesheet" type="text/css" href="assets/css/quiz.css">
+			<link rel="stylesheet" type="text/css" href="assets/css/snake.css">
+			<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+			crossorigin="anonymous"
+			></script>
+			<script type="text/javascript" src="assets/snake/snake.js"></script>
+			<script src="https://unpkg.com/vue@next"></script>
+			<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+			/>
+		
+	</head>
 
-      .center-box {
-        background-color: rgb(127, 117, 116);
-        height: 33%;
-        width: 33%;
-        left: 33%;
-        top: 33%;
-        position: absolute;
-      }
+	<body>
+		<!-- ======= Header ======= -->
+		<header id="header" class="fixed-top d-flex align-items-center">
+			<div class="container d-flex align-items-center justify-content-between">
+				<div class="logo">
+					<h1><a href="foodvault_intro.html">Food Vault</a></h1>
+					<!-- Uncomment below if you prefer to use an image logo -->
+					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+				</div>
+				<nav id="navbar" class="navbar">
+					<ul>
+						<li>
+							<a class="nav-link active" href="./foodvault_intro_v2.html"
+								>Home</a
+							>
+						</li>
+						<li>
+							<a class="nav-link" href="./foodvault_intro_v2.html#about"
+								>About</a
+							>
+						</li>
+						<!-- <li><a class="nav-link scrollto" href="#services"></a></li> -->
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link scrollto dropdown-toggle"
+								href="./foodvault_intro_v2.html"
+								id="navbarDropdownMenuLink"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Services
+							</a>
+							<ul
+								class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink"
+							>
+								<li><a class="dropdown-item" href="./learn.html">Learn</a></li>
+								<li>
+									<a class="dropdown-item" href="./games_page.html">Games</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="./foodrecipes.html"
+										>Food recipes</a
+									>
+								</li>
+								<li>
+									<a class="dropdown-item" href="./main_merchants.html"
+										>List of merchants</a
+									>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a class="nav-link" href="./foodvault_intro_v2.html#team">Team</a>
+						</li>
+						<li>
+							<a class="nav-link" href="./foodvault_intro_v2.html#faq">FAQ</a>
+						</li>
+						<li><a class="nav-link" href="signup.html">Sign up</a></li>
+						<li><a class="nav-link" href="signin.html">Sign in</a></li>
+					</ul>
+					<i class="bi bi-list mobile-nav-toggle"></i>
+				</nav>
+				<!-- .navbar -->
+			</div>
+		</header>
+		<!-- End Header -->
 
-      .left-box {
-        background-color: rgb(127, 117, 116);
-        border-radius: 4px 0 0 4px;
-        box-shadow: 0px 4px 4px -2px black, inset 2px 2px 4px darkgray,
-          -1px -1px 2px black;
-        height: 33%;
-        width: 33%;
-        top: 33%;
-        position: absolute;
-      }
-
-      .arrow {
-        height: 0;
-        width: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-bottom: 18px solid rgb(75, 70, 66);
-        left: 6px;
-        top: 5px;
-        position: absolute;
-        z-index: 1;
-      }
-
-      .arrow::after {
-        content: "";
-        height: 0;
-        width: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-bottom: 15px solid rgb(89, 79, 77);
-        left: -7px;
-        top: 3px;
-        position: absolute;
-      }
-
-      .right {
-        transform: rotate(90deg);
-      }
-
-      .down {
-        transform: rotate(180deg);
-      }
-
-      .left {
-        transform: rotate(270deg);
-      }
-
-      .dent {
-        background-color: rgb(75, 70, 66);
-        border-radius: 50%;
-        left: 6px;
-        top: 6px;
-        position: absolute;
-        height: 17px;
-        width: 17px;
-      }
-
-      .dent-highlight {
-        background-color: rgb(155, 145, 144);
-        border-radius: 50%;
-        box-shadow: 0 0 6px 3px rgb(155, 145, 144);
-        height: 5px;
-        width: 5px;
-        position: absolute;
-        right: 2px;
-        bottom: 2px;
-      }
-
-      #gamenav a:hover,
-      #gamenav a:visited:hover {
-        color: #3498db;
-        text-decoration: none;
-      }
-
-      #gamenav,
-      #gamenav a,
-      #gamenav a:visited {
-        color: black;
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container mb-0 pb-0 mt-2">
-      <h3>Games @ Food Vault</h3>
-    </div>
-    <div
-      class="d-flex container mt-0"
-      id="gamenav"
-      style="border-bottom: 1px solid lightgrey"
-    >
-      <h6>
-        <a href="quizgame.html">Food Waste Challenge </a>
-      </h6>
-      <h6 style="margin-left: 15px">
-        <a style="color:#3498db;" href="eatitall.html">Eat-it-all! </a>
-      </h6>
-    </div>
+		<!-- Game starts here  -->
+		<div
+			class="d-flex container justify-content-center"
+			id="gamenav"
+			style="border-bottom: 1px solid lightgrey; margin-top: 150px"
+		>
+			<h6>
+				<a  href="quizgame.html"
+					>1.Food Waste Challenge
+				</a>
+			</h6>
+			<h6 style="margin-left: 15px">
+				<a style="color: #3498db" href="eatitall.html">2.Eat-it-all! </a>
+			</h6>
+		</div>
     <div class="container mt-1">
        
       <div class="row justify-content-center">
         <div id="g" class="col text-center mt-0">
           <div class="row">
+
+
+			<div id="titleScreen" class="m-3">
+				<h1 class="animate__animated animate__bounceInDown">
+					Eat it all!
+				</h1>
+				<span>Choose your favorite fruit </span>
+			</div>
             
-            <h3 class="animate__animated animate__bounceInDown mb-0 mt-0">Eat it all!</h3>
-         
+
             <div class="col mt-0">
-              <span>Choose your favorite fruit </span>
               <select
                 v-model="text"
                 class="form-select mt-1"
@@ -294,4 +258,78 @@
 
     const vm = app.mount("#g");
   </script>
+
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+
+		<!-- End First Section -->
+		<main id="main">
+			<!-- ======= Special Thanks and Footer Section ======= -->
+			<section id="clients" class="clients clients">
+				<div class="container">
+					<br />
+					<h3>Special Thanks to :</h3>
+					<div class="row my-4">
+						<div class="col-lg-4 col-md-4 col-4">
+							<img
+								style="height: auto"
+								title="SMU"
+								src="assets/img/footer/SMU.png"
+								class="img-fluid"
+								alt=""
+								data-aos="zoom-in"
+							/>
+						</div>
+						<div class="col-lg-4 my-auto col-md-4 col-4">
+							<img
+								src="assets/img/footer/SCIS.webp"
+								class="img-fluid"
+								alt=""
+								data-aos="zoom-in"
+								data-aos-delay="300"
+							/>
+						</div>
+
+						<div class="col-lg-4 my-auto col-md-4 col-4">
+							<img
+								src="assets/img/footer/prof.png"
+								class="img-fluid"
+								alt=""
+								data-aos="zoom-in"
+								data-aos-delay="100"
+							/>
+						</div>
+					</div>
+				</div>
+				<br />
+				&copy; Copyright <strong>Food Vault </strong>. All Rights Reserved
+				<br />
+				<br />
+			</section>
+			<!-- Special Thanks and Footer Section -->
+		</main>
+		<!-- End #main -->
+		<a
+			href="#"
+			class="back-to-top d-flex align-items-center justify-content-center"
+			><i class="bi bi-arrow-up-short"></i
+		></a>
+		<!--  Quiz File -->
+		<script src="assets/js/questions.js"></script>
+		<script src="assets/js/quiz.js"></script>
+
+		<!-- Vendor JS Files -->
+		<script src="assets/vendor/aos/aos.js"></script>
+		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+		<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+		<script src="assets/vendor/purecounter/purecounter.js"></script>
+		<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+		<!-- Template Main JS File -->
+		<script src="assets/js/main.js"></script>
+	</body>
 </html>

@@ -10,8 +10,6 @@
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-		<!-- Favicons -->
-		<link href="./assets/img/Logo/bar-icon.jpg" sizes="32x32" rel="icon" />
 		<!-- Google Fonts -->
 		<link
 			href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -38,12 +36,6 @@
 
 		<!-- Template Main CSS File -->
 		<link href="assets/css/style.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="assets/css/quiz.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-		/>
-		<style></style>
 	</head>
 
 	<body>
@@ -114,95 +106,72 @@
 			</div>
 		</header>
 		<!-- End Header -->
-
+		<!--  CONTENT GOES HERE  -->
+		<br />
+		<!-- jumbotron -->
 		<div
-			class="d-flex container justify-content-center"
-			id="gamenav"
-			style="border-bottom: 1px solid lightgrey; margin-top: 150px"
+			class="container jumbotron rounded-3 text-center"
+			style="margin-top: 100px; justify-content: center"
 		>
-			<h6>
-				<a style="color: #3498db" href="quizgame.html"
-					>1.Food Waste Challenge
-				</a>
-			</h6>
-			<h6 style="margin-left: 15px">
-				<a href="eatitall.html">2.Eat-it-all! </a>
-			</h6>
+			<h1 class="display-5">Games</h1>
+			<br />
+			<p class="lead p-2 fs-6">
+				Challenge yourself to aim high scores with the two addictive games you
+				can play with!
+			</p>
+			<hr />
 		</div>
 
-		<div class="container mb-5">
-			<div class="row m-5">
-				<nav class="navbar nav-light p-0">
-					<a class="navbar-brand" href="./scores.html">View Highscores</a>
-					<span class="navbar-text">Score: 0</span>
-				</nav>
-			</div>
-			<div id="titleScreen" class="mt-3">
-				<h1 class="animate__animated animate__bounceInDown">
-					Food Vault's Food Waste Challenge
-				</h1>
-				<p>
-					Think you know about climate change and food wastage well? Challenge
-					yourself with our quiz! Answer all the questions to the best to your
-					knowledge. We hope this quiz helps you understand and learn more about
-					food wastage in Singapore. Your scores will be recorded in local
-					storage!
-				</p>
-				<button class="btn btn-primary" id="quizStart">Start Quiz!</button>
-			</div>
-
-			<div id="questionBlock" class="mb-5">
-				<h2 id="questionPrompt">
-					Placeholder question! I don't know what to put here yet but it's going
-					to be a difficult question.
-				</h2>
-				<button class="btn btn-primary btn-sm btnOption" id="quizOption1">
-					Wowee
-				</button>
-				<button class="btn btn-primary btn-sm btnOption" id="quizOption2">
-					Oh boy I'm stumped
-				</button>
-				<button class="btn btn-primary btn-sm btnOption" id="quizOption3">
-					This quiz is ridiculously hard
-				</button>
-				<button class="btn btn-primary btn-sm btnOption" id="quizOption4">
-					wdf why this
-				</button>
-			</div>
-
-			<div id="answerResult"></div>
-
-			<div id="endGameBlock">
-				<h1>End of Challenge!</h1>
-				<p>Your score is:</p>
-				<h3 id="showScore"></h3>
-				<form id="submitInitials">
-					<div class="form-group">
-						<label for="inputInitials">Enter Your name</label>
-						<input
-							type="text"
-							class="form-control"
-							id="playerInitials"
-							value=""
-						/>
+		<section id="services" class="services">
+			<!-- ======= More Services Section ======= -->
+			<section id="more-services" class="more-services">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 d-flex align-items-stretch">
+							<div
+								class="card"
+								style="background-image: url('./assets/snake/snakedp.jpeg')"
+								data-aos="fade-up"
+								data-aos-delay="100"
+							>
+								<div class="card-body">
+									<h5 class="card-title"><a href="">Eat-it-all!</a></h5>
+									<p class="card-text">What is the highest score you can go?</p>
+									<div class="read-more">
+										<a href="./eatitall.html"
+											><i class="bi bi-arrow-right"></i> Play Now!</a
+										>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 d-flex align-items-stretch mt-md-0">
+							<div
+								class="card"
+								style="background-image: url('./assets/img/quiz.jpg')"
+								data-aos="fade-up"
+								data-aos-delay="200"
+							>
+								<div class="card-body">
+									<h5 class="card-title">
+										<a href="">Food Waste Challenge</a>
+									</h5>
+									<p class="card-text">
+										How much do you know about food wastage?
+									</p>
+									<div class="read-more">
+										<a href="./quizgame.html"
+											><i class="bi bi-arrow-right"></i> Play Now!</a
+										>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<button type="submit" class="btn btn-primary" id="submitButton">
-						Submit
-					</button>
-				</form>
-				<div class="alert alert-danger" id="alertBox" style="display: none">
-					Please enter your name
 				</div>
-			</div>
-		</div>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
+			</section>
+			<!-- End More Services Section -->
+		</section>
 
 		<!-- End First Section -->
 		<main id="main">
@@ -256,9 +225,6 @@
 			class="back-to-top d-flex align-items-center justify-content-center"
 			><i class="bi bi-arrow-up-short"></i
 		></a>
-		<!--  Quiz File -->
-		<script src="assets/js/questions.js"></script>
-		<script src="assets/js/quiz.js"></script>
 
 		<!-- Vendor JS Files -->
 		<script src="assets/vendor/aos/aos.js"></script>
