@@ -106,24 +106,42 @@
             get(child(dbRef, `merchants`)) 
                 .then((snapshot) => {
                     if (snapshot.exists()) {
+                        var counter = 1;
+
                         snapshot.forEach(function(childSnapshot) {
                         var key = childSnapshot.key;
                         var childData = childSnapshot.val();
-                        console.log(childData);
-
+                        
                         var merchantName= childData.merchant.split("@")[0];
                         merchantName = unescape(merchantName);
-                        document.getElementById("card-header").innerHTML = merchantName;
 
                         var description = childData.description;
                         description = unescape(description);
-                        document.getElementById("card-description").innerHTML = description;
 
                         var imageurl = childData.imageurl;
                         imageurl = unescape(imageurl);
-                        console.log(imageurl);
-                        document.getElementById("card-image").src = imageurl;
                         
+                        
+
+                        var e = document.getElementById("col" + counter);
+                        e.innerHTML =
+                            `<div class="card shadow-sm" style="height: 100%;">
+
+                                <img id="card-image" style="max-width: 100%; height: 280px;" src="${imageurl}" alt="">
+
+                                    <div class="card-body">
+                                        <p id="card-header" style="font-weight: bold;">${merchantName}</p>
+                                        <p id="card-description">${description}<br><br></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group" style="position:absolute; bottom:10px;">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                onclick="location.href='individual_merchant.html'">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                        </div>`;
+                        counter += 1;
                     })
                     } else {
                         console.log("No data available");
@@ -142,195 +160,18 @@
                     <div class="album py-5 bg-light">
                         <div class="container">
 
-                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                                <div class="col">
-                                    <div class="card shadow-sm" style="height: 500px;">
-
-                                        <img id = "card-image" style="max-width: 100%; height: 280px;"
-                                            src="" alt="">
-
-                                        <div class="card-body">
-                                            <p id="card-header" style="font-weight: bold;"></p>
-                                            <p id="card-description"></p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group" style="position:absolute; bottom:10px;">
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary"
-                                                        onclick="location.href='individual_merchant.html'">View</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card shadow-sm" style="height: 100%;">
-
-                                        <img style="max-width: 100%; height: 280px;"
-                                            src="https://www.breadtalk.com.sg/wp-content/uploads/2020/03/BT_Apple-Worm_Website_450x450.jpg"
-                                            alt="">
-
-                                        <div class="card-body">
-                                            <p class="card-text"><b>Breadtalk</b> - A bread selling place located at
-                                                Breadtalk IHQ with excellent finger food and top-notch service!</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group" style="position:absolute; bottom:10px;">
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary"
-                                                        onclick="location.href='individual_merchant.html'">View</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card shadow-sm">
-                                        <img style=" max-width: 100%; height: 280px;"
-                                            src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg">
-
-                                        <div class="card-body">
-                                            <p class="card-text">This is a wider card with supporting text below as a
-                                                natural lead-in to additional content. This content is a little bit
-                                                longer.</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-outline-secondary">View</button>
-                                                </div>
-                                                <small class="text-muted">Bread</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col">
-                                    <div class="card shadow-sm">
-                                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225">
-                                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%"
-                                                fill="#eceeef" dy=".3em">Breadtalk</text>
-                                        </svg>
-
-                                        <div class="card-body">
-                                            <p class="card-text">This is a wider card with supporting text below as a
-                                                natural lead-in to additional content. This content is a little bit
-                                                longer.</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-outline-secondary">View</button>
-                                                </div>
-                                                <small class="text-muted">Bread</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card shadow-sm">
-                                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225">
-                                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%"
-                                                fill="#eceeef" dy=".3em">Breadtalk</text>
-                                        </svg>
-
-                                        <div class="card-body">
-                                            <p class="card-text">This is a wider card with supporting text below as a
-                                                natural lead-in to additional content. This content is a little bit
-                                                longer.</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-outline-secondary">View</button>
-                                                </div>
-                                                <small class="text-muted">Bread</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card shadow-sm">
-                                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225">
-                                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%"
-                                                fill="#eceeef" dy=".3em">Breadtalk</text>
-                                        </svg>
-
-                                        <div class="card-body">
-                                            <p class="card-text">This is a wider card with supporting text below as a
-                                                natural lead-in to additional content. This content is a little bit
-                                                longer.</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-outline-secondary">View</button>
-                                                </div>
-                                                <small class="text-muted">Bread</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col">
-                                    <div class="card shadow-sm">
-                                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225">
-                                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%"
-                                                fill="#eceeef" dy=".3em">Breadtalk</text>
-                                        </svg>
-
-                                        <div class="card-body">
-                                            <p class="card-text">This is a wider card with supporting text below as a
-                                                natural lead-in to additional content. This content is a little bit
-                                                longer.</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-outline-secondary">View</button>
-                                                </div>
-                                                <small class="text-muted">Bread</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card shadow-sm">
-                                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225">
-                                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%"
-                                                fill="#eceeef" dy=".3em">Breadtalk</text>
-                                        </svg>
-
-                                        <div class="card-body">
-                                            <p class="card-text">This is a wider card with supporting text below as a
-                                                natural lead-in to additional content. This content is a little bit
-                                                longer.</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-outline-secondary">View</button>
-                                                </div>
-                                                <small class="text-muted">Bread</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card shadow-sm">
-                                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225">
-                                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%"
-                                                fill="#eceeef" dy=".3em">Breadtalk</text>
-                                        </svg>
-
-                                        <div class="card-body">
-                                            <p class="card-text">This is a wider card with supporting text below as a
-                                                natural lead-in to additional content. This content is a little bit
-                                                longer.</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="btn-group">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-outline-secondary">View</button>
-                                                </div>
-                                                <small class="text-muted">Bread</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3">
+                                <div id="col1"></div>
+                                <div id="col2"></div>
+                                <div id="col3"></div>
+                                <div id="col4"></div>
+                                <div id="col5"></div>
+                                <div id="col6"></div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </body>
         </div>
