@@ -140,7 +140,7 @@
 			class="container jumbotron rounded-3 p-3"
 			style="margin-top: 100px; justify-content: center"
 		>
-			<h1 class="display-5 p-2">Welcome back XXX</h1>
+			<h1 class="display-5 p-2" id = "user">Welcome back XXX</h1>
 			<p class="lead p-2">
 				How much have you reduced food waste with Food Vault
 			</p>
@@ -586,6 +586,17 @@
 				// Javascript method's body can be found in assets/js/demos.js
 				data.initDashboardPageCharts();
 			});
+			// Get value of user from local storage
+			var user = sessionStorage.getItem("user")
+			// Display user if login correct or if there is login else have to redirect back to login
+			if (user){
+				document.getElementById("user").innerHTML = "Welcome back " + user
+			}
+
+			// Need to change the url to your own path for login
+			else{
+				window.location.href = "file:///C:/Users/Seah%20Pei%20Ming/OneDrive%20-%20Singapore%20Management%20University/Documents/GitHub/FoodVault/signin.html";
+			}
 		</script>
 	</body>
 </html>
