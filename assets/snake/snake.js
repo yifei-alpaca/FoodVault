@@ -260,18 +260,29 @@ window.onload = function () {
         });
 
         left.addEventListener("click", function () {
+
+            if (gameover) {
+                tryNewGame();
+            }
             if (snake.direction != 1) {
                 snake.direction = 3;
             }
         });
 
         right.addEventListener("click", function () {
+
+            if (gameover) {
+                tryNewGame();
+            }
             if (snake.direction != 3) {
                 snake.direction = 1;
             }
         });
 
         down.addEventListener("click", function () {
+            if (gameover) {
+                tryNewGame();
+            }
             if (snake.direction != 0) {
                 snake.direction = 2;
             }

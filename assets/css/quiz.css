@@ -82,8 +82,8 @@ h1, h2 {
 }
 
 .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
-    background: #800080;
-    border-color: #800080;
+    background: #052afc;
+    border-color: #052afc;
 }
 
 .btnOption {
