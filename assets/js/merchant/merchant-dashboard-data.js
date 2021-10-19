@@ -206,6 +206,11 @@ data = {
 		gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
 		gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.4)");
 
+		var bigCharts = [];
+		for (let i = 0; i < 12; i++) {
+			bigCharts.push(Math.floor(Math.random() * 20000) + 2000);
+		}
+
 		var myChart = new Chart(ctx, {
 			type: "line",
 			data: {
@@ -238,10 +243,12 @@ data = {
 						fill: true,
 						backgroundColor: gradientFill,
 						borderWidth: 2,
-						data: [
-							23540, 24940, 29890, 21650, 16584, 14870, 20640, 16430, 14720,
-							19340, 15780, 12320,
-						],
+						data: bigCharts,
+						// hard code:
+						// data: [
+						// 	23540, 24940, 29890, 21650, 16584, 14870, 20640, 16430, 14720,
+						// 	19340, 15780, 12320,
+						// ],
 					},
 				],
 			},
@@ -318,6 +325,11 @@ data = {
 		gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
 		gradientFill.addColorStop(1, hexToRGB("#2d8c28", 0.4));
 
+		var timeChart = [];
+		for (let i = 0; i < 4; i++) {
+			timeChart.push(Math.floor(Math.random() * 200) + 50);
+		}
+
 		myChart = new Chart(ctx, {
 			type: "line",
 			responsive: true,
@@ -336,7 +348,8 @@ data = {
 						fill: true,
 						backgroundColor: gradientFill,
 						borderWidth: 2,
-						data: [232, 89, 120, 610],
+						data: timeChart,
+						// [232, 89, 120, 610],
 					},
 				],
 			},
@@ -351,6 +364,11 @@ data = {
 		gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
 		gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
 		gradientFill.addColorStop(1, hexToRGB("#2a648c", 0.6));
+
+		var weekChart = [];
+		for (let i = 0; i < 7; i++) {
+			weekChart.push(Math.floor(Math.random() * 1500) + 100);
+		}
 
 		var a = {
 			type: "bar",
@@ -377,7 +395,8 @@ data = {
 						pointRadius: 4,
 						fill: true,
 						borderWidth: 2,
-						data: [861, 1024, 856, 606, 1023, 1217, 1148],
+						data: weekChart,
+						// [861, 1024, 856, 606, 1023, 1217, 1148],
 					},
 				],
 			},

@@ -46,8 +46,9 @@
 		<link href="assets/css/styledashboard.css" rel="stylesheet" />
 		<!-- Vue.js -->
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
 	</head>
-	<body onload="retrieveMerchant()">
+	<body>
 		<!-- ======= Header ======= -->
 		<header id="header" class="fixed-top d-flex align-items-center">
 			<div class="container d-flex align-items-center justify-content-between">
@@ -70,16 +71,16 @@
 
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 								<li>
-									<a class="dropdown-item" href="#">User0456 leaves a review</a>
+									<a class="dropdown-item" href="#reviews">User0456 leaves a review</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="#">You have 3 new tasks</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">User0218 leaves a review</a>
+									<a class="dropdown-item" href="#reviews">User0218 leaves a review</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">User0067 leaves a review</a>
+									<a class="dropdown-item" href="#reviews">User0067 leaves a review</a>
 								</li>
 							</ul>
 						</div>
@@ -172,6 +173,7 @@
 							<canvas id="bigDashboardChart"></canvas>
 						</div>
 					</div>
+					
 
 					<!-- cards -->
 					<div class="card-deck mt-5 container">
@@ -190,13 +192,15 @@
 												<p class="card-text">
 													<small class="text-muted">No. of receiver</small>
 												</p>
-												<h5 class="card-title">000000</h5>
+												<h5 id='receiver' class="card-title"></h5>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+						
 							<!-- style imgHover -->
+
 							<div
 								class="col-lg-3 col-md-6 col-sm-6"
 								onclick="document.getElementById('staticBackdropLabel').style.display='block'"
@@ -216,7 +220,7 @@
 												<p class="card-text">
 													<small class="text-muted">No. of food donated</small>
 												</p>
-												<h5 class="card-title">000000</h5>
+												<h5 id="fooddonate" class="card-title"></h5>
 											</div>
 										</div>
 									</div>
@@ -257,31 +261,31 @@
 												<tbody>
 													<tr>
 														<th scope="row">Monday</th>
-														<td>0000</td>
+														<td>5486</td>
 													</tr>
 													<tr>
 														<th scope="row">Tuesday</th>
-														<td>0000</td>
+														<td>7845</td>
 													</tr>
 													<tr>
 														<th scope="row">Wednesday</th>
-														<td>0000</td>
+														<td>1354</td>
 													</tr>
 													<tr>
 														<th scope="row">Thursday</th>
-														<td>0000</td>
+														<td>6876</td>
 													</tr>
 													<tr>
 														<th scope="row">Friday</th>
-														<td>0000</td>
+														<td>2455</td>
 													</tr>
 													<tr>
 														<th scope="row">Saturday</th>
-														<td>0000</td>
+														<td>1245</td>
 													</tr>
 													<tr>
 														<th scope="row">Sunday</th>
-														<td>0000</td>
+														<td>3689</td>
 													</tr>
 												</tbody>
 											</table>
@@ -298,9 +302,11 @@
 									</div>
 								</div>
 							</div>
+			
 
 							<!--  Card 3 -->
 							<div
+								id='reviews'
 								class="col-lg-3 col-md-6 col-sm-6"
 								onclick="document.getElementById('staticBackdropLabel2').style.display='block'"
 								data-bs-toggle="modal"
@@ -585,9 +591,29 @@
 		<!-- Template Main JS File -->
 		<script src="assets/js/main.js"></script>
 
+		<!--  generate random and data when window onload -->
+		<script>
+			var randomReceiver = 0;
+				for (let i = 0; i < 1; i++) {
+					randomReceiver += Math.floor(Math.random() * 600000) + 500;
+				} 
+			var randomDonate = 0;
+				for (let i = 0; i < 1; i++) {
+					randomDonate += Math.floor(Math.random() * 600000) + 500;
+				} 
+
+			// console.log(randomReceiver)
+			window.onload = function () {
+				
+				document.getElementById('receiver').innerHTML = randomReceiver;
+				document.getElementById('fooddonate').innerHTML = randomDonate;
+				retrieveMerchant()	
+				}
+		</script>
+
+		<!-- Sessions and retrieve data from firebase  -->
 		<script>
 			$(document).ready(function () {
-				// Javascript method's body can be found in assets/js/demos.js
 				data.initDashboardPageCharts();
 			});
 			// Get value of user from local storage
