@@ -31,7 +31,7 @@ var app = new Vue({
 					"https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
 			},
 			{
-				headlineFirstLine: "Donate",
+				headlineFirstLine: "Donate Leftover",
 				sublineFirstLine: "Singapore Management University",
 				bgImg:
 					"https://images.unsplash.com/photo-1609139027234-57570f43f692?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",

@@ -261,7 +261,7 @@ body ::-moz-selection {
 	right: 0;
 	align-items: flex-end;
 }
-@media (max-width: 630px) {
+@media (max-width: 100px) {
 	.controls-container {
 		display: none;
 	}
@@ -277,10 +277,10 @@ body ::-moz-selection {
 	transition: 0.25s ease-in-out;
 	outline: 0;
 }
-@media (max-width: 730px) {
+@media (max-width: 760px) {
 	.controls-button {
-		padding: 1.2rem 1.4rem;
-		min-width: 13rem;
+		padding: 1.4rem 1.4rem;
+		min-width: 8rem;
 	}
 }
 .controls-button:not(.active):hover {
@@ -296,7 +296,7 @@ body ::-moz-selection {
 	margin-bottom: -0.3rem;
 	position: relative;
 }
-@media (max-width: 730px) {
+@media (max-width: 760px) {
 	.controls-button.active {
 		padding-top: 1.4rem;
 		padding-bottom: 1.4rem;
