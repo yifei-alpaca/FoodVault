@@ -117,38 +117,73 @@
   </style>
 </head>
 <body>
-    <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex align-items-center justify-content-between">
-            <div class="logo">
-                <h1><a href="foodvault_intro.html">Food Vault</a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-            </div>
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link" href="foodvault_intro.html">Home</a></li>
-                    <li>
-                        <a class="nav-link" href="foodvault_intro.html#about">About</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="foodvault_intro.html#services"
-                            >Services</a
-                        >
-                    </li>
-                    <li>
-                        <a class="nav-link" href="foodvault_intro.html#team">Team</a>
-                    </li>
-                    <li><a class="nav-link" href="foodvault_intro.html#faq">FAQ</a></li>
-                    <li><a class="nav-link" href="learn.html">Learn</a></li>
-                    <li><a class="nav-link active" href="#">Sign up</a></li>
-                    <li><a class="nav-link" href="signin.html">Sign in</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar -->
-        </div>
-    </header>
+    <!-- ======= Header ======= -->
+		<header id="header" class="fixed-top d-flex align-items-center">
+			<div class="container d-flex align-items-center justify-content-between">
+				<div class="logo">
+					<h1><a href="foodvault_intro.html">Food Vault</a></h1>
+					<!-- Uncomment below if you prefer to use an image logo -->
+					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+				</div>
+				<nav id="navbar" class="navbar">
+					<ul>
+						<li>
+							<a class="nav-link active" href="./foodvault_intro_v2.html"
+								>Home</a
+							>
+						</li>
+						<li>
+							<a class="nav-link" href="./foodvault_intro_v2.html#about"
+								>About</a
+							>
+						</li>
+						<!-- <li><a class="nav-link scrollto" href="#services"></a></li> -->
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link scrollto dropdown-toggle"
+								href="./foodvault_intro_v2.html"
+								id="navbarDropdownMenuLink"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Services
+							</a>
+							<ul
+								class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink"
+							>
+								<li><a class="dropdown-item" href="./learn.html">Learn</a></li>
+								<li>
+									<a class="dropdown-item" href="./games_page.html">Games</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="./recipe_generator.html"
+										>Food recipes</a
+									>
+								</li>
+								<li>
+									<a class="dropdown-item" href="./main_merchants.html"
+										>List of merchants</a
+									>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a class="nav-link" href="./foodvault_intro_v2.html#team">Team</a>
+						</li>
+						<li>
+							<a class="nav-link" href="./foodvault_intro_v2.html#faq">FAQ</a>
+						</li>
+						<li><a class="nav-link" href="signup.html">Sign up</a></li>
+						<li><a class="nav-link" href="signin.html">Sign in</a></li>
+					</ul>
+					<i class="bi bi-list mobile-nav-toggle"></i>
+				</nav>
+				<!-- .navbar -->
+			</div>
+		</header>
+		<!-- End Header -->
 
     <section id="home" class="d-flex align-items-center" style="height: fit-content;">
      
@@ -157,7 +192,9 @@
           data-aos-delay="400">
 
             <div class="section-title " style="width:85%; margin:auto;"       >
-                <h2>Recipe generator</h2>
+				<h1 class="display-5">Recipe generator</h1>
+                <br>
+
                 <p style="margin-top:0px; margin-bottom: 0px;">Try out our recipe generator! You can either add your leftover food yourself, click and drag the common food waste item found in household, or a combination of both! Click generate when you are ready or click reset to remove all!</p>
               </div>
           <div class=" py-2 m-auto">
