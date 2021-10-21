@@ -16,18 +16,6 @@
 body {
 	cursor: default;
 }
-body ::-moz-selection {
-	background-color: rgba(46, 49, 52, 0.7);
-	color: #f5f5f1;
-}
-body ::selection {
-	background-color: rgba(46, 49, 52, 0.7);
-	color: #f5f5f1;
-}
-body ::-moz-selection {
-	background-color: rgba(46, 49, 52, 0.7);
-	color: #f5f5f1;
-}
 
 .wrapper {
 	height: calc(100vh - 50px);

@@ -43,16 +43,14 @@
 		<header id="header" class="fixed-top d-flex align-items-center">
 			<div class="container d-flex align-items-center justify-content-between">
 				<div class="logo">
-					<h1><a href="foodvault_intro.html">Food Vault</a></h1>
+					<h1><a href="./foodvault_intro_v2.html">Food Vault</a></h1>
 					<!-- Uncomment below if you prefer to use an image logo -->
 					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 				</div>
 				<nav id="navbar" class="navbar">
 					<ul>
 						<li>
-							<a class="nav-link active" href="./foodvault_intro_v2.html"
-								>Home</a
-							>
+							<a class="nav-link" href="./foodvault_intro_v2.html">Home</a>
 						</li>
 						<li>
 							<a class="nav-link" href="./foodvault_intro_v2.html#about"
@@ -60,10 +58,16 @@
 							>
 						</li>
 						<!-- <li><a class="nav-link scrollto" href="#services"></a></li> -->
+						<li>
+							<a class="nav-link" href="./foodvault_intro_v2.html#team">Team</a>
+						</li>
+						<li>
+							<a class="nav-link" href="./foodvault_intro_v2.html#faq">FAQ</a>
+						</li>
 						<li class="nav-item dropdown">
 							<a
-								class="nav-link scrollto dropdown-toggle"
-								href="./foodvault_intro_v2.html"
+								class="nav-link active dropdown-toggle"
+								href="#services"
 								id="navbarDropdownMenuLink"
 								role="button"
 								data-bs-toggle="dropdown"
@@ -81,21 +85,15 @@
 								</li>
 								<li>
 									<a class="dropdown-item" href="./recipe_generator.html"
-										>Food recipes</a
+										>Recipes Generators</a
 									>
 								</li>
 								<li>
 									<a class="dropdown-item" href="./main_merchants.html"
-										>List of merchants</a
+										>List of Merchants</a
 									>
 								</li>
 							</ul>
-						</li>
-						<li>
-							<a class="nav-link" href="./foodvault_intro_v2.html#team">Team</a>
-						</li>
-						<li>
-							<a class="nav-link" href="./foodvault_intro_v2.html#faq">FAQ</a>
 						</li>
 						<li><a class="nav-link" href="signup.html">Sign up</a></li>
 						<li><a class="nav-link" href="signin.html">Sign in</a></li>
@@ -113,38 +111,21 @@
 			class="container jumbotron rounded-3 text-center"
 			style="margin-top: 100px; justify-content: center"
 		>
-			<h1 class="display-5">Games</h1>
-			<br />
-			<p class="lead p-2 fs-6">
+			<div class="section-title" data-aos="fade-up">
+				<h2>Games</h2>
+			</div>
+
+			<p class="lead fs-6">
 				Challenge yourself to aim high scores with the two addictive games you
 				can play with!
 			</p>
-			<hr />
 		</div>
 
-		<section id="services" class="services">
+		<section id="services" class="services mt-0 pt-0">
 			<!-- ======= More Services Section ======= -->
 			<section id="more-services" class="more-services">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-6 d-flex align-items-stretch">
-							<div
-								class="card"
-								style="background-image: url('./assets/snake/snakedp.jpeg')"
-								data-aos="fade-up"
-								data-aos-delay="100"
-							>
-								<div class="card-body">
-									<h5 class="card-title"><a href="">Eat-it-all!</a></h5>
-									<p class="card-text">What is the highest score you can go?</p>
-									<div class="read-more">
-										<a href="./eatitall.html"
-											><i class="bi bi-arrow-right"></i> Play Now!</a
-										>
-									</div>
-								</div>
-							</div>
-						</div>
 						<div class="col-md-6 d-flex align-items-stretch mt-md-0">
 							<div
 								class="card"
@@ -161,6 +142,24 @@
 									</p>
 									<div class="read-more">
 										<a href="./quizgame.html"
+											><i class="bi bi-arrow-right"></i> Play Now!</a
+										>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 d-flex align-items-stretch">
+							<div
+								class="card"
+								style="background-image: url('./assets/snake/snakedp.jpeg')"
+								data-aos="fade-up"
+								data-aos-delay="100"
+							>
+								<div class="card-body">
+									<h5 class="card-title"><a href="">Eat-it-all!</a></h5>
+									<p class="card-text">What is the highest score you can go?</p>
+									<div class="read-more">
+										<a href="./eatitall.html"
 											><i class="bi bi-arrow-right"></i> Play Now!</a
 										>
 									</div>

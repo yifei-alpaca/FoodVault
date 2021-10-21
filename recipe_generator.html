@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-		<title>Food Vault - Food Recipe</title>
+		<title>Food Vault - Food Recipes Generator</title>
 		<meta content="" name="description" />
 		<meta content="" name="keywords" />
 
@@ -48,100 +48,103 @@
           .card-img-top{
             height:250px;
           }
+
+          @media (max-width: 667px) {
+                 h2 {
+                    /* max-width: 100%; */
+                    font-size: 20px !important;
+                }
+            }
     
 
-  .div{
-      display: flex;
-  }
+            .div{
+                display: flex;
+            }
 
-.dropzone-wrapper {
-    margin: 25px auto;
-    width:90%;
-}
+            .dropzone-wrapper {
+                margin: 25px auto;
+                width:90%;
+            }
 
-.dropzone {
-    overflow: hidden;
-    margin:auto;
-    width: 100%;
-    height: auto;
-    color: #3498db;
-    text-align: center;
-    background: #fff;
-    line-height: fit-content;
-    min-height:200px;
-    border: 2px dashed transparent;
-    border-color: #3498db;
-    transition: background .15s linear, border-color .15s linear;
-   
-}
+            .dropzone {
+                overflow: hidden;
+                margin:auto;
+                width: 100%;
+                height: auto;
+                color: #3498db;
+                text-align: center;
+                background: #fff;
+                line-height: fit-content;
+                min-height:200px;
+                border: 2px dashed transparent;
+                border-color: #3498db;
+                transition: background .15s linear, border-color .15s linear;
+            
+            }
 
-#dropzone1{
-    width: 100%;
-    height:fit-content;
-    word-wrap: break-word;
-    line-height: fit-content;
-}
+            #dropzone1{
+                width: 100%;
+                height:fit-content;
+                word-wrap: break-word;
+                line-height: fit-content;
+            }
 
-.dropzone.-drop-possible {
-  border-color: #3498db;
-}
+            .dropzone.-drop-possible {
+            border-color: #3498db;
+            }
 
-.dropzone.-drop-over {
-    background: #77bef0;
-    color: #fff;
-}
-
-
-.draggable-food {
-    position: relative;
-    z-index: 10;
-    width: 10%;
-    margin:auto;
-    height: auto;
-    line-height: 150px;
-    color: #fff;
-    text-align: center;
-    border-radius: 100%;
-    -ms-touch-action: none;
-        touch-action: none;
-}
+            .dropzone.-drop-over {
+                background: #77bef0;
+                color: #fff;
+            }
 
 
-#f{
-    border:2px solid rgb(89, 139, 248);
-    padding: 5px;
-}
+            .draggable-food {
+                position: relative;
+                z-index: 10;
+                width: 10%;
+                margin:auto;
+                height: auto;
+                line-height: 150px;
+                color: #fff;
+                text-align: center;
+                border-radius: 100%;
+                -ms-touch-action: none;
+                    touch-action: none;
+            }
+
+
+            #f{
+                border:2px solid rgb(89, 139, 248);
+                padding: 5px;
+            }
 
 
 
-  </style>
+        </style>
 </head>
 <body>
-    <!-- ======= Header ======= -->
+     <!-- ======= Header ======= -->
 		<header id="header" class="fixed-top d-flex align-items-center">
 			<div class="container d-flex align-items-center justify-content-between">
 				<div class="logo">
-					<h1><a href="foodvault_intro.html">Food Vault</a></h1>
+					<h1><a href="./foodvault_intro_v2.html">Food Vault</a></h1>
 					<!-- Uncomment below if you prefer to use an image logo -->
 					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 				</div>
 				<nav id="navbar" class="navbar">
 					<ul>
 						<li>
-							<a class="nav-link active" href="./foodvault_intro_v2.html"
-								>Home</a
-							>
+							<a class="nav-link" href="./foodvault_intro_v2.html">Home</a>
 						</li>
-						<li>
-							<a class="nav-link" href="./foodvault_intro_v2.html#about"
-								>About</a
-							>
-						</li>
+						<li><a class="nav-link " href="./foodvault_intro_v2.html#about">About</a></li>
 						<!-- <li><a class="nav-link scrollto" href="#services"></a></li> -->
+						<li><a class="nav-link" href="./foodvault_intro_v2.html#team">Team</a></li>
+						<li><a class="nav-link " href="./foodvault_intro_v2.html#faq">FAQ</a></li>
 						<li class="nav-item dropdown">
 							<a
-								class="nav-link scrollto dropdown-toggle"
-								href="./foodvault_intro_v2.html"
+								class="nav-link active dropdown-toggle"
+								href="#services"
 								id="navbarDropdownMenuLink"
 								role="button"
 								data-bs-toggle="dropdown"
@@ -159,21 +162,15 @@
 								</li>
 								<li>
 									<a class="dropdown-item" href="./recipe_generator.html"
-										>Food recipes</a
+										>Recipes Generators</a
 									>
 								</li>
 								<li>
 									<a class="dropdown-item" href="./main_merchants.html"
-										>List of merchants</a
+										>List of Merchants</a
 									>
 								</li>
 							</ul>
-						</li>
-						<li>
-							<a class="nav-link" href="./foodvault_intro_v2.html#team">Team</a>
-						</li>
-						<li>
-							<a class="nav-link" href="./foodvault_intro_v2.html#faq">FAQ</a>
 						</li>
 						<li><a class="nav-link" href="signup.html">Sign up</a></li>
 						<li><a class="nav-link" href="signin.html">Sign in</a></li>
@@ -185,19 +182,24 @@
 		</header>
 		<!-- End Header -->
 
-    <section id="home" class="d-flex align-items-center" style="height: fit-content;">
+
+    <section id="services" class="d-flex align-items-center" style="height: fit-content;">
      
        
-          <div class="container " data-aos="fade-up"
-          data-aos-delay="400">
+        <div class="container mt-5 pt-3" data-aos="fade-up"
+        data-aos-delay="400">
 
-            <div class="section-title " style="width:85%; margin:auto;"       >
-				<h1 class="display-5">Recipe generator</h1>
-                <br>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Recipe Generator</h2>  
+        </div>
+       
 
+            <div class="section-title" style="width:85%; margin:auto;"       >
+                <div class="container mb-0 pb-0">
+				</div>
                 <p style="margin-top:0px; margin-bottom: 0px;">Try out our recipe generator! You can either add your leftover food yourself, click and drag the common food waste item found in household, or a combination of both! Click generate when you are ready or click reset to remove all!</p>
-              </div>
-          <div class=" py-2 m-auto">
+            </div>
+        <div class=" py-2 m-auto">
            
           
             <div class="dropzone-wrapper">
