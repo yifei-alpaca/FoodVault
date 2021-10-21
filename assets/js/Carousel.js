@@ -75,7 +75,7 @@ var app = new Vue({
 				? (this.isPreviousSlide = true)
 				: (this.isPreviousSlide = false);
 			this.currentSlide = index;
-			this.isFirstLoad = false;
+			this.isFirstLoad = true;
 		},
 	},
 });
