@@ -145,27 +145,79 @@
                         <!--The div element for the map -->
                         <div id="map" data-aos="fade-up" data-aos-delay="200"></div>
                         <script>
+
+
+
+            
+
                             window.onload = function () {
+                              
                                 var url = document.location.href,
                                     params = url.split('?')[1].split('&'),
                                     data = {},
                                     tmp;
 
+                             
+
                                 for (var i = 0, l = params.length; i < l; i++) {
                                     tmp = params[0].split('=')[1].split('%20');
                                     var header = tmp.join(' ');
+                                 header =    header.replace(/ysand/g, "&")
+                    .replace(/yslt/g, "<")
+                    .replace(/ysgt/g, ">") 
+                    .replace(/ysquot/g, '"')
+                    .replace(/ys39/g, "'")
+                    .replace(/yshash/g, "#")
+                    .replace(new RegExp('\\ysdollar', 'g'), '$')
+                    .replace(new RegExp('\\ysleft', 'g'), '[')
+                    .replace(new RegExp('\\ysright', 'g'), ']')
+                    .replace(new RegExp('\\ysdot', 'g'), '.')
+                    .replace(new RegExp('\\ysslsh', 'g'), '/')
+                    .replace(new RegExp('\\ysqnmark', 'g'), '?')
+                                
                                 }
                                 for (var i = 0, l = params.length; i < l; i++) {
                                     tmp = params[1].split('=')[1].split('%20');
                                     var description = tmp.join(' ');
+                                   description = description.replace(/ysand/g, "&")
+                    .replace(/yslt/g, "<")
+                    .replace(/ysgt/g, ">") 
+                    .replace(/ysquot/g, '"')
+                    .replace(/ys39/g, "'")
+                    .replace(/yshash/g, "#")
+                    .replace(new RegExp('\\ysdollar', 'g'), '$')
+                    .replace(new RegExp('\\ysleft', 'g'), '[')
+                    .replace(new RegExp('\\ysright', 'g'), ']')
+                    .replace(new RegExp('\\ysdot', 'g'), '.')
+                    .replace(new RegExp('\\ysslsh', 'g'), '/')
+                    .replace(new RegExp('\\ysqnmark', 'g'), '?')
+                                   
                                 }
                                 for (var i = 0, l = params.length; i < l; i++) {
                                     tmp = params[2].split('=')[1];
                                     var imageUrl = tmp;
+                                    
+                  
+                                    imageUrl = imageUrl.replace(/ysand/g, "&")
+                    .replace(/yslt/g, "<")
+                    .replace(/ysgt/g, ">") 
+                    .replace(/ysquot/g, '"')
+                    .replace(/ys39/g, "'")
+                    .replace(/yshash/g, "#")
+                    .replace(new RegExp('\\ysdollar', 'g'), '$')
+                    .replace(new RegExp('\\ysleft', 'g'), '[')
+                    .replace(new RegExp('\\ysright', 'g'), ']')
+                    .replace(new RegExp('\\ysdot', 'g'), '.')
+                    .replace(new RegExp('\\ysslsh', 'g'), '/')
+                    .replace(new RegExp('\\ysqnmark', 'g'), '?')
+
+            
+                                   
                                 }
                                 for (var i = 0, l = params.length; i < l; i++) {
                                     tmp = params[3].split('=')[1];
                                     var postalCode = tmp;
+                                    
                                 }
 
                                 document.getElementById("merchantName").innerHTML = header;
@@ -173,6 +225,7 @@
                                 document.getElementById("imageUrl").src = imageUrl;
                                 geocode(postalCode);
                             }
+                            
 
                             function geocode(postal) {
                                 var location = postal;
