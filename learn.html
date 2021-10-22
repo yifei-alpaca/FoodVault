@@ -130,11 +130,13 @@
                 </div>
                 <div class="col-xl-6 col-12">
               
-                  <!-- ======= Charts Section ======= -->
+                  <!-- =========================== Charts Section ============================== -->
                   
             <div class="container pb-2">
+              <h5 class="text-center">The amount of food waste generated in the past 10 years in ('000 tonnes)</h5>
+              <br>
               <canvas id="myChart" width="70%" height="50%"></canvas>
-            <p class="text-muted text-center">Data: https://www.nea.gov.sg</p>
+            <p class="text-muted text-center" style="font-size: x-small;">Data: https://www.nea.gov.sg</p>
             <br>
             <br>
 
@@ -159,19 +161,19 @@
                   ],
                   datasets: [
                     {
-                      label: "Food Waste Disposed of('000 tonnes)",
+                      label: "Food Waste Disposed",
                       data: [606, 618, 696, 687, 681, 680, 677, 637, 607, 539],
                       backgroundColor: "rgba(74, 140, 112, 0.6)",
                       borderColor: ["rgba(74, 140, 112)"],
                     },
                     {
-                      label: "Food Waste Recycled('000 tonnes)",
+                      label: "Food Waste Recycled",
                       data: [70, 85, 100, 101, 104, 111, 133, 126, 136, 126],
                       backgroundColor: "rgba(74, 119, 140, 0.6)",
                       borderColor: ["rgba(74, 119, 140)"],
                     },
                     {
-                      label: "Total Food Waste Generated('000 tonnes)",
+                      label: "Total Food Waste Generated",
                       data: [676, 703, 796, 789, 786, 791, 810, 763, 744, 655],
                       backgroundColor: "rgba(135, 140, 74, 0.6)",
                       borderColor: ["rgba(135, 140, 74)"],
@@ -179,9 +181,13 @@
                   ],
                 },
                 options: {
+                  
+                  
                   scales: {
                     y: {
                       title: {
+                        position:"top",
+                        align: "start",
                         display: true,
                         text: "('000 tonnes)",
                       },
