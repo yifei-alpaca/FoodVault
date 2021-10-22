@@ -221,28 +221,7 @@
     </section>
 
     <script>
-        function escape(htmlStr) {
-            // console.log(htmlStr);
-            return htmlStr.replace(/&/g, "ysand")
-                .replace(/</g, "yslt")
-                .replace(/>/g, "ysgt")
-                .replace(/"/g, "ysquot")
-                .replace(/'/g, "ys39")
-                .replace(/#/g, "yshash")
-                .replace(new RegExp('\\$', 'g'), 'ysdollar')
-                .replace(new RegExp('\\[', 'g'), 'ysleft')
-                .replace(new RegExp('\\]', 'g'), 'ysright')
-                .replace(new RegExp('\\.', 'g'), 'ysdot')
-                .replace(new RegExp('\\/', 'g'), 'ysslsh')
-                .replace(new RegExp('\\?', 'g'), 'ysmark')
-        }
-
         function viewMore(header, description, image, postal) {
-            header = escape(header);
-            description = escape(description);
-            image = escape(image);
-            postal = escape(postal);
-            
             url = 'individual_merchant.html?header=' + header + "&description=" + description + "&image=" + image +
                 "&postal=" + postal;
             document.location.href = url;
