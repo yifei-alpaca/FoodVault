@@ -261,6 +261,10 @@ data = {
 						bottom: 0,
 					},
 				},
+				// title: {
+				// 	display: true,
+				// 	text: "Food Donated (by months)",
+				// },
 				maintainAspectRatio: false,
 				tooltips: {
 					backgroundColor: "#fff",

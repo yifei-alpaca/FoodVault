@@ -46,7 +46,6 @@
 		<link href="assets/css/styledashboard.css" rel="stylesheet" />
 		<!-- Vue.js -->
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-		
 	</head>
 	<body>
 		<!-- ======= Header ======= -->
@@ -62,457 +61,172 @@
 								>Home &nbsp; &nbsp;</a
 							>
 						</li>
-						<!-- Notification -->
-
-						<div class="dropdown">
-							<li class="nav-item">
-								<img src="assets/img/merchant/notification.png" width="30x30" />
-							</li>
-
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-								<li>
-									<a class="dropdown-item" href="#reviews">User0456 leaves a review</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">You have 3 new tasks</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#reviews">User0218 leaves a review</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#reviews">User0067 leaves a review</a>
-								</li>
-							</ul>
-						</div>
-						&nbsp; &nbsp; &nbsp;
-
+				
 						<!-- Profile -->
 
-						<div class="dropdown">
-							<li class="nav-item">
-								<img src="assets/img/merchant/user.png" width="30x30" />
-							</li>
-
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-								<!-- <li>
-									<a
-										data-bs-toggle="offcanvas"
-										data-bs-target="#offcanvasRight"
-										aria-controls="offcanvasRight"
-										>Profile
-									</a>
-
-									<div
-										class="offcanvas offcanvas-end"
-										tabindex="-1"
-										id="offcanvasRight"
-										aria-labelledby="offcanvasRightLabel"
-									>
-										<div class="offcanvas-header">
-											<h5 id="">Offcanvas right</h5>
-											<button
-												type="button"
-												class="btn-close text-reset"
-												data-bs-dismiss="offcanvas"
-												aria-label="Close"
-											></button>
-										</div>
-										<div class="offcanvas-body">...</div>
-									</div>
-								</li> -->
-
-								<li>
-									<a class="dropdown-item" onclick="sessionLogout()" href="#"
-										>Logout</a
-									>
-								</li>
-							</ul>
-						</div>
+						<li>
+							<a onclick="sessionLogout()" href="#"
+								>Logout</a
+							>
+						</li>
 					</ul>
 
-					<!-- <i class="bi bi-list mobile-nav-toggle"></i> -->
+					<i class="bi bi-list mobile-nav-toggle"></i>
 				</nav>
 				<!-- .navbar -->
 			</div>
 		</header>
-		<!-- End Header -->
 
-		<!-- jumbotron -->
-		<div
-			class="container jumbotron rounded-3"
-			style="margin-top: 100px; justify-content: center"
-		>
-		<div class="row">
-			
-			<div class='col pt-5 mt-3'>
-				<h1 class="display-5" id="user"></h1>
-				<br>
-				<br>
-				<p class="lead p-2 fs-6">
-					How much food waste you have reduced with Food Vault
-				</p>
-			</div>
-			<div class='col text-center'><img id="userImg" src="" style="width: 400px;"/>
-				<p id="getAddress" class=" text-muted x-small"></p>
-			</div>
-
-		</div>
-
-			<hr class="my-4" />
-		</div>
 		
-
-		<!-- FIREBASE VUE  -->
-		<!-- <div class="container-fluid" id="merchant_dashboard">
-			<vue_dashboard></vue_dashboard> -->
-		</div>
-					<!-- Line chart -->
-					<div class="container">
-						<!-- <h3 class="lead text-center fs-3">Overview<br /></h3> -->
-						<div class="panel-header panel-header-lg rounded-3 shadow-lg">
-							<canvas id="bigDashboardChart"></canvas>
-						</div>
-					</div>
-					
-
-					<!-- cards -->
-					<div class="card-deck mt-5 container">
-						<div class="row justify-content-between">
-							<div class="col-lg-3 col-md-6 col-sm-6">
-								<div class="card mb-3 shadow">
-									<div class="row g-0">
-										<div class="col-md-7 imgHover1">
-											<img
-												src="assets/img/merchant/melanie-lim-nD3wunG16Fo-unsplash.jpg"
-												class="img-fluid rounded-start"
-											/>
-										</div>
-										<div class="col-md">
-											<div class="card-body">
-												<p class="card-text">
-													<small class="text-muted">No. of receiver</small>
-												</p>
-												<h5 id='receiver' class="card-title"></h5>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						
-							<!-- style imgHover -->
-
-							<div
-								class="col-lg-3 col-md-6 col-sm-6"
-								onclick="document.getElementById('staticBackdropLabel').style.display='block'"
-								data-bs-toggle="modal"
-								data-bs-target="#staticBackdrop"
-							>
-								<div class="card mb-3 shadow">
-									<div class="row g-0">
-										<div class="col-md-7 imgHover2">
-											<img
-												src="assets/img/merchant/joel-muniz-BErJJL_KsjA-unsplash.jpg"
-												class="img-fluid rounded-start"
-											/>
-										</div>
-										<div class="col-md">
-											<div class="card-body">
-												<p class="card-text">
-													<small class="text-muted">No. of food donated</small>
-												</p>
-												<h5 id="fooddonate" class="card-title"></h5>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Modal -->
-							<div
-								class="modal fade"
-								id="staticBackdrop"
-								data-bs-backdrop="static"
-								data-bs-keyboard="false"
-								tabindex="-1"
-								aria-labelledby="staticBackdropLabel"
-								aria-hidden="true"
-							>
-								<div class="modal-dialog modal-dialog-centered">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="staticBackdropLabel">
-												Food Donated
-											</h5>
-											<button
-												type="button"
-												class="btn-close"
-												data-bs-dismiss="modal"
-												aria-label="Close"
-											></button>
-										</div>
-										<div class="modal-body">
-											<table class="table">
-												<thead>
-													<tr>
-														<th scope="col">Days</th>
-														<th scope="col">#</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<th scope="row">Monday</th>
-														<td>5486</td>
-													</tr>
-													<tr>
-														<th scope="row">Tuesday</th>
-														<td>7845</td>
-													</tr>
-													<tr>
-														<th scope="row">Wednesday</th>
-														<td>1354</td>
-													</tr>
-													<tr>
-														<th scope="row">Thursday</th>
-														<td>6876</td>
-													</tr>
-													<tr>
-														<th scope="row">Friday</th>
-														<td>2455</td>
-													</tr>
-													<tr>
-														<th scope="row">Saturday</th>
-														<td>1245</td>
-													</tr>
-													<tr>
-														<th scope="row">Sunday</th>
-														<td>3689</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<div class="modal-footer">
-											<button
-												type="button"
-												class="btn btn-secondary"
-												data-bs-dismiss="modal"
-											>
-												Close
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-			
-
-							<!--  Card 3 -->
-							<div
-								id='reviews'
-								class="col-lg-3 col-md-6 col-sm-6"
-								onclick="document.getElementById('staticBackdropLabel2').style.display='block'"
-								data-bs-toggle="modal"
-								data-bs-target="#staticBackdrop2"
-							>
-								<div class="card mb-3 shadow">
-									<div class="row">
-										<div class="col-md-7 imgHover3">
-											<img
-												src="assets/img/merchant/joel-muniz-3k3l2brxmwQ-unsplash.jpg"
-												class="img-fluid rounded-start"
-											/>
-										</div>
-										<div class="col-md">
-											<div class="card-body">
-												<p class="card-text">
-													<small class="text-muted">Reviews</small>
-												</p>
-												<h5 class="card-title">
-													4.5/5
-													<img
-														src="assets/img/merchant/4.5.PNG"
-														align="right"
-														width="80px"
-													/>
-												</h5>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Modal Review -->
-							<div
-								class="modal fade"
-								id="staticBackdrop2"
-								data-bs-backdrop="static"
-								data-bs-keyboard="false"
-								tabindex="-1"
-								aria-labelledby="staticBackdropLabel2"
-								aria-hidden="true"
-							>
-								<div
-									class="
-										modal-dialog modal-dialog-centered modal-dialog-scrollable
-									"
-								>
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="staticBackdropLabel2">
-												Reviews from Receiver
-											</h5>
-											<button
-												type="button"
-												class="btn-close"
-												data-bs-dismiss="modal"
-												aria-label="Close"
-											></button>
-										</div>
-										<div class="modal-body">
-											<div class="card text-dark mb-3" style="max-width: 30rem">
-												<div class="card-header fs-5 bg-transparent">
-													User0456
-													<img
-														src="assets/img/merchant/5.PNG"
-														align="right"
-														width="100px"
-													/>
-												</div>
-												<div class="card-body bg-light">
-													<p class="card-text">
-														I'm so glad that they have this service. Their
-														service is good & have friendly staff too. Thank
-														you.
-													</p>
-												</div>
-											</div>
-											<div class="card text-dark mb-3" style="max-width: 30rem">
-												<div class="card-header fs-5 bg-transparent">
-													User0218
-													<img
-														src="assets/img/merchant/4.5.PNG"
-														align="right"
-														width="100px"
-													/>
-												</div>
-												<div class="card-body bg-light">
-													<p class="card-text">
-														Portion of the food is reasonable, eventho its free
-													</p>
-												</div>
-											</div>
-											<div class="card text-dark mb-3" style="max-width: 30rem">
-												<div class="card-header fs-5 bg-transparent">
-													User0067
-													<img
-														src="assets/img/merchant/3.5.PNG"
-														align="right"
-														width="100px"
-													/>
-												</div>
-												<div class="card-body bg-light">
-													<p class="card-text text-muted">No comments</p>
-												</div>
-											</div>
-											<div class="card text-dark mb-3" style="max-width: 30rem">
-												<div class="card-header fs-5 bg-transparent">
-													User1321
-													<img
-														src="assets/img/merchant/4.PNG"
-														align="right"
-														width="100px"
-													/>
-												</div>
-												<div class="card-body bg-light">
-													<p class="card-text">Good.</p>
-												</div>
-											</div>
-											<div class="card text-dark mb-3" style="max-width: 30rem">
-												<div class="card-header fs-5 bg-transparent">
-													User0980
-													<img
-														src="assets/img/merchant/4.5.PNG"
-														align="right"
-														width="100px"
-													/>
-												</div>
-												<div class="card-body bg-light">
-													<p class="card-text">Good Service & friendly staff</p>
-												</div>
-											</div>
-											<div class="card text-dark mb-3" style="max-width: 30rem">
-												<div class="card-header fs-5 bg-transparent">
-													User2139
-													<img
-														src="assets/img/merchant/3.5.PNG"
-														align="right"
-														width="100px"
-													/>
-												</div>
-												<div class="card-body bg-light">
-													<p class="card-text text-muted">No comments</p>
-												</div>
-											</div>
-											<div class="card text-dark mb-3" style="max-width: 30rem">
-												<div class="card-header fs-5 bg-transparent">
-													User0892
-													<img
-														src="assets/img/merchant/5.PNG"
-														align="right"
-														width="100px"
-													/>
-												</div>
-												<div class="card-body bg-light">
-													<p class="card-text text-muted">No comments</p>
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button
-												type="button"
-												class="btn btn-secondary"
-												data-bs-dismiss="modal"
-											>
-												Close
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Line chart -->
-					<div class="container mt-4 mb-5">
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="card card-chart shadow">
-									<div class="list-group-item border-light">
-										<h4 class="card-title lead">No. of Receiver</h4>
-										<p class="fs-6 lead">By Hours</p>
-									</div>
-									<div class="card-body">
-										<div class="chart-area">
-											<canvas id="lineChartExampleWithNumbersAndGrid"></canvas>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Bar chart -->
-							<div class="col-lg-6">
-								<div class="card card-chart shadow">
-									<div class="list-group-item border-light">
-										<h4 class="card-title lead">No. of Receiver</h4>
-										<p class="fs-6 lead">By Week</p>
-									</div>
-									<div class="card-body">
-										<div class="chart-area">
-											<canvas id="barChartSimpleGradientsNumbers"></canvas>
-										</div>
-									</div>
-								</div>
-							</div>
+		<div class="container-fluid">
+			<div class="row" style="background-color: rgb(243, 243, 243)">
+				<!-- -----------------------------------------MERCHANT DETAILS STARTS HERE ------------------------------------- -->
+				<div class="col-12 col-lg-3"  >
+					<div class="card w-70 shadow" style="margin-top: 100px;height:420px;">
+						<div class="card-body text-center">
+							<h3 id="user"></h3>
+							<p class="lead p-2 fs-6">
+								How much food waste you have reduced with Food Vault
+							</p>
+							<img id="userImg" src="" style="width:250px; height:50%; margin: auto" />
+							<p
+								id="getAddress"
+								class="text-muted "
+								style="font-size: 12px"
+							></p>
 						</div>
 					</div>
 				</div>
+
+				<!-- ------------------------------------DASHBOARD LAYOUT STARTS HERE-------------------------->
+
+				<div class="col" style="margin-top: 100px">
+					<!-- cards -->
+				<!-- <div class="card-deck mt-5 container"> -->
+					<div class="row justify-content-between">
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="card h-100 mb-3 shadow">
+								<div class="row g-0">
+									<div class="col-md">
+										<div class="card-body">
+											<p class="card-text">
+												<small class="text-muted ">No. of receiver</small>
+											</p>
+											<h5 id="receiver" class="card-title text-center fs-3" style="font-family:sans-serif"></h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="card h-100 mb-3 shadow">
+								<div class="row g-0">
+									<div class="col-md">
+										<div class="card-body">
+											<p class="card-text">
+												<small class="text-muted">No. of food donated</small>
+											</p>
+											<h5 id="fooddonate" class="card-title text-center fs-3" style="font-family:sans-serif"></h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--  Card 3-->
+						<div id="reviews" class="col-lg-3 col-md-6 col-sm-6">
+							<div class="card h-100 mb-3 shadow">
+								<div class="row">
+									<div class="col-md">
+										<div class="card-body">
+											<p class="card-text">
+												<small class="text-muted">No. of kg food donated</small>
+											</p>
+											<h5 id='kilograms' class="card-title text-center fs-3" style="font-family:sans-serif"></h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--  Card 4-->
+						<div id="reviews" class="col-lg-3 col-md-6 col-sm-6">
+							<div class="card h-100 mb-3 shadow">
+								<div class="row">
+									<div class="col-md">
+										<div class="card-body">
+											<p class="card-text">
+												<small class="text-muted">Avg. food donated per year</small>
+											</p>
+											<h5 id='avgYear'class="card-title text-center fs-3" style="font-family:sans-serif"></h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- </div> -->
+					<!-- --------------------------------------------2 sub Line chart ------------------------------------ -->
+					<!-- <div class="container mt-4 mb-5"> -->
+					<div class="row my-4">
+						<div class="col-lg-6">
+							<div class="card card-chart shadow">
+								<div class="list-group-item border-light">
+									<h4 class="card-title lead">No. of Receiver</h4>
+									<p class="fs-6 lead">By Hours</p>
+								</div>
+								<div class="card-body">
+									<div class="chart-area mt-2">
+										<canvas id="lineChartExampleWithNumbersAndGrid"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Bar chart -->
+						<div class="col-lg-6">
+							<div class="card card-chart shadow">
+								<div class="list-group-item border-light">
+									<h4 class="card-title lead">No. of Receiver</h4>
+									<p class="fs-6 lead">By Week</p>
+								</div>
+								<div class="card-body">
+									<div class="chart-area mt-2">
+										<canvas id="barChartSimpleGradientsNumbers"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+			</div>
+				<!-- ----------------------------------------------------END ROW ------------------------------------------------ -->
+				
+				<!-- ---------------------------------------------------------BIG Line chart----------------------------------------- -->
+
+				<!-- <h3 class="lead text-center fs-3">Overview<br /></h3> -->
+			<div class="row mb-4 p-0 m-0">
+				<div class="col mt-2">
+					<!-- <h2>Food Donated</h2>
+					<h4>by months</h4> -->
+					<div class="card card-chart shadow">
+						<div class="list-group-item border-light">
+							<h3 class="card-title lead text-center">Food Donated <span style="font-size: x-small;">by months</span></h3>
+						</div>
+						<div class="card-body">
+							<div class="panel-header panel-header-lg rounded-3 shadow-lg">
+								<canvas id="bigDashboardChart"></canvas>
+							</div>
+							
+						</div>
+					</div>
+
+					
+				</div>
+
+				<!-- ----------------------------------------------------END COL  ------------------------------------------------ -->
+			</div>
+		</div>
 
 		<!-- ======= Special Thanks and Footer Section ======= -->
 		<section id="clients" class="clients clients">
@@ -594,21 +308,30 @@
 		<!--  generate random and data when window onload -->
 		<script>
 			var randomReceiver = 0;
-				for (let i = 0; i < 1; i++) {
-					randomReceiver += Math.floor(Math.random() * 600000) + 500;
-				} 
+			for (let i = 0; i < 1; i++) {
+				randomReceiver += Math.floor(Math.random() * 600000) + 500;
+			}
 			var randomDonate = 0;
-				for (let i = 0; i < 1; i++) {
-					randomDonate += Math.floor(Math.random() * 600000) + 500;
-				} 
+			for (let i = 0; i < 1; i++) {
+				randomDonate += Math.floor(Math.random() * 600000) + 500;
+			}
+			var randomKg = 0;
+			for (let i = 0; i < 1; i++) {
+				randomKg += Math.floor(Math.random() * 5000) + 200;
+			}
+			var avgYear = 0;
+			for (let i = 0; i < 1; i++) {
+				avgYear += Math.floor(Math.random() * 20000) + 2000;
+			}
 
 			// console.log(randomReceiver)
 			window.onload = function () {
-				
-				document.getElementById('receiver').innerHTML = randomReceiver;
-				document.getElementById('fooddonate').innerHTML = randomDonate;
-				retrieveMerchant()	
-				}
+				document.getElementById("receiver").innerHTML = randomReceiver;
+				document.getElementById("fooddonate").innerHTML = randomDonate;
+				document.getElementById("kilograms").innerHTML = randomKg + 'kg';
+				document.getElementById("avgYear").innerHTML = avgYear;
+				retrieveMerchant();
+			};
 		</script>
 
 		<!-- Sessions and retrieve data from firebase  -->
@@ -626,10 +349,8 @@
 					"user"
 				).innerHTML = `Welcome back  <b>${user.toUpperCase()}<b>`;
 				// console.log(user)
-			}
-			else {
-				window.location.href =
-					"./signin.html";
+			} else {
+				window.location.href = "./signin.html";
 			}
 
 			// Logout
@@ -679,7 +400,7 @@
 						get(child(dbRef, `merchants/` + merchantPK))
 							.then((snapshot) => {
 								if (snapshot.exists()) {
-									console.log(snapshot.val());
+									// console.log(snapshot.val());
 									var address = snapshot.val().address;
 									var changeadd = address
 										.replace("ysand", "&")
