@@ -23,11 +23,15 @@
 
     <!-- Axios-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
       rel="stylesheet"
     />
+
+    <!-- Font Awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
@@ -120,6 +124,18 @@
         background-color: #F8F8F8;
       }
 
+      .eyeslash{
+        position: relative;
+        right: 80px;
+        display: inline
+      }
+
+      .eye{
+        position: relative;
+        right: 80px;
+        display: none
+      }
+
 @media screen and (max-width: 700px) {
             	.mt-2{
                 	font-size: 20px
@@ -140,7 +156,7 @@
 
         	@media screen and (max-width: 400px) {
             	input {
-                	width: 50% !important
+                	width: 60% !important;
             	}
         	}
 
@@ -156,13 +172,27 @@
               font-size: 18px;
             }
 
-            	form {
-					width: fit-content !important
-				}
+            form {
+					    width: fit-content !important
+				    }
 
-            	input {
-                	width: 70% !important
-            	}
+            input {
+              width: 70% !important
+            }
+
+            .eyeslash{
+              position: relative;
+              right: -110px;
+              top: -35px;
+              display: inline
+            }
+
+            .eye{
+              position: relative;
+              right: -110px;
+              top: -35px;
+              display: none
+            }
         	}
 
 
@@ -254,7 +284,7 @@
             <h1 style="font-size:30px" class="mt-1"> Register with Food Vault</h1>
 
             
-            <h5 class="mt-3">Search for your business : </h5>
+            <label for = "sp"><h5 class="mt-3">Search for your business : </h5></label>
             <div class="form__field">
  
               <input type="text" list="shop" id="sp" class="list" oninput="fill()" onchange="populate(this)"  style="font-size: 12px;" />
@@ -276,7 +306,7 @@
               </p>
             </div>
 
-            <h5>Short description of your business : </h5>
+            <label for = "des"><h5>Short description of your business : </h5></label>
             <div class="form__field">
               <input type="text" id="des" class="des" maxlength="120"   style="font-size: 12px;"/>
             
@@ -286,7 +316,7 @@
             </div>
 
             <div class="mb-0">
-              <h5>Attach an image url of your business : </h5>
+              <label for = "formFileSm"><h5>Attach an image url of your business : </h5></label>
               <input type="text" id="formFileSm" id="im" class="des form-control form-control-sm" style="font-size: 12px;"/>
 
             </div>
@@ -295,7 +325,7 @@
              </p>
 
 
-            <h5>Enter your Username</h5>
+            <label for = "use_input"><h5>Enter your Username</h5></label>
             <div class="form__field">
               <input id="use_input"
                 type="text"
@@ -315,7 +345,7 @@
 
 
 
-            <h5>Enter your password</h5>
+            <label for = "pw"><h5>Enter your password</h5></label>
             <div class="form__field">
               <input
                 id="pw"
@@ -326,14 +356,16 @@
                 required 
               />
               <span class="icon"></span>
+              <span class = "eyeslash" onclick = "toggle()"> <i class="far fa-eye-slash" aria-hidden="true"></i> </span>
+              <span class = "eye" onclick = "toggle()"> <i class="far fa-eye" aria-hidden="true"></i> </span>
               <p class="mt-1" id="hint" style="font-size: 12px;">
                 Password must contain at least : 8 characters,an upper case
                 letter,a lower case letter
               </p>
             </div>
 
+            <label for = "pw2"><h5>Re-Enter your password</h5></label>
             <div class="form__field2">
-              <h5>Re-Enter your password</h5>
               <input
                 id="pw2"
                 type="password"
@@ -342,6 +374,8 @@
                 required
               />
               <span class="icon2">😳</span>
+              <span class = "eyeslash" onclick = "toggleRe()"> <i class="far fa-eye-slash" aria-hidden="true" ></i> </span>
+              <span class = "eye" onclick = "toggleRe()"> <i class="far fa-eye" aria-hidden="true" ></i> </span>
               <p class="mt-1" id="check1" style="font-size: 12px">
                 Password must match
               </p>
@@ -418,8 +452,51 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
+    <!-- Toggle password -->
+    <script>
+      var state = false;
+      function toggle(){
+        var pw = document.getElementById("pw");
+        var eye = document.getElementsByClassName("eye")[0];
+        var eyeslash = document.getElementsByClassName("eyeslash")[0];
+        if (state){
+          pw.setAttribute("type","password");
+          eye.style.display = "none";
+          eyeslash.style.display = "inline";
+          state = false;
+        }
 
-       <!-- add this-->
+        else{
+          pw.setAttribute("type","text")
+          eye.style.display = "inline";
+          eyeslash.style.display = "none";
+          state = true;
+        }
+      }
+
+      // Toggle Reenter password
+      function toggleRe(){
+        var pw2 = document.getElementById("pw2");
+        var eye = document.getElementsByClassName("eye")[1];
+        var eyeslash = document.getElementsByClassName("eyeslash")[1];
+        if (state){
+          pw2.setAttribute("type","password");
+          eye.style.display = "none";
+          eyeslash.style.display = "inline";
+          state = false;
+        }
+
+        else{
+          pw2.setAttribute("type","text")
+          eye.style.display = "inline";
+          eyeslash.style.display = "none";
+          state = true;
+        }
+      }
+    </script>
+
+
+
     <script type="module">
      
  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
