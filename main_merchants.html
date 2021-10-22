@@ -165,6 +165,9 @@
                         var description = childData.description;
                         description = unescape(description);
 
+                        var address = childData.address;
+                        address = unescape(address);
+
                         var imageurl = childData.imageurl;
                         imageurl = unescape(imageurl);                  
 
@@ -176,11 +179,12 @@
 
                                     <div class="card-body">
                                         <p id="card-header" style="font-weight: bold;">${merchantName}</p>
-                                        <p id="card-description">${description}<br><br></p>
+                                        <p id="card-description">${description}<br></p>
+                                        <p id="card-address" style="font-size: small;">${address}<br><br></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group" style="position:absolute; bottom:10px;">
                                             <button type="button" class="btn btn-sm btn-outline-secondary"
-                                                onclick="viewMore('${merchantName}', '${description}', '${imageurl}', '${postal}')">View</button>
+                                                onclick="viewMore('${merchantName}', '${description}', '${imageurl}', '${postal}', '${address}')">View</button>
                                             </div>
                                         </div>
                                     </div>
@@ -221,29 +225,28 @@
     </section>
 
     <script>
+        function escape(str) {
+            return str
+                .replace(/&/g, "ysand")
+                .replace(/</g, "yslt")
+                .replace(/>/g, "ysgt")
+                .replace(/"/g, "ysquot")
+                .replace(/'/g, "ys39")
+                .replace(/#/g, "yshash")
+                .replace(new RegExp("\\$", "g"), "ysdollar")
+                .replace(new RegExp("\\[", "g"), "ysleft")
+                .replace(new RegExp("\\]", "g"), "ysright")
+                .replace(new RegExp("\\?", "g"), "ysqnmark")
+                .replace(new RegExp("\\.", "g"), "ysdot");
+        }
 
-
-function escape(str) {
-					return	str
-							.replace(/&/g, "ysand")
-							.replace(/</g, "yslt")
-							.replace(/>/g, "ysgt")
-							.replace(/"/g, "ysquot")
-							.replace(/'/g, "ys39")
-							.replace(/#/g, "yshash")
-							.replace(new RegExp("\\$", "g"), "ysdollar")
-							.replace(new RegExp("\\[", "g"), "ysleft")
-							.replace(new RegExp("\\]", "g"), "ysright")
-                            .replace(new RegExp("\\?", "g"), "ysqnmark")
-							.replace(new RegExp("\\.", "g"), "ysdot");
-					}
-
-        function viewMore(header, description, image, postal) {
+        function viewMore(header, description, image, postal, address) {
             header = escape(header)
             description = escape(description)
             image = escape(image)
+            address = escape(address)
             url = 'individual_merchant.html?header=' + header + "&description=" + description + "&image=" + image +
-                "&postal=" + postal;
+                "&postal=" + postal + "&address=" + address;
             document.location.href = url;
             console.log(url)
         }
