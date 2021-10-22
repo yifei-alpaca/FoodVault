@@ -33,6 +33,9 @@
 			rel="stylesheet"
 		/>
 
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
 		<!-- Vendor CSS Files -->
 		<link href="assets/vendor/aos/aos.css" rel="stylesheet" />
 		<link
@@ -105,6 +108,11 @@
 
 			.form_val .recaptcha_fail small {
 				display: block;
+			}
+
+			span{
+				position: relative;
+				right: 30px
 			}
 
 			@media screen and (max-width: 747px) {
@@ -353,6 +361,7 @@
 						<input 
 						id="user_input"
 						type="text"
+						placeholder = "Username"
 						class="form__input" 
 						v-model = "user"
 						:class = "{empty: !user}"
@@ -365,11 +374,15 @@
 					<div class="form__field">
 						<input
 						id="pw"
-						type="password"
+						:type= "passwordFieldType"
+						placeholder = "Password"
 						class="form__input"
 						v-model = "pass"
 						:class = "{empty: !pass}"
-						/><br>
+						/>
+						<span v-if="passwordFieldType === 'password'"> <i class="far fa-eye-slash" aria-hidden="true" id="eyeslash" @click = "toggle"></i> </span>
+						<span v-else><i class= "far fa-eye" aria-hidden="true" id = "eye" @click = "toggle"></i></span>
+						<br>
 						<small>Please input your password!</small>
 						
 					</div>
@@ -398,11 +411,12 @@
 			`,
 				data() {
 					return {
-						user: null,
-						pass: null,
+						user: "",
+						pass: "",
 						formVal: false,
 						recaptcha: null,
-						error: null,
+						error: "",
+						passwordFieldType: "password"
 					};
 				},
 				methods: {
@@ -424,6 +438,16 @@
 							.replace(new RegExp("\\.", "g"), "ysdot");
 					},
 
+					toggle(){
+						if(this.passwordFieldType === "password"){
+							this.passwordFieldType = "text"
+						}
+
+						else{
+							this.passwordFieldType = "password"
+						}
+					},
+
 					Submit() {
 						if (this.user && this.pass) {
 							var user_check = false;
@@ -437,14 +461,12 @@
 							get(child(dbRef, `credentials/${user}/username`)).then(
 								(snapshot) => {
 									if (snapshot._node.value_ == user) {
-										console.log("User pass");
 										this.error = "";
 										get(child(dbRef, `credentials/${user}/password`)).then(
 											(snapshot) => {
 												if (
 													bcrypt.compareSync(this.pass, snapshot._node.value_)
 												) {
-													console.log("Pass pass");
 													this.error = "";
 													sessionStorage.setItem("user", this.user);
 
@@ -468,6 +490,10 @@
 			var signin = new Vue({
 				el: "#signin",
 			});
+		</script>
+
+		<script>
+
 		</script>
 	</body>
 </html>
