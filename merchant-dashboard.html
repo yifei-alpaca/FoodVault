@@ -140,7 +140,7 @@
 									<div class="col-md">
 										<div class="card-body">
 											<p class="card-text">
-												<small class="text-muted">No. of kg food donated</small>
+												<small class="text-muted">No. of kg food saved</small>
 											</p>
 											<h5 id='kilograms' class="card-title text-center fs-3" style="font-family:sans-serif"></h5>
 										</div>
@@ -156,9 +156,9 @@
 									<div class="col-md">
 										<div class="card-body">
 											<p class="card-text">
-												<small class="text-muted">Avg. food donated per year</small>
+												<small class="text-muted">% decrease in food wastage</small>
 											</p>
-											<h5 id='avgYear'class="card-title text-center fs-3" style="font-family:sans-serif"></h5>
+											<h5 id='percentage'class="card-title text-center fs-3" style="font-family:sans-serif"></h5>
 										</div>
 									</div>
 								</div>
@@ -319,9 +319,9 @@
 			for (let i = 0; i < 1; i++) {
 				randomKg += Math.floor(Math.random() * 5000) + 200;
 			}
-			var avgYear = 0;
+			var percentage = 0;
 			for (let i = 0; i < 1; i++) {
-				avgYear += Math.floor(Math.random() * 20000) + 2000;
+				percentage += Math.floor(Math.random() * 100);
 			}
 
 			// console.log(randomReceiver)
@@ -329,7 +329,7 @@
 				document.getElementById("receiver").innerHTML = randomReceiver;
 				document.getElementById("fooddonate").innerHTML = randomDonate;
 				document.getElementById("kilograms").innerHTML = randomKg + 'kg';
-				document.getElementById("avgYear").innerHTML = avgYear;
+				document.getElementById("percentage").innerHTML = percentage + '%';
 				retrieveMerchant();
 			};
 		</script>
