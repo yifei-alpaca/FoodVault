@@ -155,10 +155,10 @@
                         snapshot.forEach(function(childSnapshot) {
                         var key = childSnapshot.key;
                         var childData = childSnapshot.val();
-                        console.log(childData);
+                        // console.log(childData);
                         
                         var postal = childData.address.slice(-6);
-                        console.log(postal);
+                        // console.log(postal);
                         
                         var merchantName= childData.merchant.split("@")[0];
                         merchantName = unescape(merchantName);
@@ -249,7 +249,7 @@
             url = 'individual_merchant.html?header=' + header + "&description=" + description + "&image=" + image +
                 "&postal=" + postal + "&address=" + address;
             document.location.href = url;
-            console.log(url)
+            // console.log(url)
         }
     </script>
 
