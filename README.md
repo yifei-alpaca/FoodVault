@@ -1,7 +1,7 @@
 # FoodVault
 
 ## Introduction
-FoodVault is a responsive web application that seeks to help reduce food waste 
+FoodVault is a responsive web application that seeks to help reduce food waste via the donation of leftover food from merchants to users
 
 ## Setup 
 No setup is required
