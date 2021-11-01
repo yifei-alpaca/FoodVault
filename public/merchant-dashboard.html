@@ -58,7 +58,7 @@
 				<nav id="navbar" class="navbar">
 					<ul>
 						<li>
-							<p id="user"></p>
+							<p class='mt-3'id="user"></p>
 						</li>
 				
 						<!-- Profile -->
@@ -361,87 +361,86 @@
 
 		<!-- Extract merchants details from firebase -->
 		<script type="module">
-			import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
-			import {
-				getDatabase,
-				ref,
-				set,
-				get,
-				child,
-			} from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
-			const firebaseConfig = {
-				apiKey: "AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk",
-				authDomain: "foodvault-6d35a.firebaseapp.com",
-				databaseURL:
-					"https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app",
-				projectId: "foodvault-6d35a",
-				storageBucket: "foodvault-6d35a.appspot.com",
-				messagingSenderId: "863157964884",
-				appId: "1:863157964884:web:02b343ccf7a6d780459dc1",
-				measurementId: "G-S687X22CVW",
-			};
+			// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
+			// import {
+			// 	getDatabase,
+			// 	ref,
+			// 	set,
+			// 	get,
+			// 	child,
+			// } from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
+			// const firebaseConfig = {
+			// 	apiKey: "AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk",
+			// 	authDomain: "foodvault-6d35a.firebaseapp.com",
+			// 	databaseURL:
+			// 		"https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app",
+			// 	projectId: "foodvault-6d35a",
+			// 	storageBucket: "foodvault-6d35a.appspot.com",
+			// 	messagingSenderId: "863157964884",
+			// 	appId: "1:863157964884:web:02b343ccf7a6d780459dc1",
+			// 	measurementId: "G-S687X22CVW",
+			// };
 
-			const app = initializeApp(firebaseConfig);
-			const database = getDatabase(app);
-			// console.log(app)
-			// match user with merchants username
-			var user = sessionStorage.getItem("user");
-			// console.log(user)
+			// const app = initializeApp(firebaseConfig);
+			// const database = getDatabase(app);
+			// // console.log(app)
+			// // match user with merchants username
+			// var user = sessionStorage.getItem("user");
+			// // console.log(user)
 
-			// get credential merchant and match with the merchant PK
-			window.retrieveMerchant = function retrieveMerchant() {
-				const dbRef = ref(getDatabase());
-				get(child(dbRef, `credentials/`)).then((testing) => {
-					if (testing.exists()) {
-						var merchantPK = testing.val()[user].merchant;
-						// console.log(merchantPK)
-						const dbRef = ref(getDatabase());
-						get(child(dbRef, `merchants/` + merchantPK))
-							.then((snapshot) => {
-								if (snapshot.exists()) {
-									// console.log(snapshot.val());
-									var address = snapshot.val().address;
-									var changeadd = address
-										.replace("ysand", "&")
-										.replace("yslt", "<")
-										.replace("ysgt", ">")
-										.replace("ysquot", '"')
-										.replace("ys39", "'")
-										.replace("yshash", "#")
-										.replace(new RegExp("\\$", "g"), "ysdollar")
-										.replace(new RegExp("\\[", "g"), "ysleft")
-										.replace(new RegExp("\\]", "g"), "ysright")
-										.replace(new RegExp("\\.", "g"), "ysdot")
-										.replace(new RegExp("\\ysslsh", "g"), "/");
-									// console.log(changeadd);
-									document.getElementById("getAddress").innerHTML = changeadd;
+			// // get credential merchant and match with the merchant PK
+			// window.retrieveMerchant = function retrieveMerchant() {
+			// 	const dbRef = ref(getDatabase());
+			// 	get(child(dbRef, `credentials/`)).then((testing) => {
+			// 		if (testing.exists()) {
+			// 			var merchantPK = testing.val()[user].merchant;
+			// 			// console.log(merchantPK)
+			// 			const dbRef = ref(getDatabase());
+			// 			get(child(dbRef, `merchants/` + merchantPK))
+			// 				.then((snapshot) => {
+			// 					if (snapshot.exists()) {
+			// 						// console.log(snapshot.val());
+			// 						var address = snapshot.val().address;
+			// 						var changeadd = address
+			// 							.replace("ysand", "&")
+			// 							.replace("yslt", "<")
+			// 							.replace("ysgt", ">")
+			// 							.replace("ysquot", '"')
+			// 							.replace("ys39", "'")
+			// 							.replace("yshash", "#")
+			// 							.replace(new RegExp("\\$", "g"), "ysdollar")
+			// 							.replace(new RegExp("\\[", "g"), "ysleft")
+			// 							.replace(new RegExp("\\]", "g"), "ysright")
+			// 							.replace(new RegExp("\\.", "g"), "ysdot")
+			// 							.replace(new RegExp("\\ysslsh", "g"), "/");
+			// 						// document.getElementById("getAddress").innerHTML = changeadd;
 
-									var imgURL = snapshot.val().imageurl;
-									var changeImg = imgURL
-										.replace("ysand", "&")
-										.replace("yslt", "<")
-										.replace("ysgt", ">")
-										.replace("ysquot", '"')
-										.replace("ys39", "'")
-										.replace("yshash", "#")
-										// .replace("ysslshysslsh", "//")
-										.replace(new RegExp("\\ysdollar", "g"), "$")
-										.replace(new RegExp("\\ysleft", "g"), "[")
-										.replace(new RegExp("\\ysright", "g"), "]")
-										.replace(new RegExp("\\ysdot", "g"), ".")
-										.replace(new RegExp("\\ysslsh", "g"), "/");
-									// console.log(changeImg);
-									document.getElementById("userImg").src = changeImg;
-								} else {
-									console.log("No data available");
-								}
-							})
-							.catch((error) => {
-								console.error(error);
-							});
-					}
-				});
-			};
+			// 						var imgURL = snapshot.val().imageurl;
+			// 						var changeImg = imgURL
+			// 							.replace("ysand", "&")
+			// 							.replace("yslt", "<")
+			// 							.replace("ysgt", ">")
+			// 							.replace("ysquot", '"')
+			// 							.replace("ys39", "'")
+			// 							.replace("yshash", "#")
+			// 							// .replace("ysslshysslsh", "//")
+			// 							.replace(new RegExp("\\ysdollar", "g"), "$")
+			// 							.replace(new RegExp("\\ysleft", "g"), "[")
+			// 							.replace(new RegExp("\\ysright", "g"), "]")
+			// 							.replace(new RegExp("\\ysdot", "g"), ".")
+			// 							.replace(new RegExp("\\ysslsh", "g"), "/");
+			// 						// console.log(changeImg);
+			// 						document.getElementById("userImg").src = changeImg;
+			// 					} else {
+			// 						console.log("No data available");
+			// 					}
+			// 				})
+			// 				.catch((error) => {
+			// 					console.error(error);
+			// 				});
+			// 		}
+			// 	});
+			// };
 		</script>
 	</body>
 </html>
