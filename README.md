@@ -12,10 +12,14 @@ Deployed application link: https://food-vault.vercel.app/
 
 ## Dummy user account details to stimulate login
 **Starbucks**
+<br>
 Username: starbucks
+<br>
 Password: Password1  
 <br>
 **Coffee Bean**
+<br>
 Username: coffeebean
+<br>
 Password: Password2
 
