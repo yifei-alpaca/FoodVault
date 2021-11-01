@@ -15,3 +15,6 @@ Starbucks
 Username: starbucks
 Password: Password1  
 
+Username: coffeebean
+Password: Password2
+
