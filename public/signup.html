@@ -93,7 +93,7 @@
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
-        padding: 0.5em 0em 0.5em 2em;
+        padding: 0.5em 0.5em 0.5em 2em;
         line-height: 25px;
       }
       .form__input2 {
@@ -131,7 +131,7 @@
 
       .eyeslash{
         position: relative;
-        right: 80px;
+        right:30px;
         display: inline
       }
 
@@ -328,9 +328,9 @@
             <h1 class="mt-2"> Register with Food Vault</h1>
             <br>
             <label for ="sp"><h5>Search for your business :</h5></label>
-            <div class="form__field">
+            <div class="form__field" style="margin-top:0px;">
  
-              <input type="text" list="shop" id="sp" class="list" oninput="fill()" onchange="populate(this)"  style="font-size: 12px;" />
+              <input type="text" list="shop" id="sp" class="list" oninput="fill()" onchange="populate(this)" />
               <datalist id="shop">
                
               </datalist>
@@ -342,7 +342,7 @@
             
             <h5>Business Address : </h5>
             <div class="form__field">
-              <input type="text" id="add" class="add" disabled  style="font-size: 12px;"/>
+              <input type="text" id="add" class="add" disabled/>
             
               <p class="mt-1" id=""  style="font-size: 12px;">
                This will be automatically entered by our system
@@ -351,7 +351,7 @@
 
             <label for = "des"><h5>Short description of your business : </h5></label>
             <div class="form__field">
-              <input type="text" id="des" class="des" maxlength="120"   style="font-size: 12px;"/>
+              <input type="text" id="des" class="des" maxlength="120"/>
             
               <p class="mt-1" id=""  style="font-size: 12px;">
                Enter a short description of your business!
@@ -360,7 +360,7 @@
 
             <div class="mb-0">
               <label for = "formFileSm"><h5>Attach an image url of your business : </h5></label>
-              <input type="text" id="formFileSm" id="im" class="des form-control form-control-sm" style="font-size: 12px;"/>
+              <input type="text" id="formFileSm" id="im" class="des form-control form-control-sm" />
 
             </div>
             <p class="mt-1" id=""  style="font-size: 12px;">
@@ -424,7 +424,7 @@
               </p>
             </div>
             <button type="button"  onclick="validate()" class="btn btn-outline-primary">Register</button>
-            <p id="text" class="mt-2 p-0 mb-0" style="visibility: hidden; color:red;"> Please ensure your details are entered correctly</p>
+            <p id="text" class="mt-2 p-0 mb-0" style="visibility: hidden; color:red; font-size:14px;"> Please ensure your details are entered correctly</p>
           </form>
       
       </div>
