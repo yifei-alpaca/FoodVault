@@ -83,10 +83,11 @@
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
-        padding: 0.5em 4em 0.5em 2em;
+        padding: 0.5em 4em 0.5em 1em;
       }
 
       #formFileSm {
+        border-style: solid;
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
@@ -97,7 +98,7 @@
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
-        padding: 0.5em 4em 0.5em 2em;
+        padding: 0.5em 4em 0.5em 1em;
       }
 
       .list,
@@ -107,7 +108,7 @@
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
-        padding: 0.5em 0.5em 0.5em 2em;
+        padding: 0.5em 0.5em 0.5em 1em;
         line-height: 25px;
         
       }
@@ -115,7 +116,7 @@
         /* border-color: firebrick; */
         border-radius: 0.25em;
         border-style: solid;
-        padding: 0.5em 4em 0.5em 2em;
+        padding: 0.5em 4em 0.5em 1em;
         width: 70%;
       }
       .form__input:valid {
@@ -363,7 +364,7 @@
               type="text"
               id="formFileSm"
               id="im"
-              class="des form-control form-control-sm"
+              class="des "
             />
           </div>
           <p class="mt-1" id="" style="font-size: 12px">
@@ -785,7 +786,7 @@
           .replace(new RegExp("\\]", "g"), "")
           .replace(new RegExp("\\.", "g"), "")
           .replace(new RegExp("\\/", "g"), "");
-        console.log(input);
+        // console.log(input);
 
         url =
           "https://data.gov.sg/api/action/datastore_search?resource_id=34f86c3e-a90c-4de9-a69f-afc86b7f31b6";
