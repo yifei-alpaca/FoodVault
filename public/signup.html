@@ -107,7 +107,7 @@
       }
 
       .form__input:valid + .icon::after {
-        content: "😃";
+        content: "";
       }
 
       .form__input:invalid {
@@ -115,7 +115,7 @@
       }
 
       .form__input:invalid + .icon::after {
-        content: "😳";
+        content: "";
       }
 
       form{
@@ -373,7 +373,7 @@
                 oninput="callboth()"
                 required
               />
-              <span class="icon2">😳</span>
+              <span class="icon2"></span>
               <span class = "eyeslash" onclick = "toggleRe()"> <i class="far fa-eye-slash" aria-hidden="true" ></i> </span>
               <span class = "eye" onclick = "toggleRe()"> <i class="far fa-eye" aria-hidden="true" ></i> </span>
               <p class="mt-1" id="check1" style="font-size: 12px">
@@ -698,10 +698,10 @@ function checkMerchant(){
           document.getElementById("check1").innerHTML = "Password match!";
           document.getElementsByClassName("form__input2")[0].style.borderColor =
             "forestgreen";
-          document.getElementsByClassName("icon2")[0].innerText = "😃";
+          document.getElementsByClassName("icon2")[0].innerText = "";
           return 0;
         } else {
-          document.getElementsByClassName("icon2")[0].innerText = "😳";
+          document.getElementsByClassName("icon2")[0].innerText = "";
           document.getElementById("check1").innerHTML = "Password do not match";
           document.getElementsByClassName("form__input2")[0].style.borderColor =
             "firebrick";
