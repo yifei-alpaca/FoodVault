@@ -11,15 +11,19 @@
     <script src="https://unpkg.com/bcryptjs@2.4.3/dist/bcrypt.js"></script>
 
     <!-- add this-->
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script type="module" src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script> 
-<!-- This is the API from Firebase Realtime Database -->
-<script type="module" src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"></script> 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"
+    ></script>
+    <!-- This is the API from Firebase Realtime Database -->
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"
+    ></script>
 
-
-  	<!-- Favicons -->
-		<link href="./assets/img/Logo/bar-icon.jpg" sizes="32x32" rel="icon" />
-
+    <!-- Favicons -->
+    <link href="./assets/img/Logo/bar-icon.jpg" sizes="32x32" rel="icon" />
 
     <!-- Axios-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -31,7 +35,12 @@
     />
 
     <!-- Font Awesome -->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
@@ -54,8 +63,6 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
     <style>
-
-
       .icon,
       .icon2 {
         font-size: 2rem;
@@ -64,97 +71,132 @@
       input {
         font: inherit;
         outline: 0;
+        
+      }
+
+      .mt-2 {
+        font-size: 30px;
       }
 
       .form__input {
+        
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
-        padding: 0.5em 4em 0.5em 2em;
+        padding: 0.5em 4em 0.5em 1em;
       }
 
-      #formFileSm{
+      #formFileSm {
+        border-style: solid;
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
- 
       }
 
       .search_input {
+        
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
-        padding: 0.5em 4em 0.5em 2em;
+        padding: 0.5em 4em 0.5em 1em;
       }
 
-      .list,.add ,.des{
+      .list,
+      .add,
+      .des {
+        
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
-        padding: 0.5em 0em 0.5em 2em;
+        padding: 0.5em 0.5em 0.5em 1em;
         line-height: 25px;
+        
       }
       .form__input2 {
-        border-color: firebrick;
+        /* border-color: firebrick; */
         border-radius: 0.25em;
         border-style: solid;
-        padding: 0.5em 4em 0.5em 2em;
+        padding: 0.5em 4em 0.5em 1em;
         width: 70%;
-       
       }
       .form__input:valid {
         border-color: forestgreen;
       }
 
       .form__input:valid + .icon::after {
-        content: "😃";
+        content: "";
       }
 
       .form__input:invalid {
-        border-color: firebrick;
+        /* border-color: firebrick; */
       }
 
       .form__input:invalid + .icon::after {
-        content: "😳";
+        content: "";
       }
 
-      form{
+      form {
         height: fit-content;
         width: 50%;
-        background-color: #F8F8F8;
+        background-color: #f8f8f8;
+        padding-left: 5em;
       }
 
-      .eyeslash{
+      .eyeslash {
         position: relative;
-        right: 80px;
-        display: inline
+        right: 30px;
+        display: inline;
       }
 
-      .eye{
+      .eye {
         position: relative;
-        right: 80px;
-        display: none
+        right: 30px;
+        display: none;
       }
 
-@media screen and (max-width: 700px) {
-            	.mt-2{
-                	font-size: 20px
-            	}
+      @media screen and (max-width: 900px) {
+        .mt-2 {
+          font-size: 20px;
+        }
 
-            	h5{
-                	font-size: 15px 
-            	}
+        h5 {
+          font-size: 15px;
+        }
 
-            	input {
-                	width: 50%
-            	}
+        input {
+          width: 70%;
+        }
 
-            	form {
-                	width: 100%
-            	}
-        	}
+        form {
+          width: 60%;
+          /* padding-left: 3em; */
+        }
+      }
 
-        	@media screen and (max-width: 400px) {
+      @media screen and (max-width: 700px) {
+        .mt-2 {
+          font-size: 18px;
+        }
+
+        h5 {
+          font-size: 14px;
+        }
+
+        input {
+          width: 70%;
+        }
+
+        small {
+          font-size: 12px;
+        }
+
+        form {
+          width: 70%;
+          padding-left: 2em;
+        }
+      }
+
+      /* @media screen and (max-width: 400px) {
             	input {
                 	width: 60% !important;
             	}
@@ -193,200 +235,218 @@
               top: -35px;
               display: none
             }
-        	}
+        	} */
 
-
+      @media screen and (max-width: 500px) {
+        form {
+          width: 100%;
+          padding-left: 1em;
+        }
+      }
     </style>
   </head>
 
   <body>
-   <!-- ======= Header ======= -->
-		<header id="header" class="fixed-top d-flex align-items-center">
-			<div class="container d-flex align-items-center justify-content-between">
-				<div class="logo">
-					<h1><a href="./index.html">Food Vault</a></h1>
-					<!-- Uncomment below if you prefer to use an image logo -->
-					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-				</div>
-				<nav id="navbar" class="navbar">
-					<ul>
-						<li>
-							<a class="nav-link scrollto" href="./index.html#app"
-								>Home</a
-							>
-						</li>
-						<li>
-							<a
-								class="nav-link scrollto"
-								href="./index.html#about"
-								>About</a
-							>
-						</li>
-						<!-- <li><a class="nav-link scrollto" href="#services"></a></li> -->
-						<li>
-							<a class="nav-link scrollto" href="./index.html#team"
-								>Team</a
-							>
-						</li>
-						<li>
-							<a class="nav-link scrollto" href="./index.html#faq"
-								>FAQ</a
-							>
-						</li>
-						<li class="nav-item dropdown">
-							<a
-								class="nav-link scrollto dropdown-toggle"
-								href="#services"
-								id="navbarDropdownMenuLink"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
-								Services
-							</a>
-							<ul
-								class="dropdown-menu"
-								aria-labelledby="navbarDropdownMenuLink"
-							>
-								<li><a class="dropdown-item" href="./learn.html">Learn</a></li>
-								<li>
-									<a class="dropdown-item" href="./games_page.html">Games</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="./recipe_generator.html"
-										>Recipe Generator</a
-									>
-								</li>
-								<li>
-									<a class="dropdown-item" href="./main_merchants.html"
-										>List of Merchants</a
-									>
-								</li>
-							</ul>
-						</li>
-						<li><a class="nav-link" href="signup.html">Sign Up</a></li>
-						<li><a class="nav-link" href="signin.html">Sign In</a></li>
-					</ul>
-					<i class="bi bi-list mobile-nav-toggle"></i>
-				</nav>
-				<!-- .navbar -->
-			</div>
-		</header>
-		<!-- End Header -->
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <h1><a href="./index.html">Food Vault</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link scrollto" href="./index.html#app">Home</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="./index.html#about">About</a>
+            </li>
+            <!-- <li><a class="nav-link scrollto" href="#services"></a></li> -->
+            <li>
+              <a class="nav-link scrollto" href="./index.html#team">Team</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="./index.html#faq">FAQ</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link scrollto dropdown-toggle"
+                href="#services"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Services
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li><a class="dropdown-item" href="./learn.html">Learn</a></li>
+                <li>
+                  <a class="dropdown-item" href="./games_page.html">Games</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./recipe_generator.html"
+                    >Recipe Generator</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./main_merchants.html"
+                    >List of Merchants</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a class="nav-link active" href="signup.html">Sign Up</a></li>
+            <li><a class="nav-link" href="signin.html">Sign In</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
 
     <!-- ======= First Section ======= -->
-    <section id="home" class="d-flex align-items-center" style="height: fit-content;">
-     
-        <body class="align">
-          <div class="container-fluid">
-          <form class="border px-5 py-4 m-auto">
+    <section
+      id="sign_up"
+      class="d-flex align-items-center"
+      style="height: fit-content; margin-top: 5%"
+    >
+      <div class="container-fluid">
+        <form class="border py-5 m-auto">
+          <h1 class="mt-2">Register with Food Vault</h1>
+          <br />
+          <label for="sp"><h5>Search for your business :</h5></label>
+          <div class="form__field">
+            <input
+              type="text"
+              list="shop"
+              id="sp"
+              class="list"
+              oninput="fill()"
+              onchange="populate(this)"
+            />
+            <datalist id="shop"> </datalist>
+            <span class="icon"></span>
+            <p class="mt-1" id="" style="font-size: 12px">
+              Select your business from the dropdown list
+            </p>
+          </div>
 
-            <h1 style="font-size:30px" class="mt-1"> Register with Food Vault</h1>
+          <h5>Business Address :</h5>
+          <div class="form__field">
+            <input type="text" id="add" class="add" disabled />
 
-            
-            <label for = "sp"><h5 class="mt-3">Search for your business : </h5></label>
-            <div class="form__field">
- 
-              <input type="text" list="shop" id="sp" class="list" oninput="fill()" onchange="populate(this)"  style="font-size: 12px;" />
-              <datalist id="shop">
-               
-              </datalist>
-              <span class="icon"></span>
-              <p class="mt-1" id=""  style="font-size: 12px;">
-                Select your business from the dropdown list
-              </p>
-            </div>
-            
-            <h5>Business Address : </h5>
-            <div class="form__field">
-              <input type="text" id="add" class="add" disabled  style="font-size: 12px;"/>
-            
-              <p class="mt-1" id=""  style="font-size: 12px;">
-               This will be automatically entered by our system
-              </p>
-            </div>
+            <p class="mt-1" id="" style="font-size: 12px">
+              This will be automatically entered by our system
+            </p>
+          </div>
 
-            <label for = "des"><h5>Short description of your business : </h5></label>
-            <div class="form__field">
-              <input type="text" id="des" class="des" maxlength="120"   style="font-size: 12px;"/>
-            
-              <p class="mt-1" id=""  style="font-size: 12px;">
-               Enter a short description of your business!
-              </p>
-            </div>
+          <label for="des"><h5>Short description of your business :</h5></label>
+          <div class="form__field">
+            <input type="text" id="des" class="des" maxlength="120" />
 
-            <div class="mb-0">
-              <label for = "formFileSm"><h5>Attach an image url of your business : </h5></label>
-              <input type="text" id="formFileSm" id="im" class="des form-control form-control-sm" style="font-size: 12px;"/>
+            <p class="mt-1" id="" style="font-size: 12px">
+              Enter a short description of your business!
+            </p>
+          </div>
 
-            </div>
-            <p class="mt-1" id=""  style="font-size: 12px;">
-              Rectangle image is preferred! Eg : 1000x667 or similar ratios
-             </p>
+          <div class="mb-0">
+            <label for="formFileSm"
+              ><h5>Attach an image url of your business :</h5></label
+            >
+            <input
+              type="text"
+              id="formFileSm"
+              id="im"
+              class="des "
+            />
+          </div>
+          <p class="mt-1" id="" style="font-size: 12px">
+            Rectangle image preferred (1000x667 or similar ratios)
+          </p>
 
+          <label for="use_input"><h5>Enter your Username</h5></label>
+          <div class="form__field">
+            <input
+              id="use_input"
+              type="text"
+              class="form__input"
+              pattern=".{6,}"
+              required
+              oninput="user();"
+            />
+            <span class="icon"></span>
+            <p class="mt-1" id="use_warning" style="font-size: 12px">
+              User must contain at least 6 letters
+            </p>
+          </div>
 
-            <label for = "use_input"><h5>Enter your Username</h5></label>
-            <div class="form__field">
-              <input id="use_input"
-                type="text"
-                class="form__input" pattern=".{6,}"
-                required oninput="user();"
-              />
-              <span class="icon"></span>
-              <p class="mt-1" id="use_warning"  style="font-size: 12px;">
-                User must contain at least 6 letters
-              </p>
-            </div>
+          <label for="pw"><h5>Enter your password</h5></label>
+          <div class="form__field">
+            <input
+              id="pw"
+              type="password"
+              class="form__input"
+              oninput="callboth()"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              required
+            />
+            <span class="icon"></span>
+            <span class="eyeslash" onclick="toggle()">
+              <i class="far fa-eye-slash" aria-hidden="true"></i>
+            </span>
+            <span class="eye" onclick="toggle()">
+              <i class="far fa-eye" aria-hidden="true"></i>
+            </span>
+            <p class="mt-1" id="hint" style="font-size: 12px">
+              Password must contain at least : 8 characters,1 number,an upper case letter,a lower case letter
+            </p>
+          </div>
 
-
-
-
-
-
-
-
-            <label for = "pw"><h5>Enter your password</h5></label>
-            <div class="form__field">
-              <input
-                id="pw"
-                type="password"
-                class="form__input"
-                oninput="callboth()"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                required 
-              />
-              <span class="icon"></span>
-              <span class = "eyeslash" onclick = "toggle()"> <i class="far fa-eye-slash" aria-hidden="true"></i> </span>
-              <span class = "eye" onclick = "toggle()"> <i class="far fa-eye" aria-hidden="true"></i> </span>
-              <p class="mt-1" id="hint" style="font-size: 12px;">
-                Password must contain at least : 8 characters,an upper case
-                letter,a lower case letter
-              </p>
-            </div>
-
-            <label for = "pw2"><h5>Re-Enter your password</h5></label>
-            <div class="form__field2">
-              <input
-                id="pw2"
-                type="password"
-                class="form__input2"
-                oninput="callboth()"
-                required
-              />
-              <span class="icon2">😳</span>
-              <span class = "eyeslash" onclick = "toggleRe()"> <i class="far fa-eye-slash" aria-hidden="true" ></i> </span>
-              <span class = "eye" onclick = "toggleRe()"> <i class="far fa-eye" aria-hidden="true" ></i> </span>
-              <p class="mt-1" id="check1" style="font-size: 12px">
-                Password must match
-              </p>
-            </div>
-            <button type="button"  onclick="validate()" class="btn btn-outline-primary">Register</button>
-            <p id="text" class="mt-2 p-0 mb-0" style="visibility: hidden; color:red;"> Please ensure your details are entered correctly</p>
-          </form>
-        </body>
+          <label for="pw2"><h5>Re-Enter your password</h5></label>
+          <div class="form__field2">
+            <input
+              id="pw2"
+              type="password"
+              class="form__input2"
+              oninput="callboth()"
+              required
+            />
+            <span class="icon2"></span>
+            <span class="eyeslash" onclick="toggleRe()">
+              <i class="far fa-eye-slash" aria-hidden="true"></i>
+            </span>
+            <span class="eye" onclick="toggleRe()">
+              <i class="far fa-eye" aria-hidden="true"></i>
+            </span>
+            <p class="mt-1" id="check1" style="font-size: 12px">
+              Password must match
+            </p>
+          </div>
+          <button
+            type="button"
+            onclick="validate()"
+            class="btn btn-outline-primary"
+          >
+            Register
+          </button>
+          <p
+            id="text"
+            class="mt-2 p-0 mb-0"
+            style="visibility: hidden; color: red; font-size: 14px"
+          >
+            Please ensure your details are entered correctly
+          </p>
+        </form>
       </div>
     </section>
- 
+
     <!-- End First Section -->
     <main id="main">
       <!-- ======= Special Thanks and Footer Section ======= -->
@@ -407,7 +467,7 @@
             </div>
             <div class="col-lg-4 my-auto col-md-4 col-4">
               <img
-                src="assets/img/footer/SCIS.webp"
+                src="assets/img/footer/SCIS.png"
                 class="img-fluid"
                 alt=""
                 data-aos="zoom-in"
@@ -455,19 +515,17 @@
     <!-- Toggle password -->
     <script>
       var state = false;
-      function toggle(){
+      function toggle() {
         var pw = document.getElementById("pw");
         var eye = document.getElementsByClassName("eye")[0];
         var eyeslash = document.getElementsByClassName("eyeslash")[0];
-        if (state){
-          pw.setAttribute("type","password");
+        if (state) {
+          pw.setAttribute("type", "password");
           eye.style.display = "none";
           eyeslash.style.display = "inline";
           state = false;
-        }
-
-        else{
-          pw.setAttribute("type","text")
+        } else {
+          pw.setAttribute("type", "text");
           eye.style.display = "inline";
           eyeslash.style.display = "none";
           state = true;
@@ -475,19 +533,17 @@
       }
 
       // Toggle Reenter password
-      function toggleRe(){
+      function toggleRe() {
         var pw2 = document.getElementById("pw2");
         var eye = document.getElementsByClassName("eye")[1];
         var eyeslash = document.getElementsByClassName("eyeslash")[1];
-        if (state){
-          pw2.setAttribute("type","password");
+        if (state) {
+          pw2.setAttribute("type", "password");
           eye.style.display = "none";
           eyeslash.style.display = "inline";
           state = false;
-        }
-
-        else{
-          pw2.setAttribute("type","text")
+        } else {
+          pw2.setAttribute("type", "text");
           eye.style.display = "inline";
           eyeslash.style.display = "none";
           state = true;
@@ -495,167 +551,157 @@
       }
     </script>
 
-
-
     <script type="module">
-     
- import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
- import { getDatabase,ref,set,get,child } from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
- import { getStorage } from " https://www.gstatic.com/firebasejs/9.1.3/firebase-storage.js";
-const firebaseConfig = {
-    apiKey: "AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk",
-    authDomain: "foodvault-6d35a.firebaseapp.com",
-    databaseURL: "https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "foodvault-6d35a",
-    storageBucket: "foodvault-6d35a.appspot.com",
-    messagingSenderId: "863157964884",
-    appId: "1:863157964884:web:02b343ccf7a6d780459dc1",
-    measurementId: "G-S687X22CVW"
-  };
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        get,
+        child,
+      } from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
+      import { getStorage } from " https://www.gstatic.com/firebasejs/9.1.3/firebase-storage.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk",
+        authDomain: "foodvault-6d35a.firebaseapp.com",
+        databaseURL:
+          "https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "foodvault-6d35a",
+        storageBucket: "foodvault-6d35a.appspot.com",
+        messagingSenderId: "863157964884",
+        appId: "1:863157964884:web:02b343ccf7a6d780459dc1",
+        measurementId: "G-S687X22CVW",
+      };
 
-  const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
 
-  function escape(htmlStr) {
-    // console.log(htmlStr);
-   return htmlStr.replace(/&/g, "ysand")
-         .replace(/</g, "yslt")
-         .replace(/>/g, "ysgt") 
-         .replace(/"/g, "ysquot")
-         .replace(/'/g, "ys39")
-         .replace(/#/g, "yshash")
-        .replace(new RegExp('\\$', 'g'), 'ysdollar')
-        .replace(new RegExp('\\[', 'g'), 'ysleft')
-        .replace(new RegExp('\\]', 'g'), 'ysright')
-        .replace(new RegExp('\\.', 'g'), 'ysdot')
-        .replace(new RegExp('\\/', 'g'), 'ysslsh')
-}
-
- function writeUserData() {
-   var des =  document.getElementById("des").value;;
-  var shopname = document.getElementsByClassName("list")[0].value;
-  var address =document.getElementById("add").value;
-  var user=document.getElementById("use_input").value;
-  var p = document.getElementById("pw").value;
-  var bcrypt = dcodeIO.bcrypt;
-var salt = bcrypt.genSaltSync(10);
-var hash = bcrypt.hashSync(p, salt);
-shopname=escape(shopname);
-address = escape(address);
-user = escape(user);
-des = escape(des);
-var img = document.getElementById("formFileSm").value;
-img = escape(img);
-
-
-    const db = getDatabase();
-  set(ref(db, 'merchants/' + shopname), {
-    merchant: shopname,
-    address: address,
-    description : des,
-    username: user,
-    password: hash,
-    imageurl:img
-  }
-  
-  )
-  ;
-
-  set(ref(db, 'credentials/' + user), {
-    username: user,
-    password: hash,
-    merchant : shopname,
-  }
-  )
-  ;
-  var p = document.getElementById("text");
-   p.innerText="Success!";
-}
-
-function checkDuplicate(){
-  var user=document.getElementById("use_input").value;
-  user = escape(user);
-  const dbRef = ref(getDatabase());
-
-  get(child(dbRef, `credentials/${user}`)).then((snapshot) => {
-  if (snapshot.exists()) {
-    var p = document.getElementById("text");
-        p.innerText="Username is taken!";
-  }
-   else {
-    checkMerchant();
-    
-  }
-}).catch((error) => {
-  console.error(error);
-});
-
-}
-
-
-function checkMerchant(){
-  var shopname = document.getElementsByClassName("list")[0].value;
-  shopname=escape(shopname);
-  const dbRef = ref(getDatabase());
-  get(child(dbRef, `merchants/${shopname}`)).then((snapshot) => {
-  if (snapshot.exists()) {
-    var p = document.getElementById("text");
-        p.innerText="Your business is already registered!";
-  }
-   else {
-    writeUserData();
-  }
-}).catch((error) => {
-  console.error(error);
-});
-}
-    window.validate = function validate(){
-      var p = document.getElementById("text");
-      var img = document.getElementById("formFileSm");
-      var desc = document.getElementById("des");
-      if (desc.value.length==0){
-        p.innerText="Please enter a short description of your business";
-       p.style.visibility="visible";
+      function escape(htmlStr) {
+        // console.log(htmlStr);
+        return htmlStr
+          .replace(/&/g, "ysand")
+          .replace(/</g, "yslt")
+          .replace(/>/g, "ysgt")
+          .replace(/"/g, "ysquot")
+          .replace(/'/g, "ys39")
+          .replace(/#/g, "yshash")
+          .replace(new RegExp("\\$", "g"), "ysdollar")
+          .replace(new RegExp("\\[", "g"), "ysleft")
+          .replace(new RegExp("\\]", "g"), "ysright")
+          .replace(new RegExp("\\.", "g"), "ysdot")
+          .replace(new RegExp("\\/", "g"), "ysslsh");
       }
 
-      else{
-        if (img.value.match(/\.(jpeg|jpg|gif|png)$/) == null){
-        p.innerText="Please include an image URL!";
-       p.style.visibility="visible";
+      function writeUserData() {
+        var des = document.getElementById("des").value;
+        var shopname = document.getElementsByClassName("list")[0].value;
+        var address = document.getElementById("add").value;
+        var user = document.getElementById("use_input").value;
+        var p = document.getElementById("pw").value;
+        var bcrypt = dcodeIO.bcrypt;
+        var salt = bcrypt.genSaltSync(10);
+        var hash = bcrypt.hashSync(p, salt);
+        shopname = escape(shopname);
+        address = escape(address);
+        user = escape(user);
+        des = escape(des);
+        var img = document.getElementById("formFileSm").value;
+        img = escape(img);
 
+        const db = getDatabase();
+        set(ref(db, "merchants/" + shopname), {
+          merchant: shopname,
+          address: address,
+          description: des,
+          username: user,
+          password: hash,
+          imageurl: img,
+        });
+
+        set(ref(db, "credentials/" + user), {
+          username: user,
+          password: hash,
+          merchant: shopname,
+        });
+        var p = document.getElementById("text");
+        p.innerText = "Success!";
+        window.location.replace("./signin.html");
       }
 
-      else{
-        if (document.getElementById("hint").innerText=="Password is good!" &&
-      document.getElementById("check1").innerText=="Password match!" &&
-     document.getElementById("use_warning").innerText=="Username is good!" &&
-     document.getElementById("add").value.length!=0)
-      {
-        p.innerText="Loading...";
-        // p.style.visibility="hidden";
-        p.style.visibility="visible";
-        checkDuplicate(); 
-      }
-      else{
-        p.innerText="Please ensure you filled in all details correctly";
-       p.style.visibility="visible";
-      }
-      }
+      function checkDuplicate() {
+        var user = document.getElementById("use_input").value;
+        user = escape(user);
+        const dbRef = ref(getDatabase());
+
+        get(child(dbRef, `credentials/${user}`))
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              var p = document.getElementById("text");
+              p.innerText = "Username is taken!";
+            } else {
+              checkMerchant();
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       }
 
-  
-
-     
-     
-    
-  }
-    window.callboth=  function callboth() {
-       var pw = call();
-       var pw2 = check();
+      function checkMerchant() {
+        var shopname = document.getElementsByClassName("list")[0].value;
+        shopname = escape(shopname);
+        const dbRef = ref(getDatabase());
+        get(child(dbRef, `merchants/${shopname}`))
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              var p = document.getElementById("text");
+              p.innerText = "Your business is already registered!";
+            } else {
+              writeUserData();
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       }
+      window.validate = function validate() {
+        var p = document.getElementById("text");
+        var img = document.getElementById("formFileSm");
+        var desc = document.getElementById("des");
+        if (desc.value.length == 0) {
+          p.innerText = "Please enter a short description of your business";
+          p.style.visibility = "visible";
+        } else {
+          if (img.value.match(/\.(jpeg|jpg|gif|png)$/) == null) {
+            p.innerText = "Please include an image URL!";
+            p.style.visibility = "visible";
+          } else {
+            if (
+              document.getElementById("hint").innerText ==
+                "Password is good!" &&
+              document.getElementById("check1").innerText ==
+                "Password match!" &&
+              document.getElementById("use_warning").innerText ==
+                "Username is good!" &&
+              document.getElementById("add").value.length != 0
+            ) {
+              p.innerText = "Loading...";
+              // p.style.visibility="hidden";
+              p.style.visibility = "visible";
+              checkDuplicate();
+            } else {
+              p.innerText = "Please ensure you filled in all details correctly";
+              p.style.visibility = "visible";
+            }
+          }
+        }
+      };
+      window.callboth = function callboth() {
+        var pw = call();
+        var pw2 = check();
+      };
 
       function call() {
- 
         var hint = document.getElementById("hint");
         var p = document.getElementById("pw").value;
         var errors = "";
@@ -663,30 +709,29 @@ function checkMerchant(){
 
         if (p.length < 8) {
           list_of_error.push("8 characters");
-     
         }
 
         if (p.search(/[0-9]/) == -1) {
           list_of_error.push("1 number");
-          
         }
 
         if (p.search(/[A-Z]/) == -1) {
           list_of_error.push("an upper case letter");
-       
         }
 
         if (p.search(/[a-z]/) == -1) {
           list_of_error.push("a lower case letter");
-        
         }
 
         if (list_of_error.length == 0) {
           hint.innerHTML = `Password is good!`;
-         
+          document.getElementsByClassName("form__input")[1].style.borderColor =
+            "forestgreen"; 
+        
         } else {
           hint.innerHTML = `Password must contain at least : ${list_of_error}`;
-         
+          document.getElementsByClassName("form__input")[1].style.borderColor =
+            "firebrick"; 
         }
       }
 
@@ -697,10 +742,10 @@ function checkMerchant(){
           document.getElementById("check1").innerHTML = "Password match!";
           document.getElementsByClassName("form__input2")[0].style.borderColor =
             "forestgreen";
-          document.getElementsByClassName("icon2")[0].innerText = "😃";
+          document.getElementsByClassName("icon2")[0].innerText = "";
           return 0;
         } else {
-          document.getElementsByClassName("icon2")[0].innerText = "😳";
+          document.getElementsByClassName("icon2")[0].innerText = "";
           document.getElementById("check1").innerHTML = "Password do not match";
           document.getElementsByClassName("form__input2")[0].style.borderColor =
             "firebrick";
@@ -708,91 +753,81 @@ function checkMerchant(){
         }
       }
 
-window.user = function user(){
-  var usewarning = document.getElementById("use_warning");
-      var useinput = document.getElementById("use_input").value;
-      if (useinput.length<6){
-        usewarning.innerText="Username must contain at least 6 letters!"
-      }
-      else{
-        usewarning.innerText="Username is good!"
-      }
-
-}
-     
+      window.user = function user() {
+        var usewarning = document.getElementById("use_warning");
+        var useinput = document.getElementById("use_input").value;
+        if (useinput.length < 6) {
+          usewarning.innerText = "Username must contain at least 6 letters!";
+          document.getElementsByClassName("form__input")[0].style.borderColor =
+            "firebrick";
+        } else {
+          usewarning.innerText = "Username is good!";
+          document.getElementsByClassName("form__input")[0].style.borderColor =
+            "forestgreen";
+        }
+      };
     </script>
 
     <script>
-function fill(){
-var input  = document.getElementsByClassName("list")[0].value;
-// input  = input.replace(/[^a-zA-Z0-9+]/g, "");
-input= input.replace(/&/g, "")
-         .replace(/</g, "")
-         .replace(/@/g, "")
-         .replace(/>/g, "") 
-         .replace(/"/g, "")
-         .replace(/'/g, "")
-         .replace(/#/g, "")
-         .replace(/-/g, "")
-        .replace(new RegExp('\\$', 'g'), '')
-        .replace(new RegExp('\\[', 'g'), '')
-        .replace(new RegExp('\\]', 'g'), '')
-        .replace(new RegExp('\\.', 'g'), '')
-        .replace(new RegExp('\\/', 'g'), '');
-        console.log(input);
+      function fill() {
+        var input = document.getElementsByClassName("list")[0].value;
+        // input  = input.replace(/[^a-zA-Z0-9+]/g, "");
+        input = input
+          .replace(/&/g, "")
+          .replace(/</g, "")
+          .replace(/@/g, "")
+          .replace(/>/g, "")
+          .replace(/"/g, "")
+          .replace(/'/g, "")
+          .replace(/#/g, "")
+          .replace(/-/g, "")
+          .replace(new RegExp("\\$", "g"), "")
+          .replace(new RegExp("\\[", "g"), "")
+          .replace(new RegExp("\\]", "g"), "")
+          .replace(new RegExp("\\.", "g"), "")
+          .replace(new RegExp("\\/", "g"), "");
+        // console.log(input);
 
- url = "https://data.gov.sg/api/action/datastore_search?resource_id=34f86c3e-a90c-4de9-a69f-afc86b7f31b6";
+        url =
+          "https://data.gov.sg/api/action/datastore_search?resource_id=34f86c3e-a90c-4de9-a69f-afc86b7f31b6";
 
-  axios
-    .get(url,
-    {
-      params:{
-q:input,
-      },
-    }
-    )    
-    
-    .then((response) => {
-    
-      var arr=[];
-      var list = document.getElementById('shop');
-      list.innerHTML="";
-      var obj = response.data.result.records;
+        axios
+          .get(url, {
+            params: {
+              q: input,
+            },
+          })
 
-      for (ea of obj){
-        if(arr.indexOf(ea.licensee_name+ea.premises_address)==-1){
-        arr.push(ea.licensee_name+ea.premises_address);  
-        var option = document.createElement('option');
-        option.label=ea.premises_address;
-        option.value =ea.licensee_name +" @ "+ea.premises_address;
-        list.appendChild(option);
-      }
-      }
-    } )
-    .catch((error) => {
+          .then((response) => {
+            var arr = [];
+            var list = document.getElementById("shop");
+            list.innerHTML = "";
+            var obj = response.data.result.records;
 
-      // process error object
-    });
-  }
-
-
-
-  function populate(a){
-
-     var b= a.value;
-    if (b.indexOf('@')==-1){
-      document.getElementById("add").value='';
-    }
-    else{
-      var c = b.substring(b.indexOf('@')+2)
-    document.getElementById("add").value=c;
-    }
+            for (ea of obj) {
+              if (arr.indexOf(ea.licensee_name + ea.premises_address) == -1) {
+                arr.push(ea.licensee_name + ea.premises_address);
+                var option = document.createElement("option");
+                option.label = ea.premises_address;
+                option.value = ea.licensee_name + " @ " + ea.premises_address;
+                list.appendChild(option);
+              }
+            }
+          })
+          .catch((error) => {
+            // process error object
+          });
       }
 
+      function populate(a) {
+        var b = a.value;
+        if (b.indexOf("@") == -1) {
+          document.getElementById("add").value = "";
+        } else {
+          var c = b.substring(b.indexOf("@") + 2);
+          document.getElementById("add").value = c;
+        }
+      }
     </script>
-
-
   </body>
 </html>
-
-

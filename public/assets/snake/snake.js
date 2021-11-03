@@ -1,5 +1,5 @@
 // The function gets called when the window is fully loaded
-
+// Snake game references and tutorial from https://rembound.com/articles/creating-a-snake-game-tutorial-with-html5
 window.onload = function () {
 	var columns = 26;
 	var rows = 26;
