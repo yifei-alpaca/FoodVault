@@ -64,6 +64,10 @@
         outline: 0;
       }
 
+      .mt-2 {
+        font-size: 30px;
+      }
+
       .form__input {
         border-radius: 0.25em;
         border-style: solid;
@@ -116,10 +120,13 @@
         content: "";
       }
 
-      form{
+
+
+      form {
         height: fit-content;
         width: 50%;
-        background-color: #F8F8F8;
+        background-color: #f8f8f8;
+        padding-left: 5em;
       }
 
       .eyeslash{
@@ -135,21 +142,26 @@
       }
 
 @media screen and (max-width: 700px) {
-            	.mt-2{
-                	font-size: 20px
-            	}
+  .mt-2 {
+          font-size: 18px;
+        }
 
-            	h5{
-                	font-size: 15px 
-            	}
+        h5 {
+          font-size: 14px;
+        }
 
-            	input {
-                	width: 50%
-            	}
+        input {
+          width: 70%;
+        }
 
-            	form {
-                	width: 100%
-            	}
+        small {
+          font-size: 12px;
+        }
+
+        form {
+          width: 70%;
+          padding-left: 2em;
+        }
         	}
 
         	@media screen and (max-width: 400px) {
@@ -158,7 +170,7 @@
             	}
         	}
 
-        	@media screen and (max-width: 330px) {
+        	/* @media screen and (max-width: 330px) {
             h1{
               font-size: 25px !important;
             }
@@ -191,7 +203,34 @@
               top: -35px;
               display: none
             }
-        	}
+        	} */
+
+
+          @media screen and (max-width: 500px) {
+        form {
+          width: 100%;
+          padding-left: 1em;
+        }
+      }
+
+          @media screen and (max-width: 900px) {
+        .mt-2 {
+          font-size: 20px;
+        }
+
+        h5 {
+          font-size: 15px;
+        }
+
+        input {
+          width: 70%;
+        }
+
+        form {
+          width: 60%;
+          /* padding-left: 3em; */
+        }
+      }
 
 
     </style>
