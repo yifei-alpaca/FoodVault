@@ -15,7 +15,7 @@ Done By:
 No setup is required, simply git-clone to download all our files into your local machine
 
 ## Deployment
-We deployed our web application using vercel
+We deployed our web application using vercel <br>
 Deployed application link: https://food-vault.vercel.app/
 
 ## How to use FoodVault (Normal visitors)
@@ -27,7 +27,7 @@ Deployed application link: https://food-vault.vercel.app/
   1) Go to "List of Merchants"
   2) Press "View" on the merchant that you want to redeem food from
   3) Choose your "Mode of Transport" and press "Take me there" to see how to get there based on the google maps provided in our webpage
-    Note: To use our maps provided in the individual merchant page, we will require you to allow us to access your location
+    <br> Note: To use our maps provided in the individual merchant page, we will require you to allow us to access your location
 
 ## How to use FoodVault (Merchants)
 - To be part of FoodVault, simply sign up in the sign up page
