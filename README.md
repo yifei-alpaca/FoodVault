@@ -30,7 +30,7 @@ Deployed application link: https://food-vault.vercel.app/
     Note: To use our maps provided in the individual merchant page, we will require you to allow us to access your location
 
 ## How to use FoodVault (Merchants)
-- To be part of FoodVault, simply sign up in the sign up page
+- To be part of FoodVault, simply register in the sign up page
 - After you have login at the sign in page, you will be at the merchant homepage where there will be a variety of metrics to accessed how much food waste you have reduced
 
 ## Dummy user account details to stimulate login
