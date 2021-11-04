@@ -26,8 +26,8 @@ Deployed application link: https://food-vault.vercel.app/
 - To find out which stalls are part of FoodVault simply follow these steps:
   1) Go to "List of Merchants"
   2) Press "View" on the merchant that you want to redeem food from
-  3) Choose your "Mode of Transport" and press "Take me there" to see how to get there based on the google maps provided in our webpage
-    <br> Note: To use our maps provided in the individual merchant page, we will require you to allow us to access your location
+  3) Choose your "Mode of Transport" and press "Take me there" to see how to get there based on the google maps provided in our webpage<br>
+    Note: To use our maps provided in the individual merchant page, we will require you to allow us to access your location
 
 ## How to use FoodVault (Merchants)
 - To be part of FoodVault, simply sign up in the sign up page
