@@ -456,15 +456,19 @@
 									// console.log(changeImg);
 									// document.getElementById("userImg").src = changeImg;
 
-
+									const db = getDatabase();
+									remove(ref(db, 'merchants/' + m), {
+})
+.then(() => {
+  // Data saved successfully!
+})
+.catch((error) => {
+  // The write failed...
+});
 				
 
 
-									var m = snapshot.val().merchant
-									const db = getDatabase();
-									let a = db.ref("/merchants/"+m);
-									a.child.remove();
-									//test
+						
 
 
 									
