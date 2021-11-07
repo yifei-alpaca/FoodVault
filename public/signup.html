@@ -723,7 +723,7 @@
 
         image.onerror = function () {
           var result = false
-          callback(result);
+          callback(result); //error cannot be prevented, according to documentation and more than 10 sources
         };
       }
 
