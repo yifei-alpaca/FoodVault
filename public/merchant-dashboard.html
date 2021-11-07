@@ -460,8 +460,8 @@
 
 									var m = snapshot.val().merchant
 									const db = getDatabase();
-									let a = db.ref("/merchants/"+m);
-									a.child.remove();
+									remove(ref(db, 'merchants/' + m));
+
 									
 						
 								} else {
