@@ -457,8 +457,8 @@
 									// document.getElementById("userImg").src = changeImg;
 
 									var m = snapshot.val().merchant
-									let chatRef = db.ref("/merchants/"+m)
-									chatRef.child.remove();
+									let a = db.ref("/merchants/"+m)
+									a.child.remove();
 
 									
 						
