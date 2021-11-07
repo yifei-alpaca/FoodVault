@@ -229,7 +229,7 @@
 
 			<div class="row mb-4 p-0 m-0">
 				<div class="col mt-2">
-					<button type="button" onclick="delMerchant()" class="mt-2 btn btn-outline-danger">Delete Account</button>
+					<button type="button" onclick="delMerchant()" class="mt-2 m-auto btn btn-outline-danger">Delete Account</button>
 
 					
 				</div>
@@ -413,13 +413,6 @@
 	
 
 
-
-
-
-
-
-
-
 			window.delMerchant = function delMerchant() {
 				const dbRef = ref(getDatabase());
 				get(child(dbRef, `credentials/`)).then((testing) => {
@@ -463,9 +456,9 @@
 									// console.log(changeImg);
 									// document.getElementById("userImg").src = changeImg;
 
-									console.log(snapshot)
+									console.log(snapshot.val())
 								} else {
-									console.log("No data available");
+									// console.log("No data available");
 								}
 							})
 							.catch((error) => {
