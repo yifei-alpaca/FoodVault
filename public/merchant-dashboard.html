@@ -58,7 +58,7 @@
 				<nav id="navbar" class="navbar">
 					<ul>
 						<li>
-							<p class='mt-3'id="user"></p>
+							<p class='ms-2 mt-3'id="user"></p>
 						</li>
 				
 						<!-- Profile -->
@@ -364,7 +364,7 @@
 			
 				document.getElementById(
 					"user"
-				).innerHTML = `Welcome back,  <b>${user.toUpperCase()}<b>`;
+				).innerHTML = ` Welcome back,  <b>${user.toUpperCase()}<b>`;
 				// console.log(user)
 			} else {
 				window.location.href = "./signin.html";
@@ -409,7 +409,18 @@
 			// console.log(user)
 
 			// get credential merchant and match with the merchant PK
-			window.retrieveMerchant = function retrieveMerchant() {
+			window.retrieveMerchant = function retrieveMerchant() {}
+	
+
+
+
+
+
+
+
+
+
+			window.delMerchant = function delMerchant() {
 				const dbRef = ref(getDatabase());
 				get(child(dbRef, `credentials/`)).then((testing) => {
 					if (testing.exists()) {
@@ -462,18 +473,7 @@
 							});
 					}
 				});
-			};
-
-
-
-
-
-
-
-
-
-			window.delMerchant = function delMerchant() {
-				console.log(snapshot)
+			
 			};
 
 
