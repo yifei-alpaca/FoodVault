@@ -460,11 +460,26 @@
 
 									var m = snapshot.val().merchant
 									const db = getDatabase();
-									remove(ref(db, 'merchants/' + m));
-									console.log("hello world")
+									remove(ref(db, 'merchants/' + m)).then(() => {
+										var user2 = snapshot.val().username
+									remove(ref(db, 'credentials/' + user2)).then(() => {
+										window.location.href = "./index.html";
+})
+.catch((error) => {
+  // The write failed...
+});
+
+})
+.catch((error) => {
+  // The write failed...
+});
+									
+
 
 									
-						
+									
+
+			
 								} else {
 									// console.log("No data available");
 								}
