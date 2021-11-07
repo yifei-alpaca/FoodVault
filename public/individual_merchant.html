@@ -47,6 +47,8 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
+    <script type='text/javascript' src='config.js'></script>
+    
 
 </head>
 
@@ -145,6 +147,8 @@
                         <!--The div element for the map -->
                         <div id="map" data-aos="fade-up" data-aos-delay="200"></div>
                         <script>
+
+                            
                             window.onload = function () {
 
                                     var url = document.location.href,
@@ -236,6 +240,7 @@
                                         document.getElementById("imageUrl").src = imageUrl;
                                         geocode(postalCode);
                             }
+                            console.log('HELLO')
 
 
                                     function geocode(postal) {
@@ -243,7 +248,9 @@
                                         axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
                                                 params: {
                                                     address: location,
-                                                    key: 'AIzaSyA2MhoG6uxV9AS8zCdb9tg48nau98kvEpk'
+                                                    key: config.MERCHANT_KEY
+                                                    
+                                                    // 'AIzaSyA2MhoG6uxV9AS8zCdb9tg48nau98kvEpk'
                                                 }
                                             })
                                             .then(function (response) {

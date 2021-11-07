@@ -113,6 +113,7 @@
     <section id="home" class="d-flex align-items-center" style="height: fit-content;">
 
         <script type="module">
+           
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
             import { getDatabase,ref,set,get,child } from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
             const firebaseConfig = {
@@ -128,7 +129,6 @@
            
             const app = initializeApp(firebaseConfig);
             const database = getDatabase(app);
-            
 
             function unescape(htmlStr) {
                 //console.log(htmlStr);
