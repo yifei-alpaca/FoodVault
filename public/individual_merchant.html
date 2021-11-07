@@ -238,9 +238,7 @@
                                         document.getElementById("imageUrl").src = imageUrl;
                                         geocode(postalCode);
                             }
-                            console.log('HELLO')
-
-
+                        
                                     function geocode(postal) {
                                         var location = postal;
                                         axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
