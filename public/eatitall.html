@@ -43,12 +43,6 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
-		<!-- <link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
-			crossorigin="anonymous"
-			/> -->
 			<link rel="stylesheet" type="text/css" href="assets/css/quiz.css">
 			<link rel="stylesheet" type="text/css" href="assets/css/snake.css">
 			<script
@@ -66,13 +60,11 @@
 	</head>
 
 	<body>
-		  <!-- ======= Header ======= -->
-		  <header id="header" class="fixed-top d-flex align-items-center">
+		<!-- ======= Header ======= -->
+		<header id="header" class="fixed-top d-flex align-items-center">
 			<div class="container d-flex align-items-center justify-content-between">
 				<div class="logo">
 					<h1><a href="./index.html">Food Vault</a></h1>
-					<!-- Uncomment below if you prefer to use an image logo -->
-					<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 				</div>
 				<nav id="navbar" class="navbar">
 					<ul>
@@ -124,7 +116,7 @@
 		</header>
 		<!-- End Header -->
 		
-		<!-- Game starts here  -->
+		<!-- -----------------------------------Game starts here----------------------------------------  -->
 		<div
 			class="d-flex container justify-content-center"
 			id="gamenav"
@@ -139,115 +131,118 @@
 				<a style="color: #3498db" href="eatitall.html">2.Eat-it-all! </a>
 			</h6>
 		</div>
-    <div class="container mt-1">
-       
-      <div class="row justify-content-center">
-        <div id="g" class="col text-center mt-0">
-          <div class="row">
+		<div class="container mt-1">
+		
+			<div class="row justify-content-center">
+				<div id="g" class="col text-center mt-0">
+				<div class="row">
 
 
-			<div id="titleScreen" class="my-3 px-0">
-				<h1 class="animate__animated animate__bounceInDown mb-0">
-					Eat it all!
-				</h1>
-				<span>Choose your favorite fruit </span>
+					<div id="titleScreen" class="my-3 px-0">
+						<h1 class="animate__animated animate__bounceInDown mb-0">
+							Eat it all!
+						</h1>
+						<span>Choose your favorite fruit </span>
+					</div>
+					
+
+					<div class="col mt-0">
+					<select
+						v-model="text"
+						class="form-select mt-0"
+						id="fruit"
+						aria-label="Default select example"
+						style="width: 40%; margin: auto; min-width: 250px"
+					>
+						<option selected value="Orange">Orange</option>
+						<option value="Apple">Apple</option>
+						<option value="Avocado">Avocado</option>
+						<option value="Strawberry">Strawberry</option>
+					</select>
+					</div>
+				</div>
+				<div class="col mb-0 p-0">
+					<canvas
+					id="viewport"
+					class="mt-1 mb-0"
+					style="
+						width: 40%;
+						height: auto;
+						min-width: 250px;
+						min-height: auto;
+					"
+					></canvas>
+				</div>
+
+
+				<p class="mb-0 mt-0 p-0">{{getFruit()}}</p>
+				<h3 class="mt-0 mb-0 p-0 animate__animated animate__bounce" id="num">
+					0
+				</h3>
+				</div>
 			</div>
-            
 
-            <div class="col mt-0">
-              <select
-                v-model="text"
-                class="form-select mt-0"
-                id="fruit"
-                aria-label="Default select example"
-                style="width: 40%; margin: auto; min-width: 250px"
-              >
-                <option selected value="Orange">Orange</option>
-                <option value="Apple">Apple</option>
-                <option value="Avocado">Avocado</option>
-                <option value="Strawberry">Strawberry</option>
-              </select>
-            </div>
-          </div>
-          <div class="col mb-0 p-0">
-            <canvas
-              id="viewport"
-              class="mt-1 mb-0"
-              style="
-                width: 40%;
-                height: auto;
-                min-width: 250px;
-                min-height: auto;
-              "
-            ></canvas>
-          </div>
+			<div class="row justify-content-center">
+				<div class="col text-center mt-0">
+				<div class="button-box">
+					<div class="arrow-group">
+					<div class="up-box">
+						<span class="arrow up"></span>
+					</div>
+					<div class="right-box">
+						<span class="arrow right"></span>
+					</div>
+					<div class="down-box">
+						<span class="arrow down"></span>
+					</div>
+					<div class="center-box">
+						<span class="dent"><span class="dent-highlight"></span></span>
+					</div>
+					<div class="left-box">
+						<span class="arrow left"></span>
+					</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</body>
 
-  
-          <p class="mb-0 mt-0 p-0">{{getFruit()}}</p>
-          <h3 class="mt-0 mb-0 p-0 animate__animated animate__bounce" id="num">
-            0
-          </h3>
-        </div>
-      </div>
 
-      <div class="row justify-content-center">
-        <div class="col text-center mt-0">
-          <div class="button-box">
-            <div class="arrow-group">
-              <div class="up-box">
-                <span class="arrow up"></span>
-              </div>
-              <div class="right-box">
-                <span class="arrow right"></span>
-              </div>
-              <div class="down-box">
-                <span class="arrow down"></span>
-              </div>
-              <div class="center-box">
-                <span class="dent"><span class="dent-highlight"></span></span>
-              </div>
-              <div class="left-box">
-                <span class="arrow left"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-  <script>
-    window.addEventListener(
-      "keydown",
-      function (e) {
-        if (
-          ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(
-            e.code
-          ) > -1
-        ) {
-          e.preventDefault();
-        }
-      },
-      false
-    );
-  </script>
 
-  <script>
-    const app = Vue.createApp({
-      data() {
-        return {
-          text: "Orange",
-        };
-      },
-      methods: {
-        getFruit() {
-          // method doesn't necessarily need to 'return'
-          return "Number of " + this.text + " eaten : ";
-        },
-      },
-    });
+	<script>
+		window.addEventListener(
+		"keydown",
+		function (e) {
+			if (
+			["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(
+				e.code
+			) > -1
+			) {
+			e.preventDefault();
+			}
+		},
+		false
+		);
+	</script>
 
-    const vm = app.mount("#g");
-  </script>
+	<script>
+		const app = Vue.createApp({
+		data() {
+			return {
+			text: "Orange",
+			};
+		},
+		methods: {
+			getFruit() {
+			// method doesn't necessarily need to 'return'
+			return "Number of " + this.text + " eaten : ";
+			},
+		},
+		});
+
+		const vm = app.mount("#g");
+	</script>
 
 		<br />
 		<br />
