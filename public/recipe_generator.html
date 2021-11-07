@@ -505,29 +505,8 @@ dropzone.textContent = "Ingredients Basket : " + list_of_food;
 
 
 <script>
-
-    function generateRecipe(ingredient){
-
-    ingredient = ingredient.toString();
-  
-    var key = "daeb006481e240f4b2d4cff4bbbfcf8e";
-    var url = "https://api.spoonacular.com/recipes/findByIngredients";
-    axios
-      .get(url, {
-        params: {
-          apiKey: key,
-          ingredients: ingredient,
-          number: 10,
-          ranking: 1,
-        },
-      })
-      .then((response) => {
-        generateToDiv(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        // process error object
-      });  }
+//generate recipe
+function _0x15af(){var _0x414ae6=['4986DIjtcf','335380gTucZb','https://api.spoonacular.com/recipes/findByIngredients','daeb006481e240f4b2d4cff4bbbfcf8e','3331638ALgqqU','224RdPNee','1488432OrUpXY','log','5758940vuDjfM','data','16INipTA','251150xkvTUC','get','11yCQlwW','7KMMpiw','2620068AtCcLL','then','13qbskxm','catch','2ecvlMJ','toString'];_0x15af=function(){return _0x414ae6;};return _0x15af();}function _0x5d13(_0x2d4df8,_0x34cd53){var _0x15afd1=_0x15af();return _0x5d13=function(_0x5d130b,_0x51507e){_0x5d130b=_0x5d130b-0x1e6;var _0x57b6f1=_0x15afd1[_0x5d130b];return _0x57b6f1;},_0x5d13(_0x2d4df8,_0x34cd53);}(function(_0x12cc17,_0xfbb14){var _0x4a4348=_0x5d13,_0x8c6642=_0x12cc17();while(!![]){try{var _0x5029b7=-parseInt(_0x4a4348(0x1f7))/0x1+-parseInt(_0x4a4348(0x1f4))/0x2*(-parseInt(_0x4a4348(0x1f0))/0x3)+parseInt(_0x4a4348(0x1eb))/0x4*(-parseInt(_0x4a4348(0x1ec))/0x5)+parseInt(_0x4a4348(0x1fa))/0x6*(-parseInt(_0x4a4348(0x1ef))/0x7)+-parseInt(_0x4a4348(0x1e6))/0x8*(parseInt(_0x4a4348(0x1f6))/0x9)+-parseInt(_0x4a4348(0x1e9))/0xa*(-parseInt(_0x4a4348(0x1ee))/0xb)+-parseInt(_0x4a4348(0x1e7))/0xc*(-parseInt(_0x4a4348(0x1f2))/0xd);if(_0x5029b7===_0xfbb14)break;else _0x8c6642['push'](_0x8c6642['shift']());}catch(_0x22ff35){_0x8c6642['push'](_0x8c6642['shift']());}}}(_0x15af,0x71d19));function generateRecipe(_0x4efadc){var _0x13f18d=_0x5d13;_0x4efadc=_0x4efadc[_0x13f18d(0x1f5)]();var _0x4dd684=_0x13f18d(0x1f9),_0x263a11=_0x13f18d(0x1f8);axios[_0x13f18d(0x1ed)](_0x263a11,{'params':{'apiKey':_0x4dd684,'ingredients':_0x4efadc,'number':0xa,'ranking':0x1}})[_0x13f18d(0x1f1)](_0xaebfca=>{var _0x1b8399=_0x13f18d;generateToDiv(_0xaebfca[_0x1b8399(0x1ea)]);})[_0x13f18d(0x1f3)](_0x5bad3b=>{var _0x21e5e4=_0x13f18d;console[_0x21e5e4(0x1e8)](_0x5bad3b);});}
   </script>
 
   <script>
@@ -597,25 +576,10 @@ dropzone.textContent = "Ingredients Basket : " + list_of_food;
   </script>
 
   <script>
+      //function direct(id)
       function direct(id){
-        var key = "daeb006481e240f4b2d4cff4bbbfcf8e";
-    var url = "https://api.spoonacular.com/recipes/"+id+"/information";
-    axios
-      .get(url, {
-        params: {
-          apiKey: key,
-          includeNutrition: false,
-        },
-      })
-
-      .then((response) => {
-        window.open(response.data.sourceUrl, '_blank').focus();
-  
-      })
-      .catch((error) => {
-        console.log(error);
-        // process error object
-      });  
+        var _0x31a29f=_0x1011;function _0x1011(_0x3e5021,_0x418b01){var _0x50862e=_0x5086();return _0x1011=function(_0x1011d6,_0x2b5134){_0x1011d6=_0x1011d6-0x194;var _0x51ed82=_0x50862e[_0x1011d6];return _0x51ed82;},_0x1011(_0x3e5021,_0x418b01);}(function(_0x492d82,_0x33ccbc){var _0x499917=_0x1011,_0x2d76ce=_0x492d82();while(!![]){try{var _0x1d5f48=-parseInt(_0x499917(0x1a2))/0x1+-parseInt(_0x499917(0x1a3))/0x2+parseInt(_0x499917(0x195))/0x3+-parseInt(_0x499917(0x19a))/0x4*(parseInt(_0x499917(0x194))/0x5)+parseInt(_0x499917(0x19f))/0x6+parseInt(_0x499917(0x198))/0x7*(parseInt(_0x499917(0x19d))/0x8)+parseInt(_0x499917(0x1a1))/0x9;if(_0x1d5f48===_0x33ccbc)break;else _0x2d76ce['push'](_0x2d76ce['shift']());}catch(_0x48e2e8){_0x2d76ce['push'](_0x2d76ce['shift']());}}}(_0x5086,0x7371c));var key='daeb006481e240f4b2d4cff4bbbfcf8e',url=_0x31a29f(0x196)+id+_0x31a29f(0x199);function _0x5086(){var _0x3817ab=['8bakeZm','get','547350VHySmU','_blank','7032546EhHRqF','496197gqilkO','1293446REfHhB','sourceUrl','data','245wSKYRN','2549925OKAmuA','https://api.spoonacular.com/recipes/','log','608181OMTtJP','/information','15812jraoRN','focus','then'];_0x5086=function(){return _0x3817ab;};return _0x5086();}axios[_0x31a29f(0x19e)](url,{'params':{'apiKey':key,'includeNutrition':![]}})[_0x31a29f(0x19c)](_0x32bb1a=>{var _0x33a788=_0x31a29f;window['open'](_0x32bb1a[_0x33a788(0x1a5)][_0x33a788(0x1a4)],_0x33a788(0x1a0))[_0x33a788(0x19b)]();})['catch'](_0x228e59=>{var _0x300b12=_0x31a29f;console[_0x300b12(0x197)](_0x228e59);});
+       
       }
 
   </script>

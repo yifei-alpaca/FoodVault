@@ -315,6 +315,7 @@
 
     <!-- Firebase -->
     <script type="module">
+       //firebaseConfig 
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
       import {
         getDatabase,
@@ -323,17 +324,7 @@
         get,
         child,
       } from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
-      const firebaseConfig = {
-        apiKey: "AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk",
-        authDomain: "foodvault-6d35a.firebaseapp.com",
-        databaseURL:
-          "https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "foodvault-6d35a",
-        storageBucket: "foodvault-6d35a.appspot.com",
-        messagingSenderId: "863157964884",
-        appId: "1:863157964884:web:02b343ccf7a6d780459dc1",
-        measurementId: "G-S687X22CVW",
-      };
+      const _0x557aea=_0x5e3b;function _0x26f9(){const _0x2479e4=['1:863157964884:web:02b343ccf7a6d780459dc1','1133304aQPxrF','1306905nGXxKW','545553uZJKvl','2712hWjLrC','AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk','288729UVEpYt','foodvault-6d35a','G-S687X22CVW','863157964884','foodvault-6d35a.firebaseapp.com','8794MgKCLp','180992dLZJBL','291ssCToi','1624biLNKb','50VzRJnT'];_0x26f9=function(){return _0x2479e4;};return _0x26f9();}function _0x5e3b(_0x66b5c2,_0xf75151){const _0x26f971=_0x26f9();return _0x5e3b=function(_0x5e3bf9,_0x13f59e){_0x5e3bf9=_0x5e3bf9-0x7a;let _0x5a64fe=_0x26f971[_0x5e3bf9];return _0x5a64fe;},_0x5e3b(_0x66b5c2,_0xf75151);}(function(_0x30386c,_0x568cb3){const _0xd980cd=_0x5e3b,_0x1dafcb=_0x30386c();while(!![]){try{const _0x209bc2=parseInt(_0xd980cd(0x81))/0x1+-parseInt(_0xd980cd(0x86))/0x2*(-parseInt(_0xd980cd(0x88))/0x3)+parseInt(_0xd980cd(0x7c))/0x4+-parseInt(_0xd980cd(0x7d))/0x5+parseInt(_0xd980cd(0x7f))/0x6*(parseInt(_0xd980cd(0x89))/0x7)+parseInt(_0xd980cd(0x87))/0x8+parseInt(_0xd980cd(0x7e))/0x9*(-parseInt(_0xd980cd(0x7a))/0xa);if(_0x209bc2===_0x568cb3)break;else _0x1dafcb['push'](_0x1dafcb['shift']());}catch(_0x1e5210){_0x1dafcb['push'](_0x1dafcb['shift']());}}}(_0x26f9,0x891b2));const firebaseConfig={'apiKey':_0x557aea(0x80),'authDomain':_0x557aea(0x85),'databaseURL':'https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app','projectId':_0x557aea(0x82),'storageBucket':'foodvault-6d35a.appspot.com','messagingSenderId':_0x557aea(0x84),'appId':_0x557aea(0x7b),'measurementId':_0x557aea(0x83)};
 
       const app = initializeApp(firebaseConfig);
       const database = getDatabase(app);
