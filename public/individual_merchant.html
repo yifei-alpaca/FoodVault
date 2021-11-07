@@ -46,9 +46,7 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <script type='text/javascript' src='config.js'></script>
-    
+    <link href="assets/css/style.css" rel="stylesheet" />  
 
 </head>
 
@@ -248,9 +246,7 @@
                                         axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
                                                 params: {
                                                     address: location,
-                                                    key: config.MERCHANT_KEY
-                                                    
-                                                    // 'AIzaSyA2MhoG6uxV9AS8zCdb9tg48nau98kvEpk'
+                                                    key:'AIzaSyA2MhoG6uxV9AS8zCdb9tg48nau98kvEpk'
                                                 }
                                             })
                                             .then(function (response) {
