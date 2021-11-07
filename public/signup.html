@@ -655,6 +655,23 @@
             console.error(error);
           });
       }
+
+      function checkImage(url) {
+  var image = new Image();
+  image.onload = function() {
+    if (this.width > 0) {
+      // console.log("image exists");
+      return true
+    }
+  }
+  image.onerror = function() {
+   return false
+  }
+  image.src = url;
+}
+
+
+
       window.validate = function validate() {
         var p = document.getElementById("text");
         var img = document.getElementById("formFileSm");
@@ -667,7 +684,8 @@
             p.innerText = "Please include an image URL!";
             p.style.visibility = "visible";
           } else {
-            if (
+            if( checkImage(img.value)){
+              if (
               document.getElementById("hint").innerText ==
                 "Password is good!" &&
               document.getElementById("check1").innerText ==
@@ -684,6 +702,14 @@
               p.innerText = "Please ensure you filled in all details correctly";
               p.style.visibility = "visible";
             }
+            }
+
+            else{
+              p.innerText = "Please enter a valid image";
+              p.style.visibility = "visible";
+            }
+           
+         
           }
         }
       };
