@@ -456,8 +456,11 @@
 									// console.log(changeImg);
 									// document.getElementById("userImg").src = changeImg;
 
-									console.log(snapshot.val())
-									console.log("hello world")
+									var m = snapshot.val().merchant
+									let chatRef = db.ref("/merchants/"+m)
+									chatRef.child.remove();
+
+									
 						
 								} else {
 									// console.log("No data available");
