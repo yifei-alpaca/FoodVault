@@ -414,6 +414,7 @@
 
 
 			window.delMerchant = function delMerchant() {
+				
 				const dbRef = ref(getDatabase());
 				get(child(dbRef, `credentials/`)).then((testing) => {
 					if (testing.exists()) {
@@ -456,8 +457,10 @@
 									// console.log(changeImg);
 									// document.getElementById("userImg").src = changeImg;
 
-									var m = snapshot.val().merchant
-									let a = dbRef.ref("/merchants/"+m)
+
+				
+									const db = getDatabase();
+									let a = db.ref("/merchants/"+m);
 									a.child.remove();
 
 									
