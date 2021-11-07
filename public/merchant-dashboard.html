@@ -388,6 +388,7 @@
 				set,
 				get,
 				child,
+				firebase
 			} from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
 			const firebaseConfig = {
 				apiKey: "AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk",
@@ -456,19 +457,12 @@
 									// console.log(changeImg);
 									// document.getElementById("userImg").src = changeImg;
 
-									const db = getDatabase();
-									remove(ref(db, 'merchants/' + m), {
-})
-.then(() => {
-  // Data saved successfully!
-})
-.catch((error) => {
-  // The write failed...
-});
-				
 
-
-						
+									var m = snapshot.val().merchant						
+var db = firebase.database();                   
+ var ref = db.ref(); 
+ var survey=db.ref("merchants/"+m);           
+ survey.remove()
 
 
 									
