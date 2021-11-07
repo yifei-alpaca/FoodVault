@@ -50,3 +50,9 @@ Username: coffeebean
 <br>
 Password: Password2
 
+## Browser Support
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
