@@ -667,11 +667,7 @@
             p.innerText = "Please include an image URL!";
             p.style.visibility = "visible";
           } else {
-
-            var image = new Image();
-  image.onload = function() {
-    if (this.width > 0) {
-      if (
+            if (
               document.getElementById("hint").innerText ==
                 "Password is good!" &&
               document.getElementById("check1").innerText ==
@@ -688,18 +684,6 @@
               p.innerText = "Please ensure you filled in all details correctly";
               p.style.visibility = "visible";
             }
-    }
-  
-           
-
-            else{
-              p.innerText = "Please ensure your image is valid";
-              p.style.visibility = "visible";
-            }
-
-
-          }
-
           }
         }
       };
