@@ -457,7 +457,7 @@
 									// document.getElementById("userImg").src = changeImg;
 
 									var m = snapshot.val().merchant
-									let a = db.ref("/merchants/"+m)
+									let a = dbRef.ref("/merchants/"+m)
 									a.child.remove();
 
 									
