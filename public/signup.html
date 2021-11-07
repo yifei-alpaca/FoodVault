@@ -71,7 +71,6 @@
       input {
         font: inherit;
         outline: 0;
-        
       }
 
       .mt-2 {
@@ -79,7 +78,6 @@
       }
 
       .form__input {
-        
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
@@ -94,7 +92,6 @@
       }
 
       .search_input {
-        
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
@@ -104,13 +101,11 @@
       .list,
       .add,
       .des {
-        
         border-radius: 0.25em;
         border-style: solid;
         width: 70%;
         padding: 0.5em 0.5em 0.5em 1em;
         line-height: 25px;
-        
       }
       .form__input2 {
         /* border-color: firebrick; */
@@ -360,12 +355,7 @@
             <label for="formFileSm"
               ><h5>Attach an image url of your business :</h5></label
             >
-            <input
-              type="text"
-              id="formFileSm"
-              id="im"
-              class="des "
-            />
+            <input type="text" id="formFileSm" id="im" class="des" />
           </div>
           <p class="mt-1" id="" style="font-size: 12px">
             Rectangle image preferred (1000x667 or similar ratios)
@@ -405,7 +395,8 @@
               <i class="far fa-eye" aria-hidden="true"></i>
             </span>
             <p class="mt-1" id="hint" style="font-size: 12px">
-              Password must contain at least : 8 characters,1 number,an upper case letter,a lower case letter
+              Password must contain at least : 8 characters,1 number,an upper
+              case letter,a lower case letter
             </p>
           </div>
 
@@ -726,12 +717,11 @@
         if (list_of_error.length == 0) {
           hint.innerHTML = `Password is good!`;
           document.getElementsByClassName("form__input")[1].style.borderColor =
-            "forestgreen"; 
-        
+            "forestgreen";
         } else {
           hint.innerHTML = `Password must contain at least : ${list_of_error}`;
           document.getElementsByClassName("form__input")[1].style.borderColor =
-            "firebrick"; 
+            "firebrick";
         }
       }
 
@@ -788,11 +778,10 @@
           .replace(new RegExp("\\(", "g"), "")
           .replace(new RegExp("\\)", "g"), "")
           .replace(new RegExp("\\/", "g"), "");
-        // console.log(input);
 
         url =
           "https://data.gov.sg/api/action/datastore_search?resource_id=34f86c3e-a90c-4de9-a69f-afc86b7f31b6";
-          console.log(input)
+
         axios
           .get(url, {
             params: {
