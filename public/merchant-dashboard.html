@@ -48,7 +48,7 @@
 		<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 		<script src="https://unpkg.com/vue@3.2.20/dist/vue.global.prod.js"></script>
 	</head>
-	<body>
+	<body onload="retrieveMerchant()">
 		<!-- ======= Header ======= -->
 		<header id="header" class="fixed-top d-flex align-items-center">
 			<div class="container d-flex align-items-center justify-content-between">
@@ -331,7 +331,7 @@
 				document.getElementById("fooddonate").innerHTML = randomDonate;
 				document.getElementById("kilograms").innerHTML = randomKg + 'kg';
 				document.getElementById("percentage").innerHTML = percentage + '%';
-				retrieveMerchant();
+				
 			};
 		</script>
 
