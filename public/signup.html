@@ -323,7 +323,7 @@
           <br />
           <label for="sp"><h5>Search for your business :</h5></label>
           <div class="form__field">
-            <input autocomplete="off"
+            <input
               type="text"
               list="shop"
               id="sp"
@@ -552,7 +552,6 @@
     </script>
 
     <script type="module">
-       //firebaseConfig 
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
       import {
         getDatabase,
@@ -562,7 +561,17 @@
         child,
       } from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
       import { getStorage } from " https://www.gstatic.com/firebasejs/9.1.3/firebase-storage.js";
-      const _0x557aea=_0x5e3b;function _0x26f9(){const _0x2479e4=['1:863157964884:web:02b343ccf7a6d780459dc1','1133304aQPxrF','1306905nGXxKW','545553uZJKvl','2712hWjLrC','AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk','288729UVEpYt','foodvault-6d35a','G-S687X22CVW','863157964884','foodvault-6d35a.firebaseapp.com','8794MgKCLp','180992dLZJBL','291ssCToi','1624biLNKb','50VzRJnT'];_0x26f9=function(){return _0x2479e4;};return _0x26f9();}function _0x5e3b(_0x66b5c2,_0xf75151){const _0x26f971=_0x26f9();return _0x5e3b=function(_0x5e3bf9,_0x13f59e){_0x5e3bf9=_0x5e3bf9-0x7a;let _0x5a64fe=_0x26f971[_0x5e3bf9];return _0x5a64fe;},_0x5e3b(_0x66b5c2,_0xf75151);}(function(_0x30386c,_0x568cb3){const _0xd980cd=_0x5e3b,_0x1dafcb=_0x30386c();while(!![]){try{const _0x209bc2=parseInt(_0xd980cd(0x81))/0x1+-parseInt(_0xd980cd(0x86))/0x2*(-parseInt(_0xd980cd(0x88))/0x3)+parseInt(_0xd980cd(0x7c))/0x4+-parseInt(_0xd980cd(0x7d))/0x5+parseInt(_0xd980cd(0x7f))/0x6*(parseInt(_0xd980cd(0x89))/0x7)+parseInt(_0xd980cd(0x87))/0x8+parseInt(_0xd980cd(0x7e))/0x9*(-parseInt(_0xd980cd(0x7a))/0xa);if(_0x209bc2===_0x568cb3)break;else _0x1dafcb['push'](_0x1dafcb['shift']());}catch(_0x1e5210){_0x1dafcb['push'](_0x1dafcb['shift']());}}}(_0x26f9,0x891b2));const firebaseConfig={'apiKey':_0x557aea(0x80),'authDomain':_0x557aea(0x85),'databaseURL':'https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app','projectId':_0x557aea(0x82),'storageBucket':'foodvault-6d35a.appspot.com','messagingSenderId':_0x557aea(0x84),'appId':_0x557aea(0x7b),'measurementId':_0x557aea(0x83)};
+      const firebaseConfig = {
+        apiKey: "AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk",
+        authDomain: "foodvault-6d35a.firebaseapp.com",
+        databaseURL:
+          "https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "foodvault-6d35a",
+        storageBucket: "foodvault-6d35a.appspot.com",
+        messagingSenderId: "863157964884",
+        appId: "1:863157964884:web:02b343ccf7a6d780459dc1",
+        measurementId: "G-S687X22CVW",
+      };
 
       const app = initializeApp(firebaseConfig);
       const database = getDatabase(app);
@@ -655,23 +664,6 @@
             console.error(error);
           });
       }
-
-      function checkImage(url) {
-  var image = new Image();
-  image.onload = function() {
-    if (this.width > 0) {
-      // console.log("image exists");
-      return true
-    }
-  }
-  image.onerror = function() {
-   return false
-  }
-  image.src = url;
-}
-
-
-
       window.validate = function validate() {
         var p = document.getElementById("text");
         var img = document.getElementById("formFileSm");
@@ -684,8 +676,7 @@
             p.innerText = "Please include an image URL!";
             p.style.visibility = "visible";
           } else {
-            if( checkImage(img.value)){
-              if (
+            if (
               document.getElementById("hint").innerText ==
                 "Password is good!" &&
               document.getElementById("check1").innerText ==
@@ -702,14 +693,6 @@
               p.innerText = "Please ensure you filled in all details correctly";
               p.style.visibility = "visible";
             }
-            }
-
-            else{
-              p.innerText = "Please enter a valid image";
-              p.style.visibility = "visible";
-            }
-           
-         
           }
         }
       };
@@ -807,7 +790,7 @@
 
         url =
           "https://data.gov.sg/api/action/datastore_search?resource_id=34f86c3e-a90c-4de9-a69f-afc86b7f31b6";
-
+          console.log(input)
         axios
           .get(url, {
             params: {
