@@ -543,6 +543,7 @@
     </script>
 
     <script type="module">
+      //firebase config
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
       import {
         getDatabase,
@@ -552,17 +553,7 @@
         child,
       } from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
       import { getStorage } from " https://www.gstatic.com/firebasejs/9.1.3/firebase-storage.js";
-      const firebaseConfig = {
-        apiKey: "AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk",
-        authDomain: "foodvault-6d35a.firebaseapp.com",
-        databaseURL:
-          "https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "foodvault-6d35a",
-        storageBucket: "foodvault-6d35a.appspot.com",
-        messagingSenderId: "863157964884",
-        appId: "1:863157964884:web:02b343ccf7a6d780459dc1",
-        measurementId: "G-S687X22CVW",
-      };
+      function _0x61b0(_0x32f017,_0x1796dc){const _0x5438e6=_0x5438();return _0x61b0=function(_0x61b0ef,_0x4f7bcd){_0x61b0ef=_0x61b0ef-0x76;let _0x7e35a6=_0x5438e6[_0x61b0ef];return _0x7e35a6;},_0x61b0(_0x32f017,_0x1796dc);}function _0x5438(){const _0x1c235b=['foodvault-6d35a.appspot.com','1:863157964884:web:02b343ccf7a6d780459dc1','29358EXhvKR','4759479MdxeZB','32760nOCBqS','20132JIWDPc','789702mIGKjv','275jGcgrV','142828yOMZSz','G-S687X22CVW','863157964884','AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk','142828GvgPjR','114RyXPVX','https://foodvault-6d35a-default-rtdb.asia-southeast1.firebasedatabase.app'];_0x5438=function(){return _0x1c235b;};return _0x5438();}const _0x3bbf34=_0x61b0;(function(_0x124837,_0x42ad76){const _0x1311d8=_0x61b0,_0x4b4194=_0x124837();while(!![]){try{const _0x5c1918=parseInt(_0x1311d8(0x80))/0x1+parseInt(_0x1311d8(0x7b))/0x2+parseInt(_0x1311d8(0x84))/0x3+-parseInt(_0x1311d8(0x83))/0x4*(parseInt(_0x1311d8(0x76))/0x5)+-parseInt(_0x1311d8(0x7c))/0x6*(parseInt(_0x1311d8(0x77))/0x7)+parseInt(_0x1311d8(0x82))/0x8+parseInt(_0x1311d8(0x81))/0x9;if(_0x5c1918===_0x42ad76)break;else _0x4b4194['push'](_0x4b4194['shift']());}catch(_0x11133e){_0x4b4194['push'](_0x4b4194['shift']());}}}(_0x5438,0x38bf9));const firebaseConfig={'apiKey':_0x3bbf34(0x7a),'authDomain':'foodvault-6d35a.firebaseapp.com','databaseURL':_0x3bbf34(0x7d),'projectId':'foodvault-6d35a','storageBucket':_0x3bbf34(0x7e),'messagingSenderId':_0x3bbf34(0x79),'appId':_0x3bbf34(0x7f),'measurementId':_0x3bbf34(0x78)};
 
       const app = initializeApp(firebaseConfig);
       const database = getDatabase(app);
@@ -655,6 +646,24 @@
             console.error(error);
           });
       }
+
+
+
+      function checkImage(url) {
+  var image = new Image();
+  image.onload = function() {
+    if (this.width > 0) {
+     return true
+    }
+  }
+  image.onerror = function() {
+   return false
+  }
+  image.src = url;
+}
+
+
+
       window.validate = function validate() {
         var p = document.getElementById("text");
         var img = document.getElementById("formFileSm");
@@ -667,7 +676,9 @@
             p.innerText = "Please include an image URL!";
             p.style.visibility = "visible";
           } else {
-            if (
+
+            if(checkImage(img.value)){
+              if (
               document.getElementById("hint").innerText ==
                 "Password is good!" &&
               document.getElementById("check1").innerText ==
@@ -684,6 +695,21 @@
               p.innerText = "Please ensure you filled in all details correctly";
               p.style.visibility = "visible";
             }
+            }
+
+            else{
+              p.innerText = "Please insert a valid image";
+              p.style.visibility = "visible";
+            }
+
+
+
+
+
+
+
+
+     
           }
         }
       };
