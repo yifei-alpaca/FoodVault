@@ -56,3 +56,5 @@ Password: Password2
 - Safari (latest)
 - Edge (latest)
 
+## Viewports
+- From iPhone 6 and above
