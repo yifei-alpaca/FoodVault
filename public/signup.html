@@ -785,6 +785,8 @@
           .replace(new RegExp("\\[", "g"), "")
           .replace(new RegExp("\\]", "g"), "")
           .replace(new RegExp("\\.", "g"), "")
+          .replace(new RegExp("\\(", "g"), "")
+          .replace(new RegExp("\\)", "g"), "")
           .replace(new RegExp("\\/", "g"), "");
         // console.log(input);
 
