@@ -388,7 +388,7 @@
 				set,
 				get,
 				child,
-				firebase
+				remove
 			} from " https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
 			const firebaseConfig = {
 				apiKey: "AIzaSyDKC3yvnonrxiGALVjDktGoS_t8y5adUJk",
@@ -458,13 +458,10 @@
 									// document.getElementById("userImg").src = changeImg;
 
 
-									var m = snapshot.val().merchant						
-var db = firebase.database();                   
- var ref = db.ref(); 
- var survey=db.ref("merchants/"+m);           
- survey.remove()
-
-
+									var m = snapshot.val().merchant
+									const db = getDatabase();
+									let a = db.ref("/merchants/"+m);
+									a.child.remove();
 									
 						
 								} else {
