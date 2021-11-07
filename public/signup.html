@@ -650,7 +650,8 @@
 
 
       function checkImage(url) {
-  var image = new Image();
+        try{
+          var image = new Image();
   image.onload = function() {
     if (this.width > 0) {
      return true
@@ -660,6 +661,11 @@
    return false
   }
   image.src = url;
+        }
+        catch(e){
+          return false
+        }
+
 }
 
 
