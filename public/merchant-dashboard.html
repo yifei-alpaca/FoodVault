@@ -331,7 +331,7 @@
 				document.getElementById("fooddonate").innerHTML = randomDonate;
 				document.getElementById("kilograms").innerHTML = randomKg + 'kg';
 				document.getElementById("percentage").innerHTML = percentage + '%';
-				// retrieveMerchant();
+				retrieveMerchant();
 			};
 		</script>
 
@@ -346,7 +346,7 @@
 			// console.log(sessionStorage);
 			// Display user if login correct or if there is login else have to redirect back to login
 			if (user) {
-				retrieveMerchant()
+			
 				document.getElementById(
 					"user"
 				).innerHTML = `Welcome back,  <b>${user.toUpperCase()}<b>`;
