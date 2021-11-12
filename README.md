@@ -44,6 +44,7 @@ No setup is required, simply git-clone to download all our files into your local
 
 - To be part of FoodVault, simply register in the sign up page
 - After you have login at the sign in page, you will be at the merchant homepage where there will be a variety of metrics to accessed how much food waste you have reduced
+- Note: Recaptcha will not work on localhost as it requires the domain to be whitelisted.
 
 ## Dummy user account details to stimulate login
 
