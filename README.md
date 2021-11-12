@@ -20,9 +20,6 @@ Deployed application link: https://food-vault.vercel.app/
 
 No setup is required, simply git-clone to download all our files into your local machine
 
-## Github Repository
-
-https://github.com/yifei-alpaca/FoodVault.git
 
 ## Introduction
 
